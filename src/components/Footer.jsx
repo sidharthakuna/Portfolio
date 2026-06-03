@@ -1,7 +1,12 @@
+import { FaPhone } from "react-icons/fa";
 function Footer() {
   return (
-    <footer>
-      © 2026 Sidhartha Kuna. All rights reserved.
+    <footer className="footer">
+      <p>© 2026 Sidhartha Kuna</p>
+
+      <a href="tel:+917981794512" className="footer-link">
+        <FaPhone /> +91 7981794512
+      </a>
     </footer>
   );
 }

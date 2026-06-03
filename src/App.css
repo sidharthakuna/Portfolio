@@ -626,6 +626,31 @@ footer{
   color:#484F58;
   font-size:12px;
 }
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* space between copyright and phone */
+}
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-link:hover {
+  color: #00bcd4; /* or your theme color */
+}
 
 /* =========================
    ANIMATIONS
