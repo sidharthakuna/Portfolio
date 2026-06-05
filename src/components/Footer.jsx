@@ -1,12 +1,22 @@
-import { FaPhone } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import "../Stylings/Footer.css";
+
 function Footer() {
   return (
     <footer className="footer">
       <p>© 2026 Sidhartha Kuna</p>
 
-      <a href="tel:+917981794512" className="footer-link">
-        <FaPhone /> +91 7981794512
+      <a
+        href="https://www.linkedin.com/in/sidharthakuna/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer-link"
+      >
+        <span className="linkedin-icon">
+          <FaLinkedinIn />
+        </span>
+
+        <span>LinkedIn</span>
       </a>
     </footer>
   );

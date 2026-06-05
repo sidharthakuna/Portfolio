@@ -5,9 +5,6 @@
 footer {
   border-top: 1px solid #21262D;
   padding: 20px 32px;
-  text-align: center;
-  color: #484F58;
-  font-size: 12px;
 }
 
 .footer {
@@ -15,16 +12,59 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-size: 12px;
+  color: #484F58;
+}
+
+/* Fix: remove default <p> margin */
+.footer p {
+  margin: 0;
 }
 
 .footer-link {
   text-decoration: none;
-  color: inherit;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  color: #8B949E;
+  transition: all 0.3s ease;
 }
 
+/* ✅ Added hover for the link text */
 .footer-link:hover {
+  color: #58A6FF;
+}
+
+.linkedin-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #484F58;
+  border-radius: 4px;
+  background: rgba(72, 79, 88, 0.05);
+  color: #484F58;
+  font-size: 10px;
+  transition: all 0.3s ease;
+}
+
+.linkedin-icon:hover {
+  color: #58A6FF;
+  border-color: #58A6FF;
+  background: rgba(88, 166, 255, 0.15);
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.footer-link span:last-child {
+  color: #8B949E;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* ✅ Sync text color with link hover */
+.footer-link:hover span:last-child {
   color: #58A6FF;
 }
