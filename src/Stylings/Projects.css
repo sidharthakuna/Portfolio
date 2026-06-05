@@ -67,6 +67,13 @@
   margin-bottom: 16px;
 }
 
+.stack-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
 .stack-row {
   display: flex;
   flex-wrap: wrap;
@@ -76,17 +83,23 @@
 
 .stack-tag {
   background: #21262D;
-  border-radius: 4px;
-  padding: 2px 8px;
+  border-radius: 60px;
+  padding: 3px 9px;
   font-size: 11px;
   color: #8B949E;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .info-label {
   font-size: 11px;
   color: #58A6FF;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .info-val {
@@ -105,7 +118,37 @@
 
 .check-mark {
   color: #3FB950;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
+
+.project-icon-box {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(88,166,255,0.15),
+    rgba(163,113,247,0.15)
+  );
+
+  border: 1px solid rgba(88,166,255,0.25);
+
+  color: #58A6FF;
+
+  box-shadow:
+    0 0 15px rgba(88,166,255,0.15);
+}
+
+
+
 
 /* ===========================
    RESPONSIVE

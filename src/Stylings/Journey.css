@@ -65,6 +65,34 @@
   color: #8B949E;
   line-height: 1.5;
 }
+.journey-icon {
+  color: #A371F7;
+
+  display: flex;
+  align-items: center;
+
+  text-shadow:
+    0 0 8px rgba(163, 113, 247, 0.5),
+    0 0 16px rgba(163, 113, 247, 0.25);
+}
+.journey-icon-box {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(163, 113, 247, 0.08);
+  border: 1px solid rgba(163, 113, 247, 0.25);
+
+  color: #A371F7;
+
+  box-shadow:
+    0 0 15px rgba(163, 113, 247, 0.12);
+}
 
 /* ===========================
    RESPONSIVE

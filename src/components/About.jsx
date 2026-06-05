@@ -51,21 +51,21 @@ function About() {
       <div className="about-stats">
         <div className="about-stat">
           <div className="about-stat-num">1+</div>
-          <div className="about-stat-lbl">Projects Shipped</div>
+          <div className="about-stat-lbl">Projects Build</div>
         </div>
         <div className="about-stat-sep" />
         <div className="about-stat">
           <div className="about-stat-num">2yr</div>
-          <div className="about-stat-lbl">Coding Experience</div>
+          <div className="about-stat-lbl">Learning Journey</div>
         </div>
         <div className="about-stat-sep" />
         <div className="about-stat">
-          <div className="about-stat-num">8+</div>
+          <div className="about-stat-num">5+</div>
           <div className="about-stat-lbl">Technologies</div>
         </div>
         <div className="about-stat-sep" />
         <div className="about-stat">
-          <div className="about-stat-num">100+</div>
+          <div className="about-stat-num">75+</div>
           <div className="about-stat-lbl">DSA Problems</div>
         </div>
       </div>

@@ -2,6 +2,9 @@ import "../Stylings/Navbar.css";
 import { useState,useEffect } from "react";
 import profilePic from "../assets/profile.jpg"
 import DP from "./DP"
+import { HiDownload } from "react-icons/hi";
+
+
 function Navbar() {
   const [active, setActive] = useState("home");
 
@@ -109,14 +112,19 @@ function Navbar() {
         </button>
       </div>
 
-      <button className="resume-btn">
-        Download Resume ↓
-      </button>     
+      <button
+          className="resume-btn"
+          onClick={() => window.open(resumePDF, "_blank")}
+      >
+          <HiDownload style={{ marginRight: "6px", verticalAlign: "middle", fontSize: "15px" }} />
+          Download Resume
+      </button>
+    
     </nav>
           <DP
-        isOpen={showProfile}
-        onClose={() => setShowProfile(false)}
-      />
+            isOpen={showProfile}
+            onClose={() => setShowProfile(false)}
+          />
   
   </>
 

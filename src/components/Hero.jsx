@@ -1,8 +1,8 @@
 import "../Stylings/Hero.css";
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
+import { FaGithub, FaLinkedinIn, FaJava, FaGitAlt, FaRocket } from "react-icons/fa";
+import { MdEmail, MdOutlineContactMail } from "react-icons/md";
+import { SiLeetcode, SiSpringboot, SiMysql } from "react-icons/si";
 
 function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -43,9 +43,11 @@ function Hero() {
     <div id="home" className="hero fade-in">
       {/* LEFT SIDE */}
       <div>
-        <div className="badge">
-          Aspiring Java Backend Developer
-        </div>
+        <div className="badge">Aspiring Java Backend Developer</div><br></br>
+          <div className="availability-badge">
+            <span className="pulse-dot"></span>
+            Open to Internships & Opportunities
+          </div>
 
         <p
           style={{
@@ -187,19 +189,20 @@ function Hero() {
 
         <div className="tech-row">
           <span className="tech-badge">
-            ☕ Java
+            <FaJava style={{ color: "#f89820", marginRight: "5px", verticalAlign: "middle", fontSize: "15px" }} />
+            Java
           </span>
-
           <span className="tech-badge">
-            🍃 Spring Boot
+            <SiSpringboot style={{ color: "#6DB33F", marginRight: "5px", verticalAlign: "middle", fontSize: "13px" }} />
+            Spring Boot
           </span>
-
           <span className="tech-badge">
-            🗄️ MySQL
+            <SiMysql style={{ color: "#4479A1", marginRight: "5px", verticalAlign: "middle", fontSize: "15px" }} />
+            MySQL
           </span>
-
           <span className="tech-badge">
-            🔀 Git
+            <FaGitAlt style={{ color: "#F05032", marginRight: "5px", verticalAlign: "middle", fontSize: "14px" }} />
+            Git
           </span>
         </div>
       </div>

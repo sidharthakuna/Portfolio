@@ -4,7 +4,9 @@ function Skills() {
   return (
     <section id="skills" className="card skills-card">
       <div className="section-title">
-        <span className="title-icon">&lt;/&gt;</span>
+        <span className="skills-icon-box">
+          {"</>"}
+        </span>
         Skills
       </div>
 

@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdLocationOn } from "react-icons/md";
+import { FiLink, FiSend, FiCheck, FiMessageCircle } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si"
 import { useState,useEffect } from "react"
 import "../Stylings/Contact.css";
@@ -22,7 +23,9 @@ function Contact() {
       style={{ paddingTop: "0" }}
     >
       <div className="section-title">
-        <span className="title-icon">✉</span>
+        <span className="contact-icon-box">
+          <FiMessageCircle size={20} />
+        </span>
         Let's Connect
       </div>
 
@@ -44,30 +47,22 @@ function Contact() {
           </p>
 
           <div className="contact-item">
-            <span style={{ color: "#58A6FF" }}>
-              ✉
-            </span>
-            sidharthakuna@gmail.com
+            <MdEmail size={15} color="#EA4335" />
+             sidharthakuna@gmail.com
           </div>
 
           <div className="contact-item">
-            <span style={{ color: "#58A6FF" }}>
-              📍
-            </span>
-            Andhra Pradesh, India
+            <MdLocationOn size={15} color="#34A853" />
+            Visakhapatnam, Andhra Pradesh, India
           </div>
 
           <div className="contact-item">
-            <span style={{ color: "#58A6FF" }}>
-              🔗
-            </span>
+            <FiLink size={13} color="#0A66C2" />
             linkedin.com/in/sidharthakuna
           </div>
 
           <div className="contact-item">
-            <span style={{ color: "#58A6FF" }}>
-              🏆
-            </span>
+            <SiLeetcode size={13} color="#FFA116" />
             leetcode.com/u/SidharthaKuna
           </div>
 
@@ -142,12 +137,14 @@ function Contact() {
 
           <button
             className="btn-primary"
-            style={{
-              width: "100%",
-              fontSize: "13px",
-            }}
-            onClick={handleSubmit}>
-            {sent ? "✓ Message Sent!" : "Send Message →"}
+            style={{ width: "100%", fontSize: "13px", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
+            onClick={handleSubmit}
+          >
+            {sent ? (
+              <><FiCheck size={14} /> Message Sent!</>
+            ) : (
+              <><FiSend size={13} /> Send Message</>
+            )}
           </button>
         </div>
       </div>

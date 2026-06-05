@@ -1,4 +1,6 @@
 import "../Stylings/Journey.css";
+import { FiCompass, FiMap, FiNavigation, FiTrendingUp } from "react-icons/fi";
+
 function Journey() {
   return (
     <section
@@ -7,7 +9,9 @@ function Journey() {
       style={{ paddingTop: "0" }}
     >
       <div className="section-title">
-        <span className="title-icon">📈</span>
+        <span className="journey-icon-box">
+          <FiCompass size={20} />
+        </span>
         Journey
       </div>
 
