@@ -84,7 +84,7 @@ function Hero() {
           </button>
 
           <button className="btn-outline" onClick={()=> window.open("https://github.com/sidharthakuna", "_blank")}>
-            ⚙ GitHub
+            <FaGithub size={13} /> GitHub
           </button>
 
           <button className="btn-outline" onClick={scrollToContact}>
