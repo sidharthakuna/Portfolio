@@ -1,33 +1,79 @@
 import "../Stylings/About.css";
+import { useState } from "react";
+import profilePic from "../assets/profile.jpg";
+import DP from "./DP";
+
 function About() {
+
+  const [showProfile,setShowProfile] = useState(false);
+
   return (
-    <div id="about" className="card">
-      <div className="section-title">
-        <span className="title-icon">👤</span>
-        About Me
+    <section id="about" className="card about-card">
+      <div className="about-header">
+        <img
+          src={profilePic}
+          alt="Sidhartha Kuna"
+          className="about-avatar"
+          onClick={()=>setShowProfile(true)}
+        />
+        <div>
+          <div className="about-name">Sidhartha Kuna</div>
+          <div className="about-role">B.Tech CSE · Raghu Engineering College</div>
+        </div>
       </div>
 
-      <div className="about-text">
-        <p>
-          I'm a B.Tech (CSE) student at Raghu Engineering
-          College, passionate about backend development
-          and problem solving.
-        </p>
+      <div className="about-divider" />
 
-        <p style={{ marginTop: "10px" }}>
-          I enjoy building real-world applications using
-          Java and Spring Boot. I'm focused on writing
-          clean code, learning best practices, and building
-          scalable systems.
-        </p>
+      <p className="about-text">
+        I'm a passionate backend developer who loves building clean, scalable
+        systems. Currently pursuing B.Tech in Computer Science at{" "}
+        <span className="about-highlight">Raghu Engineering College</span>,
+        expected to graduate in <span className="about-highlight">2028</span>.
+      </p>
 
-        <p style={{ marginTop: "10px" }}>
-          Currently learning AWS, Docker, Linux, and other
-          tools to become a stronger backend developer.
-          Expected graduation: 2028.
-        </p>
+      <p className="about-text" style={{ marginTop: "10px" }}>
+        My primary stack is{" "}
+        <span className="about-highlight">Java & Spring Boot</span> — I enjoy
+        designing REST APIs, working with relational databases, and integrating
+        backend services end-to-end.
+      </p>
+
+      <p className="about-text" style={{ marginTop: "10px" }}>
+        Outside of coding I solve problems on{" "}
+        <span className="about-highlight">LeetCode</span> and explore System
+        Design concepts. Currently levelling up with{" "}
+        <span className="about-highlight">AWS, Docker & Linux</span> to move
+        toward cloud-native development.
+      </p>
+
+      <div className="about-divider" />
+
+      <div className="about-stats">
+        <div className="about-stat">
+          <div className="about-stat-num">1+</div>
+          <div className="about-stat-lbl">Projects Shipped</div>
+        </div>
+        <div className="about-stat-sep" />
+        <div className="about-stat">
+          <div className="about-stat-num">2yr</div>
+          <div className="about-stat-lbl">Coding Experience</div>
+        </div>
+        <div className="about-stat-sep" />
+        <div className="about-stat">
+          <div className="about-stat-num">8+</div>
+          <div className="about-stat-lbl">Technologies</div>
+        </div>
+        <div className="about-stat-sep" />
+        <div className="about-stat">
+          <div className="about-stat-num">100+</div>
+          <div className="about-stat-lbl">DSA Problems</div>
+        </div>
       </div>
-    </div>
+      <DP
+        isOpen = {showProfile}
+        onClose={()=>setShowProfile(false)}
+      ></DP>
+    </section>
   );
 }
 

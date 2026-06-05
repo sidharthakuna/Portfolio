@@ -231,12 +231,14 @@ function Projects() {
             >
               <button
                 className="btn-outline"
-                onClick={()=>
-                  window.open(
-                    "https://github.com/sidharthakuna/Ai-BackgroundNoice-Remover",
-                    "_blank" 
-                  )
-                }
+                onClick={()=>{
+                    const win = window.open(
+                      "https://github.com/sidharthakuna/Ai-BackgroundNoice-Remover",
+                      "_blank" 
+                    )
+                    if (win) win.opener = null;
+                  }
+                }   
                 style={{
                   fontSize: "12px",
                   padding: "7px 14px",
@@ -247,11 +249,13 @@ function Projects() {
 
               <button
                 className="btn-primary"
-                onClick={()=>
-                  window.open(
-                    "https://ai-backgroundnoice-remover.onrender.com",
-                    "_blank"
-                  )
+                onClick={()=>{
+                    const win = window.open(
+                      "https://ai-backgroundnoice-remover.onrender.com",
+                      "_blank"
+                    )
+                    if(win) win.opener=null;
+                  }
                 }
                 style={{
                   fontSize: "12px",

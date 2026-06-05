@@ -30,7 +30,7 @@ function Navbar() {
         }
       });
     },
-    { threshold: 0.4 }
+    { threshold:  0.2, rootMargin: "-10% 0px -70% 0px"  }
   );
 
   sections.forEach((id) => {

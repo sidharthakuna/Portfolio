@@ -144,16 +144,44 @@ function Hero() {
               whiteSpace: "pre-wrap",
             }}
           >
-{`@RestController
-public class HelloController {
-   @GetMapping("/api/hello")
-   public ResponseEntity<String> hello() {
-      return ResponseEntity.ok(
-         "Hello! I'm Sidhartha Kuna 👋"
-      );
-   }
-}
-`}
+            <span className="annotation">@RestController</span>
+
+            {"\n"}
+
+            <span className="keyword">public</span>{" "}
+            <span className="keyword">class</span>{" "}
+            <span className="classname">PortfolioController</span>{" "}
+            {"{"}
+
+            {"\n   "}
+
+            <span className="annotation">@GetMapping</span>
+            <span className="string">("/developer")</span>
+
+            {"\n   "}
+
+            <span className="keyword">public</span>{" "}
+            <span className="classname">ResponseEntity&lt;String&gt;</span>{" "}
+            <span className="method">getDeveloperProfile</span>() {"{"}
+
+            {"\n      "}
+
+            <span className="keyword">return</span>{" "}
+            <span className="classname">ResponseEntity</span>.ok(
+
+            {"\n         "}
+
+            <span className="string">
+              "Hello! I'm Sidhartha Kuna 👋"
+            </span>
+
+            {"\n      "}
+
+            );
+
+            {"\n   }"}
+
+            {"\n}"}
           </pre>
         </div>
 
