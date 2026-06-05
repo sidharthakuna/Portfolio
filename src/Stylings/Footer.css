@@ -30,7 +30,7 @@ footer {
   transition: all 0.3s ease;
 }
 
-/* ✅ Added hover for the link text */
+/* Added hover for the link text */
 .footer-link:hover {
   color: #58A6FF;
 }
@@ -64,7 +64,7 @@ footer {
   transition: color 0.3s ease;
 }
 
-/* ✅ Sync text color with link hover */
+/* Sync text color with link hover */
 .footer-link:hover span:last-child {
   color: #58A6FF;
 }
