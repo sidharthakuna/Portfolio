@@ -1,3 +1,4 @@
+import "../Stylings/Projects.css";
 function Projects() {
   return (
     <section
@@ -232,7 +233,7 @@ function Projects() {
                 className="btn-outline"
                 onClick={()=>
                   window.open(
-                    "https://github.com/sidharthakuna",
+                    "https://github.com/sidharthakuna/Ai-BackgroundNoice-Remover",
                     "_blank" 
                   )
                 }

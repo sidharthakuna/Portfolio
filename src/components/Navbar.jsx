@@ -1,3 +1,4 @@
+import "../Stylings/Navbar.css";
 import { useState,useEffect } from "react";
 import profilePic from "../assets/profile.jpg"
 import DP from "./DP"

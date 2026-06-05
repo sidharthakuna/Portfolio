@@ -1,3 +1,4 @@
+import "../Stylings/Skills.css";
 function Skills() {
   return (
     <div id="skills" className="card">

@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { SiLeetcode } from "react-icons/si"
 import { useState,useEffect } from "react"
-
+import "../Stylings/Contact.css";
 function Contact() {
 
   const [sent,setSent] = useState(false);
@@ -117,7 +117,6 @@ function Contact() {
             </div>
           </div>
         </div>
-
         {/* RIGHT SIDE */}
         <div className="card">
           <input

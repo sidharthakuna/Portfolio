@@ -1,0 +1,131 @@
+/* ===========================
+   PROJECTS
+=========================== */
+
+.project-card {
+  background: #161B22;
+  border: 1px solid #21262D;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-inner {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+/* Left preview panel */
+.proj-preview {
+  background: #0D1117;
+  padding: 18px;
+  border-right: 1px solid #21262D;
+}
+
+.mock-win {
+  background: #161B22;
+  border-radius: 8px;
+  border: 1px solid #30363D;
+  overflow: hidden;
+}
+
+.mock-bar {
+  background: #21262D;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 5px;
+}
+
+.mock-body {
+  padding: 14px;
+}
+
+/* Right body panel */
+.proj-body {
+  padding: 22px;
+}
+
+.proj-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.featured-badge {
+  background: rgba(63, 185, 80, 0.1);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+  color: #3FB950;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 11px;
+}
+
+.proj-desc {
+  font-size: 13px;
+  color: #8B949E;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.stack-tag {
+  background: #21262D;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: #8B949E;
+}
+
+.info-label {
+  font-size: 11px;
+  color: #58A6FF;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.info-val {
+  font-size: 12px;
+  color: #8B949E;
+}
+
+.check-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.check-mark {
+  color: #3FB950;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+  .project-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-preview {
+    border-right: none;
+    border-bottom: 1px solid #21262D;
+  }
+}
+
+@media (max-width: 768px) {
+  .proj-title { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .proj-body { padding: 16px; }
+}

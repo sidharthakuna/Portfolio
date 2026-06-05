@@ -1,3 +1,4 @@
+import "../Stylings/About.css";
 function About() {
   return (
     <div id="about" className="card">

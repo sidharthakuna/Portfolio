@@ -1,0 +1,66 @@
+/* ===========================
+   CONTACT
+=========================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8B949E;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.c-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #30363D;
+  background: #0D1117;
+  color: #E6EDF3;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+.c-input:focus {
+  border-color: #58A6FF;
+}
+
+.c-input::placeholder {
+  color: #484F58;
+}
+
+.c-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 120px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #30363D;
+  background: #0D1117;
+  color: #E6EDF3;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+.c-textarea:focus {
+  border-color: #58A6FF;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}

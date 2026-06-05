@@ -1,3 +1,4 @@
+import "../Stylings/Journey.css";
 function Journey() {
   return (
     <section

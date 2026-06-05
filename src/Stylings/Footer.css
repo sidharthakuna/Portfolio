@@ -1,0 +1,30 @@
+/* ===========================
+   FOOTER
+=========================== */
+
+footer {
+  border-top: 1px solid #21262D;
+  padding: 20px 32px;
+  text-align: center;
+  color: #484F58;
+  font-size: 12px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link:hover {
+  color: #58A6FF;
+}

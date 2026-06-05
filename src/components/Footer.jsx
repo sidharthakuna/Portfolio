@@ -1,4 +1,5 @@
 import { FaPhone } from "react-icons/fa";
+import "../Stylings/Footer.css";
 function Footer() {
   return (
     <footer className="footer">
