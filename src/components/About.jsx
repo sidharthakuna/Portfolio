@@ -2,78 +2,99 @@ import "../Stylings/About.css";
 import { useState } from "react";
 import profilePic from "../assets/profile.jpg";
 import DP from "./DP";
+import { FiUser } from "react-icons/fi";
 
 function About() {
-
-  const [showProfile,setShowProfile] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
-    <section id="about" className="card about-card">
-      <div className="about-header">
-        <img
-          src={profilePic}
-          alt="Sidhartha Kuna"
-          className="about-avatar"
-          onClick={()=>setShowProfile(true)}
-        />
-        <div>
-          <div className="about-name">Sidhartha Kuna</div>
-          <div className="about-role">B.Tech CSE · Raghu Engineering College</div>
+    <div id="about">
+
+      {/* HEADING — same structure & class as Projects */}
+      <div className="section-title">
+        <span className="about-icon-box">
+          <FiUser size={16} />
+        </span>
+        About
+      </div>
+
+      <div className="card about-card">
+
+        {/* BODY — left + right */}
+        <div className="about-body">
+
+          {/* LEFT — Profile Photo */}
+          <div className="about-left">
+            <div className="about-avatar-wrap">
+              <img
+                src={profilePic}
+                alt="Sidhartha Kuna"
+                className="about-avatar"
+                onClick={() => setShowProfile(true)}
+              />
+              <div className="about-avatar-ring" />
+            </div>
+
+            <div className="about-name">Sidhartha Kuna</div>
+            <div className="about-role">Java Backend Developer</div>
+            <div className="about-college">B.Tech CSE · Raghu Engineering College · 2028</div>
+
+            <div className="about-open-badge">
+              <span className="about-pulse" />
+              Open to Opportunities
+            </div>
+          </div>
+
+          {/* RIGHT — Content */}
+          <div className="about-right">
+            <p className="about-text">
+              I'm a Computer Science undergraduate at{" "}
+              <span className="about-highlight">Raghu Engineering College{" "}</span>
+              with a strong interest in backend engineering and software development.
+              I specialize in building reliable applications using{" "}
+              <span className="about-highlight">Java, Spring Boot, REST APIs, and MySQL</span>,
+              focusing on clean architecture, maintainable code, and practical problem-solving.
+            </p>
+
+            <p className="about-text" style={{ marginTop: "10px" }}>
+              My current focus is strengthening my backend development skills through
+              real-world projects, data structures & algorithms, and cloud technologies.
+              I'm actively learning{" "}
+              <span className="about-highlight">AWS, Docker, Linux, and System Design{" "}</span>
+              while working toward becoming a well-rounded software engineer capable of
+              building scalable production-ready systems.
+            </p>
+
+            <div className="about-divider" />
+
+            <div className="about-stats">
+              <div className="about-stat">
+                <div className="about-stat-num">1+</div>
+                <div className="about-stat-lbl">Projects Built</div>
+              </div>
+              <div className="about-stat-sep" />
+              <div className="about-stat">
+                <div className="about-stat-num">2yr</div>
+                <div className="about-stat-lbl">Learning Journey</div>
+              </div>
+              <div className="about-stat-sep" />
+              <div className="about-stat">
+                <div className="about-stat-num">5+</div>
+                <div className="about-stat-lbl">Technologies</div>
+              </div>
+              <div className="about-stat-sep" />
+              <div className="about-stat">
+                <div className="about-stat-num">75+</div>
+                <div className="about-stat-lbl">DSA Solved</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div className="about-divider" />
-
-      <p className="about-text">
-        I'm a passionate backend developer who loves building clean, scalable
-        systems. Currently pursuing B.Tech in Computer Science at{" "}
-        <span className="about-highlight">Raghu Engineering College</span>,
-        expected to graduate in <span className="about-highlight">2028</span>.
-      </p>
-
-      <p className="about-text" style={{ marginTop: "10px" }}>
-        My primary stack is{" "}
-        <span className="about-highlight">Java & Spring Boot</span> — I enjoy
-        designing REST APIs, working with relational databases, and integrating
-        backend services end-to-end.
-      </p>
-
-      <p className="about-text" style={{ marginTop: "10px" }}>
-        Outside of coding I solve problems on{" "}
-        <span className="about-highlight">LeetCode</span> and explore System
-        Design concepts. Currently levelling up with{" "}
-        <span className="about-highlight">AWS, Docker & Linux</span> to move
-        toward cloud-native development.
-      </p>
-
-      <div className="about-divider" />
-
-      <div className="about-stats">
-        <div className="about-stat">
-          <div className="about-stat-num">1+</div>
-          <div className="about-stat-lbl">Projects Build</div>
-        </div>
-        <div className="about-stat-sep" />
-        <div className="about-stat">
-          <div className="about-stat-num">2yr</div>
-          <div className="about-stat-lbl">Learning Journey</div>
-        </div>
-        <div className="about-stat-sep" />
-        <div className="about-stat">
-          <div className="about-stat-num">5+</div>
-          <div className="about-stat-lbl">Technologies</div>
-        </div>
-        <div className="about-stat-sep" />
-        <div className="about-stat">
-          <div className="about-stat-num">75+</div>
-          <div className="about-stat-lbl">DSA Problems</div>
-        </div>
-      </div>
-      <DP
-        isOpen = {showProfile}
-        onClose={()=>setShowProfile(false)}
-      ></DP>
-    </section>
+      <DP isOpen={showProfile} onClose={() => setShowProfile(false)} />
+    </div>
   );
 }
 

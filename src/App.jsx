@@ -17,7 +17,7 @@ function App() {
         <Hero />
 
         <section className="section">
-          <div className="grid2">
+          <div className="about-skills-wrap">
             <About />
             <Skills />
           </div>

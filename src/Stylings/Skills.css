@@ -1,114 +1,153 @@
-.skills-card {
-  min-height: 340px;
+/* ============================================================
+   SKILLS — no heading overrides here.
+   .section-title lives in global.css (font-size, gap, margin).
+   .skills-icon-box mirrors .project-icon-box exactly.
+============================================================ */
+
+/* Outer wrapper — just flex column, no gap needed:
+   .section-title already has margin-bottom: 24px          */
+.skills-section {
   display: flex;
   flex-direction: column;
 }
 
-.skills-cols {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  flex: 1;
-}
-
-.skill-head {
-  font-size: 10px;
-  font-weight: 700;
-  color: #58A6FF;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
+/* ── Icon box: same dimensions & gradient as .project-icon-box ── */
 .skills-icon-box {
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 14px;
+  border-radius: 10px;
 
-  background: rgba(88, 166, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(88, 166, 255, 0.15),
+    rgba(163, 113, 247, 0.15)
+  );
+
   border: 1px solid rgba(88, 166, 255, 0.25);
-
   color: #58A6FF;
+  box-shadow: 0 0 15px rgba(88, 166, 255, 0.15);
 
-  box-shadow:
-    0 0 15px rgba(88, 166, 255, 0.12);
-
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 700;
-
-  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
 }
 
-.skills-icon-box:hover {
+
+/* ── Card ──────────────────────────────────────────────────── */
+.skills-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+
+/* ── Category Grid ─────────────────────────────────────────── */
+.skills-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.skill-group {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px;
+  
+  min-height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-group:hover {
+  background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
-
-  box-shadow:
-    0 0 20px rgba(88, 166, 255, 0.2);
 }
 
+.skill-group--blue:hover   { border-color: rgba(88,  166, 255, 0.3); }
+.skill-group--purple:hover { border-color: rgba(163, 113, 247, 0.3); }
+.skill-group--orange:hover { border-color: rgba(240, 136,  62, 0.3); }
+.skill-group--yellow:hover { border-color: rgba(234, 179,   8, 0.3); }
+
+
+/* ── Category Heading ──────────────────────────────────────── */
+.skill-head {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skill-head--blue   { color: #58A6FF; }
+.skill-head--purple { color: #A371F7; }
+.skill-head--orange { color: #F0883E; }
+.skill-head--yellow { color: #EAB308; }
+
+
+/* ── Dots ──────────────────────────────────────────────────── */
+.skill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot-blue   { background: #58A6FF; }
+.dot-purple { background: #A371F7; }
+.dot-orange { background: #F0883E; }
+.dot-yellow { background: #EAB308; }
+
+
+/* ── Pills ─────────────────────────────────────────────────── */
 .skill-pill-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-/* Base pill */
 .skill-pill {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 500;
-  border: 1px solid;
+  border: 1px solid transparent;
   font-family: 'JetBrains Mono', monospace;
+  cursor: default;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Blue — Backend */
-.pill-blue {
-  background: rgba(88, 166, 255, 0.08);
-  border-color: rgba(88, 166, 255, 0.35);
-  color: #58A6FF;
-}
+.skill-pill:hover { transform: translateY(-1px); }
 
-/* Grey — Frontend & Tools */
-.pill-grey {
-  background: rgba(139, 148, 158, 0.08);
-  border-color: rgba(139, 148, 158, 0.25);
-  color: #8B949E;
-}
+.pill-blue   { background: rgba(88,  166, 255, 0.08); border-color: rgba(88,  166, 255, 0.35); color: #58A6FF; }
+.pill-purple { background: rgba(163, 113, 247, 0.08); border-color: rgba(163, 113, 247, 0.35); color: #A371F7; }
+.pill-orange { background: rgba(240, 136,  62, 0.08); border-color: rgba(240, 136,  62, 0.35); color: #F0883E; }
+.pill-yellow { background: rgba(234, 179,   8, 0.08); border-color: rgba(234, 179,   8, 0.35); color: #EAB308; }
+.pill-green  { background: rgba( 63, 185,  80, 0.08); border-color: rgba( 63, 185,  80, 0.35); color: #3FB950; }
 
-/* Orange — Database */
-.pill-orange {
-  background: rgba(240, 136, 62, 0.08);
-  border-color: rgba(240, 136, 62, 0.35);
-  color: #F0883E;
-}
+.pill-blue:hover   { box-shadow: 0 0 10px rgba(88,  166, 255, 0.25); }
+.pill-purple:hover { box-shadow: 0 0 10px rgba(163, 113, 247, 0.25); }
+.pill-orange:hover { box-shadow: 0 0 10px rgba(240, 136,  62, 0.25); }
+.pill-yellow:hover { box-shadow: 0 0 10px rgba(234, 179,   8, 0.25); }
+.pill-green:hover  { box-shadow: 0 0 10px rgba( 63, 185,  80, 0.25); }
 
-/* Purple — Frontend */
-.pill-purple {
-  background: rgba(163, 113, 247, 0.08);
-  border-color: rgba(163, 113, 247, 0.35);
-  color: #A371F7;
-}
 
-/* Yellow — Tools */
-.pill-yellow {
-  background: rgba(234, 179, 8, 0.08);
-  border-color: rgba(234, 179, 8, 0.35);
-  color: #EAB308;
-}
-
-/* Green — Currently Learning */
-.pill-green {
-  background: rgba(63, 185, 80, 0.08);
-  border-color: rgba(63, 185, 80, 0.35);
-  color: #3FB950;
-}
-
-/* Currently Learning section */
+/* ── Currently Learning ─────────────────────────────────────  */
 .skills-learn-section {
   margin-top: 18px;
   padding-top: 16px;
@@ -116,13 +155,15 @@
 }
 
 .skills-learn-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #3FB950;
-  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #3FB950;
+  margin-bottom: 10px;
 }
 
 .learn-dot {
@@ -131,28 +172,20 @@
   border-radius: 50%;
   background: #3FB950;
   display: inline-block;
-  animation: learningPulse 1.2s infinite;
+  flex-shrink: 0;
+  animation: learningPulse 1.4s ease-in-out infinite;
 }
 
 @keyframes learningPulse {
-  0%,100% {
+  0%, 100% {
     opacity: 1;
-    box-shadow:
-      0 0 5px #3FB950,
-      0 0 10px #3FB950,
-      0 0 20px #3FB950;
+    box-shadow: 0 0 4px #3FB950, 0 0 10px #3FB950, 0 0 18px rgba(63, 185, 80, 0.5);
   }
-
-  50% {
-    opacity: 0.3;
-    box-shadow: none;
-  }
+  50% { opacity: 0.3; box-shadow: none; }
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
 
+/* ── Responsive ─────────────────────────────────────────────  */
 @media (max-width: 992px) {
   .skills-cols { grid-template-columns: repeat(2, 1fr); }
 }
@@ -160,6 +193,3 @@
 @media (max-width: 768px) {
   .skills-cols { grid-template-columns: 1fr; }
 }
-
-
-

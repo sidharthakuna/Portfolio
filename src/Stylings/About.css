@@ -1,49 +1,151 @@
+/* ============================================================
+   ABOUT — no heading overrides here.
+   .section-title lives in global.css (font-size, gap, margin).
+   .about-icon-box mirrors .project-icon-box exactly.
+============================================================ */
+
+/* ── Icon box: same dimensions & style as .project-icon-box ── */
+.about-icon-box {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(88, 166, 255, 0.15),
+    rgba(163, 113, 247, 0.15)
+  );
+
+  border: 1px solid rgba(88, 166, 255, 0.25);
+  color: #58A6FF;
+  box-shadow: 0 0 15px rgba(88, 166, 255, 0.15);
+}
+
+
+/* ── Card ──────────────────────────────────────────────────── */
 .about-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 340px;
+  gap: 28px;
+  width: 100%;
+  padding: 36px;
+  min-height: 420px;
 }
 
-.about-header {
-  display: flex;
+.about-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+  flex: 1;
+}
+
+
+/* ── LEFT COLUMN ────────────────────────────────────────────── */
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.about-avatar-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 10px;
 }
 
 .about-avatar {
-  width: 34px;
-  height: 34px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #58A6FF;
-  flex-shrink: 0;
+  border: 3px solid #58A6FF;
+  cursor: pointer;
   transition: all 0.3s ease;
-  cursor:pointer
+  position: relative;
+  z-index: 1;
 }
 
 .about-avatar:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 15px rgba(88, 166, 255, 0.45);
+  transform: scale(1.06);
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
+}
+
+.about-avatar-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(#58A6FF, #A371F7, #3FB950, #58A6FF);
+  z-index: 0;
+  animation: spinRing 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
 }
 
 .about-name {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   color: #E6EDF3;
+  margin-top: 4px;
 }
 
 .about-role {
-  font-size: 10px;
+  font-size: 14px;
   color: #58A6FF;
-  margin-top: 3px;
+  font-weight: 600;
 }
 
-.about-divider {
-  border: none;
-  border-top: 1px solid #21262D;
-  margin: 14px 0;
+.about-college {
+  font-size: 12px;
+  color: #484F58;
+  line-height: 1.5;
+}
+
+.about-open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(63, 185, 80, 0.1);
+  border: 1px solid rgba(63, 185, 80, 0.3);
+  color: #3FB950;
+  font-size: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+
+.about-pulse {
+  width: 7px;
+  height: 7px;
+  background: #3FB950;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.5); }
+}
+
+
+/* ── RIGHT COLUMN ───────────────────────────────────────────── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about-text {
@@ -57,6 +159,14 @@
   font-weight: 600;
 }
 
+.about-divider {
+  border: none;
+  border-top: 1px solid #21262D;
+  margin: 20px 0;
+}
+
+
+/* ── STATS ──────────────────────────────────────────────────── */
 .about-stats {
   display: flex;
   align-items: center;
@@ -68,14 +178,14 @@
 }
 
 .about-stat-num {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 800;
   color: #58A6FF;
   line-height: 1;
 }
 
 .about-stat-lbl {
-  font-size: 9px;
+  font-size: 11px;
   color: #484F58;
   margin-top: 5px;
   line-height: 1.4;
@@ -86,4 +196,29 @@
   height: 36px;
   background: #21262D;
   flex-shrink: 0;
+}
+
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card { padding: 20px; }
+
+  .about-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }

@@ -137,3 +137,13 @@ body {
     scroll-margin-top: 120px;
   }
 }
+
+.about-skills-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.about-skills-wrap > * {
+  width: 100%;
+}
