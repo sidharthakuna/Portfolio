@@ -1,17 +1,9 @@
-/* ============================================================
-   SKILLS — no heading overrides here.
-   .section-title lives in global.css (font-size, gap, margin).
-   .skills-icon-box mirrors .project-icon-box exactly.
-============================================================ */
 
-/* Outer wrapper — just flex column, no gap needed:
-   .section-title already has margin-bottom: 24px          */
 .skills-section {
   display: flex;
   flex-direction: column;
 }
 
-/* ── Icon box: same dimensions & gradient as .project-icon-box ── */
 .skills-icon-box {
   width: 34px;
   height: 34px;
