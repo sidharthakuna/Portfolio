@@ -12,7 +12,7 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  background: #0D1117;
+  background-color: #0D1117;
   color: #E6EDF3;
   overflow-x: hidden;
 }
@@ -147,3 +147,46 @@ body {
 .about-skills-wrap > * {
   width: 100%;
 }
+
+
+#education,
+#certifications,
+#coding-profiles {
+  scroll-margin-top: 72px;
+}
+ 
+@media (max-width: 768px) {
+  #education,
+  #certifications,
+  #coding-profiles {
+    scroll-margin-top: 120px;
+  }
+}
+ 
+#home,
+#about,
+#skills,
+#projects,
+#journey,
+#education,
+#certifications,
+#coding-profiles,
+#contact {
+  scroll-margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+  #home,
+  #about,
+  #skills,
+  #projects,
+  #journey,
+  #education,
+  #certifications,
+  #coding-profiles,
+  #contact {
+    scroll-margin-top: 70px;
+  }
+}
+
+

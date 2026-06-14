@@ -51,7 +51,7 @@ function Hero() {
 
         <p
           style={{
-            fontSize: "18px",
+            fontSize: "16px",
             color: "#8B949E",
             marginBottom: "4px",
           }}

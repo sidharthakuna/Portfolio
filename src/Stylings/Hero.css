@@ -7,7 +7,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  padding: 80px 32px 60px;
+  padding: 80px 32px 30px;
   max-width: 1060px;
   margin: 0 auto;
 }
@@ -75,6 +75,7 @@ h1 {
   color: #8B949E;
   line-height: 1.8;
   margin-bottom: 28px;
+  max-width: 480px;
 }
 
 /* Buttons */
