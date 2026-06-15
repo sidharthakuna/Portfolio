@@ -59,7 +59,7 @@ function Hero() {
           Hi, I'm
         </p>
 
-        <h1>
+        <h1 className="hero-name">
           <span className="accent">{typedText}</span>
           <span className="cursor"> </span>
         </h1>

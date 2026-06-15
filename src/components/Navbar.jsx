@@ -1,9 +1,8 @@
 import "../Stylings/Navbar.css";
 import { useState, useEffect } from "react";
 import profilePic from "../assets/profile.jpg";
-// import resumePDF from "../assets/resume.pdf";
 import DP from "./DP";
-import { HiDownload, HiMenu, HiX , HiMenuAlt3 } from "react-icons/hi";
+import { HiDownload, HiX, HiMenuAlt3 } from "react-icons/hi";
 
 const NAV_SECTIONS = [
   "home", "about", "skills", "projects", "journey",
@@ -27,7 +26,6 @@ function Navbar() {
   const [showProfile, setShowProfile] = useState(false);
   const [menuOpen, setMenuOpen]       = useState(false);
 
-  // clicking a nav item — close menu then scroll
   const handleClick = (section) => {
     setMenuOpen(false);
     setActive(section);
@@ -37,7 +35,6 @@ function Navbar() {
     }, 300);
   };
 
-  // active section tracking via IntersectionObserver
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -56,14 +53,20 @@ function Navbar() {
 
   return (
     <>
-      <nav>
+      {/* Skip to main content — hidden until focused */}
+      <a href="#home" className="skip-link">Skip to main content</a>
+
+      <nav aria-label="Main navigation">
         {/* Logo */}
         <div className="logo">
           <img
             src={profilePic}
-            alt="Profile"
+            alt="Sidhartha Kuna – view profile photo"
             className="profile-dp"
             onClick={() => setShowProfile(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && setShowProfile(true)}
           />
           <span>Sidhartha Kuna</span>
         </div>
@@ -75,6 +78,7 @@ function Navbar() {
               key={section}
               className={`nav-link ${active === section ? "active" : ""}`}
               onClick={() => handleClick(section)}
+              aria-current={active === section ? "page" : undefined}
             >
               {NAV_LABELS[section]}
             </button>
@@ -83,7 +87,10 @@ function Navbar() {
 
         {/* Desktop resume button */}
         <button className="resume-btn" onClick={() => {}}>
-          <HiDownload style={{ marginRight: "6px", verticalAlign: "middle", fontSize: "15px" }} />
+          <HiDownload
+            aria-hidden="true"
+            style={{ marginRight: "6px", verticalAlign: "middle", fontSize: "15px" }}
+          />
           Download Resume
         </button>
 
@@ -91,26 +98,31 @@ function Navbar() {
         <button
           className="hamburger"
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
-          {menuOpen ? <HiX size={20} color="#58A6FF" /> : <HiMenuAlt3 size={20} color="#58A6FF" />}
+          {menuOpen
+            ? <HiX size={20} color="#58A6FF" aria-hidden="true" />
+            : <HiMenuAlt3 size={20} color="#58A6FF" aria-hidden="true" />}
         </button>
       </nav>
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="mobile-menu">
+        <div id="mobile-menu" className="mobile-menu" role="navigation" aria-label="Mobile navigation">
           {NAV_SECTIONS.map((section) => (
             <button
               key={section}
               className={`mobile-link ${active === section ? "active" : ""}`}
               onClick={() => handleClick(section)}
+              aria-current={active === section ? "page" : undefined}
             >
               {NAV_LABELS[section]}
             </button>
           ))}
           <button className="mobile-resume-btn" onClick={() => setMenuOpen(false)}>
-            <HiDownload style={{ marginRight: "6px", verticalAlign: "middle" }} />
+            <HiDownload aria-hidden="true" style={{ marginRight: "6px", verticalAlign: "middle" }} />
             Download Resume
           </button>
         </div>

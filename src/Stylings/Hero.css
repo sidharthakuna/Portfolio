@@ -48,7 +48,7 @@
   50%       { opacity: 0.4; transform: scale(1.5); }
 }
 
-h1 {
+.hero-name {
   font-size: 44px;
   font-weight: 800;
   line-height: 1.1;
@@ -225,7 +225,7 @@ h1 {
 
 @media (max-width: 768px) {
   .hero      { padding: 40px 20px; }
-  h1         { font-size: 34px; }
+  .hero-name         { font-size: 34px; }
   .btn-row   { flex-direction: column; }
   .btn-primary,
   .btn-outline { width: 100%; }
@@ -233,7 +233,7 @@ h1 {
 }
 
 @media (max-width: 480px) {
-  h1         { font-size: 28px; }
-  .badge     { font-size: 10px; }
-  .code-pre  { font-size: 11px; }
+  .hero-name        { font-size: 28px; }
+  .badge            { font-size: 10px; }
+  .code-pre         { font-size: 11px; }
 }

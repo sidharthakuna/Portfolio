@@ -1,34 +1,27 @@
 /* ===========================
-   JOURNEY / TIMELINE
+   JOURNEY / TIMELINE — shared
 =========================== */
 
 .timeline-wrap {
   position: relative;
 }
 
-.timeline-line {
+/* ── Straight line (web only, rendered via .timeline-wrap--web) ── */
+.timeline-wrap--web .timeline-line {
   position: absolute;
   top: 40px;
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    #A371F7 0%,
-    #58A6FF 25%,
-    #F47067 50%,
-    #E09B3D 75%,
-    #3FB950 100%
-  );
   z-index: 0;
   pointer-events: none;
 }
 
-.timeline-line-glow {
+.timeline-wrap--web .timeline-line-glow {
   position: absolute;
   top: 38px;
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
   height: 6px;
   background: var(--tl-hover-color, transparent);
   border-radius: 3px;
@@ -39,13 +32,25 @@
   transition: background 0.3s ease;
 }
 
-.timeline {
+/* ── Web flex row ── */
+.timeline--web {
   display: flex;
   gap: 0;
   position: relative;
   z-index: 1;
 }
 
+/* ── Mobile grid (snake layout) ── */
+.timeline--mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 48px;
+  gap: 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Shared item styles ── */
 .t-item {
   flex: 1;
   text-align: center;
@@ -55,6 +60,11 @@
   flex-direction: column;
   align-items: center;
   cursor: default;
+}
+
+.timeline--mobile .t-item {
+  flex: unset;
+  padding: 16px 8px;
 }
 
 .t-circle-wrap {
@@ -148,45 +158,13 @@
   box-shadow: 0 0 15px rgba(163, 113, 247, 0.12);
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 992px) {
-  .timeline           { flex-wrap: wrap; gap: 20px; }
-  .timeline-line,
-  .timeline-line-glow { display: none; }
-  .t-item             { flex: 0 0 calc(50% - 10px); }
-}
-
-@media (max-width: 768px) {
-  .timeline-line,
-  .timeline-line-glow { display: none; }
-
-  .timeline {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 48px;   /* Fix 2: spacing between rows so the drop looks clean */
-    gap: 0 0;
-    position: relative;
-  }
-
-  .t-item {
-    flex: unset;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 16px 8px;
-    position: relative;
-  }
-
-  .snake-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: visible;
-  }
+/* ── Snake SVG (mobile only) ── */
+.snake-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
 }

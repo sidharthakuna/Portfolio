@@ -261,7 +261,6 @@ nav {
   .nav-links  { display: none; }
   .resume-btn { display: none; }
   .hamburger  { display: flex; }
-  .mobile-menu { display: flex; }
 }
 
 
@@ -276,4 +275,28 @@ nav {
 
 .hamburger:hover .burger-lines span {
   background: #58A6FF;
+}
+
+/* ===========================
+   SKIP LINK (accessibility)
+=========================== */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: #58A6FF;
+  color: #0D1117;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 99999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 8px;
 }

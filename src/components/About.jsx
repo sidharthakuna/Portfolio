@@ -7,20 +7,24 @@ import { FiUser } from "react-icons/fi";
 function About() {
   const [showProfile, setShowProfile] = useState(false);
 
+  const openProfile = () => setShowProfile(true);
+  const handleAvatarKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openProfile();
+    }
+  };
+
   return (
     <div id="about">
-
-      {/* HEADING — same structure & class as Projects */}
       <div className="section-title">
-        <span className="about-icon-box">
+        <span className="about-icon-box" aria-hidden="true">
           <FiUser size={16} />
         </span>
         About
       </div>
 
       <div className="card about-card">
-
-        {/* BODY — left + right */}
         <div className="about-body">
 
           {/* LEFT — Profile Photo */}
@@ -30,9 +34,13 @@ function About() {
                 src={profilePic}
                 alt="Sidhartha Kuna"
                 className="about-avatar"
-                onClick={() => setShowProfile(true)}
+                onClick={openProfile}
+                role="button"
+                tabIndex={0}
+                onKeyDown={handleAvatarKey}
+                aria-label="View full profile photo"
               />
-              <div className="about-avatar-ring" />
+              <div className="about-avatar-ring" aria-hidden="true" />
             </div>
 
             <div className="about-name">Sidhartha Kuna</div>
@@ -40,7 +48,7 @@ function About() {
             <div className="about-college">B.Tech CSE · Raghu Engineering College · 2028</div>
 
             <div className="about-open-badge">
-              <span className="about-pulse" />
+              <span className="about-pulse" aria-hidden="true" />
               Open to Opportunities
             </div>
           </div>
@@ -72,17 +80,17 @@ function About() {
                 <div className="about-stat-num">1+</div>
                 <div className="about-stat-lbl">Projects Built</div>
               </div>
-              <div className="about-stat-sep" />
+              <div className="about-stat-sep" aria-hidden="true" />
               <div className="about-stat">
                 <div className="about-stat-num">2yr</div>
                 <div className="about-stat-lbl">Learning Journey</div>
               </div>
-              <div className="about-stat-sep" />
+              <div className="about-stat-sep" aria-hidden="true" />
               <div className="about-stat">
                 <div className="about-stat-num">5+</div>
                 <div className="about-stat-lbl">Technologies</div>
               </div>
-              <div className="about-stat-sep" />
+              <div className="about-stat-sep" aria-hidden="true" />
               <div className="about-stat">
                 <div className="about-stat-num">75+</div>
                 <div className="about-stat-lbl">DSA Solved</div>
