@@ -110,7 +110,7 @@ function Navbar() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div id="mobile-menu" className="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <div id="mobile-menu" className={`mobile-menu${menuOpen ? " mobile-menu--open" : ""}`}  role="navigation" aria-label="Mobile navigation">
           {NAV_SECTIONS.map((section) => (
             <button
               key={section}
