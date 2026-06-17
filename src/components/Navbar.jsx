@@ -26,6 +26,15 @@ function Navbar() {
   const [showProfile, setShowProfile] = useState(false);
   const [menuOpen, setMenuOpen]       = useState(false);
 
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Portfolio/Sidhartha_Kuna_Resume.pdf";
+    link.download = "Sidhartha_Kuna_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleClick = (section) => {
     setMenuOpen(false);
     setActive(section);
@@ -86,7 +95,7 @@ function Navbar() {
         </div>
 
         {/* Desktop resume button */}
-        <button className="resume-btn" onClick={() => {}}>
+        <button className="resume-btn" onClick={() => {handleResumeDownload()}}>
           <HiDownload
             aria-hidden="true"
             style={{ marginRight: "6px", verticalAlign: "middle", fontSize: "15px" }}
@@ -121,7 +130,10 @@ function Navbar() {
               {NAV_LABELS[section]}
             </button>
           ))}
-          <button className="mobile-resume-btn" onClick={() => setMenuOpen(false)}>
+          <button className="mobile-resume-btn" onClick={() => {
+            handleResumeDownload();
+            setMenuOpen(false)
+          }}>
             <HiDownload aria-hidden="true" style={{ marginRight: "6px", verticalAlign: "middle" }} />
             Download Resume
           </button>
