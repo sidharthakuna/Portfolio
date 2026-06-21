@@ -14,73 +14,134 @@ nav {
   justify-content: space-between;
   padding: 0 32px;
   height: 56px;
+  transition: height 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Shrink + shadow once scrolled */
+nav.nav-scrolled {
+  height: 46px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  border-bottom-color: rgba(88, 166, 255, 0.15);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 800;
   font-size: 16px;
+}
+
+/* Logo name — flat solid color, no gradient */
+.logo span {
   color: #58A6FF;
 }
 
 .nav-links {
+  position: relative;
   display: flex;
   gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-link {
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
   color: #8B949E;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.2s;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: color 0.2s ease;
+  z-index: 1;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: #58A6FF;
 }
 
-/* Resume button */
+/* Sliding pill indicator — flat solid color, no gradient */
+.nav-indicator {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: calc(100% - 6px);
+  border-radius: 999px;
+  background: rgba(88, 166, 255, 0.14);
+  border: 1px solid rgba(88, 166, 255, 0.4);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.25);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1), width 0.35s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.nav-link.active {
+  color: #E6EDF3;
+  text-shadow: 0 0 8px rgba(88, 166, 255, 0.6);
+}
+
+/* Resume button — flat solid border highlight on hover, pill-shaped to match hero buttons */
 .resume-btn {
-  background: transparent;
+  position: relative;
+  background: #0D1117;
   border: 1px solid #30363D;
   color: #E6EDF3;
-  padding: 6px 14px;
-  border-radius: 6px;
+  padding: 7px 16px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 12px;
+  letter-spacing: 0.02em;
   font-family: 'JetBrains Mono', monospace;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .resume-btn:hover {
-  border-color: #58A6FF;
   color: #58A6FF;
+  border-color: #58A6FF;
   transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+  background: rgba(88, 166, 255, 0.08);
 }
 
-/* Profile DP in navbar */
+/* Profile DP in navbar — single border, matches original simple style */
 .profile-dp {
+  position: relative;
+  box-sizing: border-box;
   width: 34px;
   height: 34px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   cursor: pointer;
   border: 2px solid #58A6FF;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: width 0.25s ease, height 0.25s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+nav.nav-scrolled .profile-dp {
+  width: 28px;
+  height: 28px;
 }
 
 .profile-dp:hover {
   transform: scale(1.08);
   box-shadow: 0 0 15px rgba(88, 166, 255, 0.45);
+}
+
+/* Wrapper kept for JSX compatibility — no visual styling of its own now,
+   .profile-dp carries the border directly like the original design */
+.logo-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* ===========================
@@ -143,6 +204,10 @@ nav {
     flex-direction: row;
     border-bottom:none;
     height: 56px;
+  }
+
+  nav.nav-scrolled {
+    height: 50px;
   }
 
   .nav-links {
@@ -220,11 +285,14 @@ nav {
   color: #8B949E;
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  padding: 10px 12px;
-  border-radius: 6px;
+  letter-spacing: 0.02em;
+  padding: 10px 14px;
+  border-radius: 999px;
   text-align: left;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+  opacity: 0;
+  animation: fadeUp 0.35s ease forwards;
 }
 
 .mobile-link:hover,
@@ -238,14 +306,18 @@ nav {
   background: transparent;
   border: 1px solid #30363D;
   color: #E6EDF3;
-  padding: 9px 14px;
-  border-radius: 6px;
+  padding: 9px 16px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 12px;
+  letter-spacing: 0.02em;
   font-family: 'JetBrains Mono', monospace;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: border-color 0.2s ease, color 0.2s ease;
+  opacity: 0;
+  animation: fadeUp 0.35s ease forwards;
 }
 
 .mobile-resume-btn:hover {
@@ -299,4 +371,35 @@ nav {
 
 .skip-link:focus {
   top: 8px;
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .resume-btn,
+  .profile-dp,
+  .nav-indicator,
+  .mobile-link,
+  .mobile-resume-btn {
+    animation: none !important;
+    transition: none !important;
+  }
 }
