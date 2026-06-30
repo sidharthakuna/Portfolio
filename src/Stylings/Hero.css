@@ -237,3 +237,14 @@
   .badge            { font-size: 10px; }
   .code-pre         { font-size: 11px; }
 }
+
+
+@media (max-width: 768px) {
+  .hero      { padding: 40px 20px; }
+  .hero-name         { font-size: 34px; }
+  .btn-row   { flex-direction: column; }
+  .btn-primary,
+  .btn-outline { width: 100%; }
+  .social-row  { flex-wrap: wrap; }
+  .code-card   { display: none; }
+}
