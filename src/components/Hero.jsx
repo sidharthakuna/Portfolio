@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedinIn, FaJava, FaGitAlt, FaRocket } from "react-icons/fa";
 import { MdEmail, MdOutlineContactMail } from "react-icons/md";
 import { SiLeetcode, SiSpringboot, SiMysql } from "react-icons/si";
+import HeroAnimation from "./HeroAnimation"; 
 
 function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -130,82 +131,7 @@ function Hero() {
           </a>
         </div>
       </div>
-
-      {/* RIGHT SIDE */}
-      <div className="code-card">
-        <div className="code-bar">
-          <div className="dot-red"></div>
-          <div className="dot-yel"></div>
-          <div className="dot-grn"></div>
-        </div>
-
-        <div className="code-pre">
-          <pre
-            style={{
-              margin: 0,
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            <span className="annotation">@RestController</span>
-
-            {"\n"}
-
-            <span className="keyword">public</span>{" "}
-            <span className="keyword">class</span>{" "}
-            <span className="classname">PortfolioController</span>{" "}
-            {"{"}
-
-            {"\n   "}
-
-            <span className="annotation">@GetMapping</span>
-            <span className="string">("/developer")</span>
-
-            {"\n   "}
-
-            <span className="keyword">public</span>{" "}
-            <span className="classname">ResponseEntity&lt;String&gt;</span>{" "}
-            <span className="method">getDeveloperProfile</span>() {"{"}
-
-            {"\n      "}
-
-            <span className="keyword">return</span>{" "}
-            <span className="classname">ResponseEntity</span>.ok(
-
-            {"\n         "}
-
-            <span className="string">
-              "Hello! I'm Sidhartha Kuna 👋"
-            </span>
-
-            {"\n      "}
-
-            );
-
-            {"\n   }"}
-
-            {"\n}"}
-          </pre>
-        </div>
-
-        <div className="tech-row">
-          <span className="tech-badge">
-            <FaJava style={{ color: "#f89820", marginRight: "5px", verticalAlign: "middle", fontSize: "15px" }} />
-            Java
-          </span>
-          <span className="tech-badge">
-            <SiSpringboot style={{ color: "#6DB33F", marginRight: "5px", verticalAlign: "middle", fontSize: "13px" }} />
-            Spring Boot
-          </span>
-          <span className="tech-badge">
-            <SiMysql style={{ color: "#4479A1", marginRight: "5px", verticalAlign: "middle", fontSize: "15px" }} />
-            MySQL
-          </span>
-          <span className="tech-badge">
-            <FaGitAlt style={{ color: "#F05032", marginRight: "5px", verticalAlign: "middle", fontSize: "14px" }} />
-            Git
-          </span>
-        </div>
-      </div>
+      <HeroAnimation />
     </div>
   );
 }
