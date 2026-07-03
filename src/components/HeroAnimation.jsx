@@ -30,12 +30,12 @@ function HeroAnimation() {
         </svg>
 
         <div id="ring1">
-          <div className="dot-blue"></div>
-          <div className="dot-green"></div>
+          <div className="hero-dot-blue"></div>
+          <div className="hero-dot-green"></div>
         </div>
 
         <div id="ring2">
-          <div className="dot-orange"></div>
+          <div className="hero-dot-orange"></div>
         </div>
 
         <div className="cube-container">
