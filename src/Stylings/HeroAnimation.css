@@ -55,8 +55,9 @@
 
 .dot-orange {
   position: absolute;
-  bottom: 2px;
-  left: 20%;
+  top: 50%;
+  right: -3.5px;
+  transform: translateY(-50%);
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -159,61 +160,56 @@
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-.particle1 {
+.particle {
   position: absolute;
+  border-radius: 50%;
+}
+
+.particle1 {
   left: 16px;
   top: 40px;
   width: 5px;
   height: 5px;
-  border-radius: 50%;
   background: #58A6FF;
   opacity: 0.6;
   animation: float1 4.4s ease-in-out infinite;
 }
 
 .particle2 {
-  position: absolute;
   right: 24px;
   top: 70px;
   width: 4px;
   height: 4px;
-  border-radius: 50%;
   background: #22c55e;
   opacity: 0.6;
   animation: float2 3.6s ease-in-out infinite;
 }
 
 .particle3 {
-  position: absolute;
   left: 40px;
   bottom: 56px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
   background: #f97316;
   opacity: 0.55;
   animation: float3 5s ease-in-out infinite;
 }
 
 .particle4 {
-  position: absolute;
   right: 50px;
   bottom: 30px;
   width: 4px;
   height: 4px;
-  border-radius: 50%;
   background: #58A6FF;
   opacity: 0.5;
   animation: float1 4.8s ease-in-out infinite reverse;
 }
 
 .particle5 {
-  position: absolute;
   left: 60%;
   top: 10px;
   width: 3px;
   height: 3px;
-  border-radius: 50%;
   background: #C9D1D9;
   opacity: 0.4;
   animation: float2 3.2s ease-in-out infinite;
@@ -270,5 +266,23 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+.hero-animation-card {
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 22px;
+  margin-left: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-animation-card {
+    display: none;
   }
 }

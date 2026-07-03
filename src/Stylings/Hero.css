@@ -64,6 +64,11 @@
   animation: blink 1s step-end infinite;
 }
 
+@keyframes blink {
+  0%, 100% { border-color: #58A6FF; }
+  50%       { border-color: transparent; }
+}
+
 .subtitle {
   font-size: 14px;
   color: #8B949E;
