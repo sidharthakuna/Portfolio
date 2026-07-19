@@ -99,6 +99,8 @@
     rgba(13,17,23,0.4)
   );
   box-shadow: inset 0 0 24px rgba(88,166,255,0.05);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* The face background leans on rgba(13,17,23,...) — that's --bg-primary's
