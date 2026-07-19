@@ -10,10 +10,15 @@ import Certifications from "./components/Certifications";
 import CodingProfiles from "./components/CodingProfiles";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Cursor } from "./components/Cursor";
+
 
 function App() {
   return (
     <>
+      
+      <Cursor />
+
       <Navbar />
 
       <main>

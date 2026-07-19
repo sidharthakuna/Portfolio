@@ -16,13 +16,13 @@
 
   background: linear-gradient(
     135deg,
-    rgba(63, 185, 80, 0.15),
-    rgba(88, 166, 255, 0.15)
+    rgba(var(--green-rgb), var(--tint-3)),
+    rgba(var(--accent-rgb), var(--tint-3))
   );
 
-  border: 1px solid rgba(63, 185, 80, 0.3);
-  color: #3FB950;
-  box-shadow: 0 0 15px rgba(63, 185, 80, 0.12);
+  border: 1px solid rgba(var(--green-rgb), var(--edge-2));
+  color: var(--green);
+  box-shadow: 0 0 15px rgba(var(--green-rgb), 0.12);
 }
 
 
@@ -36,8 +36,8 @@
 
 /* ── Individual card ────────────────────────────────────────── */
 .cp-card {
-  background: #161B22;
-  border: 1px solid #21262D;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 20px 16px;
 
@@ -45,10 +45,18 @@
   flex-direction: column;
   gap: 14px;
 
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
   cursor: default;
 }
 
+/* --cp-border / --cp-glow are per-platform brand colors (GitHub, LeetCode,
+   Codeforces, etc.) — they're not defined in this file, which means
+   they're almost certainly set inline via style={{ '--cp-border': ... }}
+   on each card in your component. That's fine to leave theme-agnostic
+   *if* they're real platform brand colors, but if any of those inline
+   values were tuned to sit nicely on the old dark bg (e.g. a very light
+   tint), check them against the new white card background too — I can't
+   see or fix that file from here. */
 .cp-card:hover {
   transform: translateY(-3px);
   border-color: var(--cp-border);
@@ -76,7 +84,7 @@
 .cp-name {
   font-size: 14px;
   font-weight: 700;
-  color: #E6EDF3;
+  color: var(--text-primary);
 }
 
 
@@ -102,7 +110,7 @@
 
 .cp-stat-label {
   font-size: 10px;
-  color: #484F58;
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.4px;
 }

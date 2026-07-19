@@ -14,9 +14,9 @@
 
 .badge {
   display: inline-block;
-  background: rgba(88, 166, 255, 0.1);
-  border: 1px solid rgba(88, 166, 255, 0.3);
-  color: #58A6FF;
+  background: rgba(var(--accent-rgb), var(--tint-2));
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-3));
+  color: var(--accent);
   font-size: 11px;
   padding: 4px 12px;
   border-radius: 20px;
@@ -27,9 +27,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #22c55e;
+  background: rgba(var(--green-rgb), var(--tint-2));
+  border: 1px solid rgba(var(--green-rgb), var(--edge-3));
+  color: var(--green);
   padding: 5px 14px;
   border-radius: 999px;
   font-size: 10px;
@@ -38,7 +38,7 @@
 .pulse-dot {
   width: 7px;
   height: 7px;
-  background: #22c55e;
+  background: var(--green);
   border-radius: 50%;
   animation: pulse 2s infinite;
   flex-shrink: 0;
@@ -56,28 +56,28 @@
 }
 
 .accent {
-  color: #58A6FF;
+  color: var(--accent);
 }
 
 .cursor {
-  border-right: 3px solid #58A6FF;
+  border-right: 3px solid var(--accent);
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  0%, 100% { border-color: #58A6FF; }
+  0%, 100% { border-color: var(--accent); }
   50%       { border-color: transparent; }
 }
 
 .subtitle {
   font-size: 14px;
-  color: #8B949E;
+  color: var(--text-secondary);
   margin-bottom: 14px;
 }
 
 .desc {
   font-size: 14px;
-  color: #8B949E;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 28px;
   max-width: 480px;
@@ -112,8 +112,8 @@
 
 .btn-outline {
   background: transparent;
-  border: 1px solid #30363D;
-  color: #C9D1D9;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   padding: 9px 16px;
   border-radius: 6px;
   cursor: pointer;
@@ -129,17 +129,17 @@
   width: 34px;
   height: 34px;
   border-radius: 6px;
-  border: 1px solid #30363D;
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #8B949E;
+  color: var(--text-secondary);
 }
 
 .social-icon:hover {
-  border-color: #58A6FF;
-  color: #58A6FF;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ===========================
@@ -163,3 +163,5 @@
   .hero-name        { font-size: 28px; }
   .badge            { font-size: 10px; }
 }
+
+/* ===========================

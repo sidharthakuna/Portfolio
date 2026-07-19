@@ -2,7 +2,10 @@ import "../Stylings/Navbar.css";
 import { useState, useEffect, useRef } from "react";
 import profilePic from "../assets/profile.jpg";
 import DP from "./DP";
+import PullCord from "./PullCord";
 import { HiDownload, HiX, HiMenuAlt3 } from "react-icons/hi";
+
+
 
 const NAV_SECTIONS = [
   "home", "about", "skills", "projects", "journey",
@@ -177,7 +180,17 @@ function Navbar() {
             }}
             aria-hidden="true"
           />
+          <span
+            className="nav-bulb"
+            style={{
+              transform: `translateX(${indicator.left + indicator.width / 2 - 12}px)`, // 12 = half of 24px width
+              opacity: indicator.opacity,
+            }}
+            aria-hidden="true"
+          />
         </div>
+
+        
 
         {/* Desktop resume button */}
         <button className="resume-btn" onClick={() => {handleResumeDownload()}}>
@@ -187,6 +200,8 @@ function Navbar() {
           />
           Download Resume
         </button>
+
+        <PullCord />
 
         {/* Hamburger toggle — mobile only */}
         <button

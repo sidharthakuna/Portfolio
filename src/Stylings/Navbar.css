@@ -6,22 +6,26 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 17, 23, 0.96);
+  background: var(--bg-primary);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #21262D;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
   height: 56px;
-  transition: height 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: height 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
 }
 
 /* Shrink + shadow once scrolled */
 nav.nav-scrolled {
   height: 46px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-  border-bottom-color: rgba(88, 166, 255, 0.15);
+  border-bottom-color: rgba(var(--accent-rgb), 0.15);
+}
+
+[data-theme="light"] nav.nav-scrolled {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
 }
 
 .logo {
@@ -34,11 +38,12 @@ nav.nav-scrolled {
 
 /* Logo name — flat solid color, no gradient */
 .logo span {
-  color: #58A6FF;
+  color: var(--accent);
 }
 
 .nav-links {
   position: relative;
+  overflow: visible; /* let the bulb glow bleed upward without being clipped */
   display: flex;
   gap: 2px;
   padding: 3px;
@@ -47,12 +52,20 @@ nav.nav-scrolled {
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* The dark-mode pill is a faint WHITE tint on a near-black bar, so it reads
+   as a subtle raised capsule. On white that same white-tint is invisible —
+   it needs a dark tint instead to read as a capsule at all. */
+[data-theme="light"] .nav-links {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
 .nav-link {
   position: relative;
   background: none;
   border: none;
   cursor: pointer;
-  color: #8B949E;
+  color: var(--text-secondary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 12.5px;
   letter-spacing: 0.02em;
@@ -63,7 +76,7 @@ nav.nav-scrolled {
 }
 
 .nav-link:hover {
-  color: #58A6FF;
+  color: var(--accent);
 }
 
 /* Sliding pill indicator — flat solid color, no gradient */
@@ -73,39 +86,47 @@ nav.nav-scrolled {
   left: 0;
   height: calc(100% - 6px);
   border-radius: 999px;
-  background: rgba(88, 166, 255, 0.14);
-  border: 1px solid rgba(88, 166, 255, 0.4);
-  box-shadow: 0 0 10px rgba(88, 166, 255, 0.25);
+  background: rgba(var(--accent-rgb), var(--tint-2));
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-3));
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.25);
   transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1), width 0.35s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.2s ease;
   pointer-events: none;
 }
 
 .nav-link.active {
-  color: #E6EDF3;
-  text-shadow: 0 0 8px rgba(88, 166, 255, 0.6);
+  color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.6);
+}
+
+/* A glow behind dark text just reads as blur/smudge on a light background —
+   it's a dark-mode-only effect. The pill indicator + color change already
+   carry the active state on light, so just drop the shadow instead of
+   recoloring it. */
+[data-theme="light"] .nav-link.active {
+  text-shadow: none;
 }
 
 /* Resume button — flat solid border highlight on hover, pill-shaped to match hero buttons */
 .resume-btn {
   position: relative;
-  background: #0D1117;
-  border: 1px solid #30363D;
-  color: #E6EDF3;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   padding: 7px 16px;
   border-radius: 999px;
   cursor: pointer;
   font-size: 12px;
   letter-spacing: 0.02em;
   font-family: 'JetBrains Mono', monospace;
-  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 .resume-btn:hover {
-  color: #58A6FF;
-  border-color: #58A6FF;
+  color: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-1px);
-  box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
-  background: rgba(88, 166, 255, 0.08);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.3);
+  background: rgba(var(--accent-rgb), 0.08);
 }
 
 /* Profile DP in navbar — single border, matches original simple style */
@@ -118,7 +139,7 @@ nav.nav-scrolled {
   object-fit: cover;
   object-position: center;
   cursor: pointer;
-  border: 2px solid #58A6FF;
+  border: 2px solid var(--accent);
   flex-shrink: 0;
   transition: width 0.25s ease, height 0.25s ease, transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1;
@@ -131,7 +152,7 @@ nav.nav-scrolled .profile-dp {
 
 .profile-dp:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 15px rgba(88, 166, 255, 0.45);
+  box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.45);
 }
 
 /* Wrapper kept for JSX compatibility — no visual styling of its own now,
@@ -171,8 +192,8 @@ nav.nav-scrolled .profile-dp {
   height: 420px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #58A6FF;
-  box-shadow: 0 0 35px rgba(88, 166, 255, 0.45);
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 35px rgba(var(--accent-rgb), 0.45);
 }
 
 .close-btn {
@@ -184,7 +205,7 @@ nav.nav-scrolled .profile-dp {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  background: #58A6FF;
+  background: var(--accent);
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -233,9 +254,9 @@ nav.nav-scrolled .profile-dp {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(88, 166, 255, 0.1);
-  border: 1px solid rgba(88, 166, 255, 0.3);
-  color: #58A6FF;
+  background: rgba(var(--accent-rgb), var(--tint-2));
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-3));
+  color: var(--accent);
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
@@ -244,14 +265,14 @@ nav.nav-scrolled .profile-dp {
 }
 
 .hamburger:hover {
-  background: rgba(88, 166, 255, 0.2);
-  box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+  background: rgba(var(--accent-rgb), 0.2);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.3);
 }
 
 .burger-lines span {
   display: block;
   height: 2px;
-  background: #58A6FF;
+  background: var(--accent);
   border-radius: 99px;
   transition: width 0.2s ease;
 }
@@ -266,13 +287,14 @@ nav.nav-scrolled .profile-dp {
   left: 0;
   right: 0;
   z-index: 99;
-  background: rgba(13, 17, 23, 0.98);
+  background: var(--bg-primary);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #21262D;
+  border-bottom: 1px solid var(--border-color);
   flex-direction: column;
   padding: 12px 16px;
   gap: 4px;
   display: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .mobile-menu--open {
@@ -282,7 +304,7 @@ nav.nav-scrolled .profile-dp {
 .mobile-link {
   background: none;
   border: none;
-  color: #8B949E;
+  color: var(--text-secondary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.02em;
@@ -297,15 +319,15 @@ nav.nav-scrolled .profile-dp {
 
 .mobile-link:hover,
 .mobile-link.active {
-  background: rgba(88, 166, 255, 0.08);
-  color: #58A6FF;
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
 }
 
 .mobile-resume-btn {
   margin-top: 8px;
   background: transparent;
-  border: 1px solid #30363D;
-  color: #E6EDF3;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   padding: 9px 16px;
   border-radius: 999px;
   cursor: pointer;
@@ -321,8 +343,8 @@ nav.nav-scrolled .profile-dp {
 }
 
 .mobile-resume-btn:hover {
-  border-color: #58A6FF;
-  color: #58A6FF;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ===========================
@@ -346,7 +368,7 @@ nav.nav-scrolled .profile-dp {
 
 
 .hamburger:hover .burger-lines span {
-  background: #58A6FF;
+  background: var(--accent);
 }
 
 /* ===========================
@@ -357,8 +379,8 @@ nav.nav-scrolled .profile-dp {
   position: absolute;
   top: -100px;
   left: 16px;
-  background: #58A6FF;
-  color: #0D1117;
+  background: var(--accent);
+  color: var(--bg-primary);
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 13px;
@@ -402,4 +424,34 @@ nav.nav-scrolled .profile-dp {
     animation: none !important;
     transition: none !important;
   }
+}
+
+
+
+
+.nav-bulb {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 3px;
+  width: 24px; /* fixed small width, not tied to indicator.width */
+  border-radius: 999px;
+  background: var(--text-primary);
+  box-shadow:
+    0 0 4px 1px rgba(230, 237, 243, 0.9),
+    0 0 10px 2px rgba(var(--accent-rgb), 0.6);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+              opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* The inner glow layer above is hardcoded to dark theme's --text-primary
+   (a near-white halo, meant to look like a hot filament against black).
+   On light theme --text-primary is dark, so a white halo around a dark
+   bulb reads as mismatched/muddy — swap it for an accent-tinted halo,
+   which is legible either way. */
+[data-theme="light"] .nav-bulb {
+  box-shadow:
+    0 0 4px 1px rgba(var(--accent-rgb), 0.45),
+    0 0 10px 2px rgba(var(--accent-rgb), 0.5);
 }

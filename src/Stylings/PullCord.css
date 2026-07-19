@@ -1,0 +1,122 @@
+/* ===========================
+   PULL CORD
+=========================== */
+
+.pull-cord {
+  position: absolute;
+  right: 28px;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 40;
+
+  --chain-bead: var(--border-color);
+  --bulb-glow: #ffcc66;
+  --pull-ink: #1a1a1a;
+
+  /* Dark theme (default): warm/light bulb, white hint arrow */
+  --bulb-glass: #fff6da;
+  --bulb-base: #b8b0a4;
+  --bulb-filament: #ffb74d;
+  --hint-color: #ffffff;
+}
+
+[data-theme="light"] .pull-cord {
+  --bulb-base: #181818;
+  --bulb-glass: #6e6e6e;
+  --bulb-filament: #ececec;
+  --bulb-glow: rgba(0,0,0,.12);
+  --hint-color: #181818;
+}
+
+.pull-cord__thread {
+  display: block;
+  pointer-events: none;
+}
+
+.pull-cord__bulb {
+  cursor: grab;
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  touch-action: none;
+  transition: filter 0.2s ease;
+}
+
+.pull-cord__bulb:hover {
+  filter: brightness(1.08);
+}
+
+.pull-cord__bulb:active,
+.pull-cord__bulb--dragging {
+  cursor: grabbing;
+}
+
+.pull-cord__bulb--swinging {
+  animation: pull-cord-swing 0.7s ease-out;
+  transform-origin: top center;
+}
+
+.pull-cord__bulb::before{
+    content:"";
+    position:absolute;
+    top:8px;
+    left:9px;
+    width:7px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,.45);
+    filter:blur(1px);
+}
+
+.pull-cord__glow {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 30px;
+  height: 26px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--bulb-glow);
+  filter: blur(9px);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.pull-cord__fob-svg {
+  display: block;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+}
+
+.pull-cord__hint {
+  display: block;
+  margin-top: 6px;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  animation: pull-cord-hint-nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes pull-cord-swing {
+  0%   { transform: rotate(0deg) translateX(0); }
+  20%  { transform: rotate(7deg) translateX(2px); }
+  40%  { transform: rotate(-6deg) translateX(-2px); }
+  60%  { transform: rotate(3deg) translateX(1px); }
+  80%  { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+@keyframes pull-cord-hint-nudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
+
+@media (max-width: 768px) {
+  .pull-cord {
+    right: 16px;
+  }
+}

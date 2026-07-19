@@ -45,11 +45,6 @@ function Hero() {
       {/* LEFT SIDE */}
       <div>
         <div className="badge">Aspiring Java Backend Developer</div><br></br>
-          <div className="availability-badge">
-            <span className="pulse-dot"></span>
-            Open to Internships & Opportunities
-          </div>
-
         <p
           style={{
             fontSize: "16px",

@@ -1,0 +1,33 @@
+/* ===========================
+   CURSOR TRAIL
+=========================== */
+
+.cursor-wrapper {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .cursor-wrapper {
+    display: block;
+  }
+}
+
+.cursor-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: var(--text-primary);
+}
+
+.cursor-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid var(--text-primary);
+  transition: width 0.3s, height 0.3s;
+}

@@ -3,7 +3,7 @@
 =========================== */
 
 footer {
-  border-top: 1px solid #21262D;
+  border-top: 1px solid var(--border-color);
   padding: 20px 32px;
 }
 
@@ -13,7 +13,7 @@ footer {
   align-items: center;
   gap: 20px;
   font-size: 12px;
-  color: #484F58;
+  color: var(--text-secondary);
 }
 
 /* Fix: remove default <p> margin */
@@ -26,13 +26,13 @@ footer {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #8B949E;
+  color: var(--text-secondary);
   transition: all 0.3s ease;
 }
 
 /* Added hover for the link text */
 .footer-link:hover {
-  color: #58A6FF;
+  color: var(--accent);
 }
 
 .linkedin-icon {
@@ -41,24 +41,24 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #484F58;
+  border: 1px solid var(--text-secondary);
   border-radius: 4px;
-  background: rgba(72, 79, 88, 0.05);
-  color: #484F58;
+  background: rgba(127, 127, 127, 0.05);
+  color: var(--text-secondary);
   font-size: 10px;
   transition: all 0.3s ease;
 }
 
 .linkedin-icon:hover {
-  color: #58A6FF;
-  border-color: #58A6FF;
-  background: rgba(88, 166, 255, 0.15);
-  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), var(--tint-2));
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.3);
   transform: translateY(-2px);
 }
 
 .footer-link span:last-child {
-  color: #8B949E;
+  color: var(--text-secondary);
   font-size: 13px;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -66,5 +66,5 @@ footer {
 
 /* Sync text color with link hover */
 .footer-link:hover span:last-child {
-  color: #58A6FF;
+  color: var(--accent);
 }

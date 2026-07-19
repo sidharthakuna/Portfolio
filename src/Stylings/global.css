@@ -10,11 +10,112 @@
   box-sizing: border-box;
 }
 
+/* Every --*-rgb variable below is what makes theme switching actually
+   work across the whole app: components in every other file in this
+   folder use rgba(var(--accent-rgb), 0.15) instead of a hardcoded
+   triplet, so they all repaint automatically when the theme changes.
+   This file just needs to be imported once (main.jsx / App.jsx) —
+   CSS variables on :root are visible to every other stylesheet after
+   that, no per-file re-declaration needed. */
+:root {
+  --bg-primary: #0D1117;
+  --bg-secondary: #161B22;
+  --border-color: #21262D;
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+
+  /* Accent pair. -rgb twins exist so every rgba() glow/pill/badge in the
+     component files can write rgba(var(--accent-rgb), .15) instead of a
+     hardcoded triplet — that's what makes the whole system theme-aware. */
+  --accent: #58A6FF;
+  --accent-rgb: 88, 166, 255;
+  --accent-2: #A371F7;
+  --accent-2-rgb: 163, 113, 247;
+
+  /* Semantic status/category colors, same -rgb pattern */
+  --green: #3FB950;
+  --green-rgb: 63, 185, 80;
+  --orange: #F0883E;
+  --orange-rgb: 240, 136, 62;
+  --yellow: #EAB308;
+  --yellow-rgb: 234, 179, 8;
+  --gold: #F7D358;
+  --gold-rgb: 247, 211, 88;
+  --gold-2: #F7C948;
+  --gold-2-rgb: 247, 201, 72;
+
+  /* Alpha tiers for translucent fills/borders (icon-boxes, badges, pills).
+     Same three-step scale everywhere so a badge, a pill, and an icon-box
+     always read as the same "weight" of color. Light theme redefines
+     these to much higher values below — see the note there for why. */
+  --tint-1: 0.07;  /* faintest fill  — logo-wraps, resting hamburger bg   */
+  --tint-2: 0.10;  /* medium fill    — badges, pills, gradient stops     */
+  --tint-3: 0.15;  /* strongest fill — icon-box backgrounds              */
+  --edge-1: 0.20;  /* soft border    — logo-wraps, faint dividers        */
+  --edge-2: 0.27;  /* medium border  — icon-boxes, most badges           */
+  --edge-3: 0.37;  /* strong border  — pill borders, active/hover states */
+}
+
+[data-theme="light"] {
+  --bg-primary: #F6F8FA;
+  --bg-secondary: #FFFFFF;
+  --border-color: #D0D7DE;
+  --text-primary: #1F2328;
+  --text-secondary: #57606A;
+
+  /* Blue stays the primary — deeper and more saturated than the old
+     muted GitHub-light blue, so it reads confident on white instead of
+     washed out. Amber replaces the first attempt at a secondary (which
+     was teal — too close to blue in temperature to create any real
+     contrast). Warm against cool is what actually makes a palette read
+     as "designed" rather than two similar tones sitting next to each
+     other, and amber doubles as a quiet, non-literal nod to Java. */
+  --accent: #2952CC;
+  --accent-rgb: 41, 82, 204;
+  --accent-2: #D97706;
+  --accent-2-rgb: 217, 119, 6;
+
+  --green: #059669;
+  --green-rgb: 5, 150, 105;
+  --orange: #C2410C;
+  --orange-rgb: 194, 65, 12;
+  --yellow: #A16207;
+  --yellow-rgb: 161, 98, 7;
+  --gold: #B8860B;
+  --gold-rgb: 184, 134, 11;
+  --gold-2: #92660A;
+  --gold-2-rgb: 146, 102, 10;
+
+  /* Same tint diluted into white instead of near-black loses far more of
+     its color — 15% blue over #0D1117 still reads as a clear blue-glass
+     panel; 15% blue over #FFFFFF reads as barely-there grey. These are
+     roughly 2-2.5x the dark values so a badge or icon-box actually
+     registers as "blue" at a glance instead of "pale grey with a hint
+     of blue." Borders get boosted even harder than fills, since a crisp
+     edge does more to define a chip shape than a soft fill does. */
+  --tint-1: 0.16;
+  --tint-2: 0.20;
+  --tint-3: 0.24;
+  --edge-1: 0.40;
+  --edge-2: 0.48;
+  --edge-3: 0.58;
+}
+
+
 body {
   font-family: 'JetBrains Mono', monospace;
-  background-color: #0D1117;
-  color: #E6EDF3;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 22px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ===========================
@@ -37,21 +138,10 @@ body {
 }
 
 .title-icon {
-  color: #58A6FF;
+  color: var(--accent);
 }
 
-.grid2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
 
-.card {
-  background: #161B22;
-  border: 1px solid #21262D;
-  border-radius: 12px;
-  padding: 22px;
-}
 
 /* ===========================
    ANIMATIONS
@@ -78,10 +168,10 @@ body {
 
 @keyframes greenBlink {
   0%, 100% {
-    box-shadow: 0 0 10px #3FB950, 0 0 20px rgba(63, 185, 80, 0.6);
+    box-shadow: 0 0 10px var(--green), 0 0 20px rgba(var(--green-rgb), 0.6);
   }
   50% {
-    box-shadow: 0 0 5px #3FB950, 0 0 8px rgba(63, 185, 80, 0.3);
+    box-shadow: 0 0 5px var(--green), 0 0 8px rgba(var(--green-rgb), 0.3);
   }
 }
 
@@ -94,8 +184,8 @@ body {
 =========================== */
 
 ::-webkit-scrollbar       { width: 5px; }
-::-webkit-scrollbar-track { background: #0D1117; }
-::-webkit-scrollbar-thumb { background: #30363D; border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
 
 /* ===========================
    RESPONSIVE — TABLET
@@ -123,51 +213,6 @@ body {
 #skills,
 #projects,
 #journey,
-#contact {
-  scroll-margin-top: 72px;
-}
-
-@media (max-width: 768px) {
-  #home,
-  #about,
-  #skills,
-  #projects,
-  #journey,
-  #contact {
-    scroll-margin-top: 120px;
-  }
-}
-
-.about-skills-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
-.about-skills-wrap > * {
-  width: 100%;
-}
-
-
-#education,
-#certifications,
-#coding-profiles {
-  scroll-margin-top: 72px;
-}
- 
-@media (max-width: 768px) {
-  #education,
-  #certifications,
-  #coding-profiles {
-    scroll-margin-top: 120px;
-  }
-}
- 
-#home,
-#about,
-#skills,
-#projects,
-#journey,
 #education,
 #certifications,
 #coding-profiles,
@@ -189,4 +234,12 @@ body {
   }
 }
 
+.about-skills-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
 
+.about-skills-wrap > * {
+  width: 100%;
+}

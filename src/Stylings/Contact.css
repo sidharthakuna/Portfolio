@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #8B949E;
+  color: var(--text-secondary);
   font-size: 13px;
   margin-bottom: 10px;
 }
@@ -22,20 +22,21 @@
   margin-bottom: 10px;
   padding: 10px 12px;
   border-radius: 6px;
-  border: 1px solid #30363D;
-  background: #0D1117;
-  color: #E6EDF3;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   outline: none;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .c-input:focus {
-  border-color: #58A6FF;
+  border-color: var(--accent);
 }
 
 .c-input::placeholder {
-  color: #484F58;
+  color: var(--text-secondary);
 }
 
 .c-textarea {
@@ -45,16 +46,17 @@
   margin-bottom: 10px;
   padding: 10px 12px;
   border-radius: 6px;
-  border: 1px solid #30363D;
-  background: #0D1117;
-  color: #E6EDF3;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   outline: none;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .c-textarea:focus {
-  border-color: #58A6FF;
+  border-color: var(--accent);
 }
 
 /* ===========================
@@ -66,13 +68,13 @@
 }
 
 .contact-icon {
-  color: #3FB950;
+  color: var(--green);
   display: flex;
   align-items: center;
 
   text-shadow:
-    0 0 8px rgba(63, 185, 80, 0.5),
-    0 0 16px rgba(63, 185, 80, 0.25);
+    0 0 8px rgba(var(--green-rgb), 0.5),
+    0 0 16px rgba(var(--green-rgb), 0.25);
 }
 
 .contact-icon-box {
@@ -85,20 +87,20 @@
 
   border-radius: 14px;
 
-  background: rgba(63, 185, 80, 0.08);
-  border: 1px solid rgba(63, 185, 80, 0.25);
+  background: rgba(var(--green-rgb), var(--tint-3));
+  border: 1px solid rgba(var(--green-rgb), var(--edge-2));
 
-  color: #3FB950;
+  color: var(--green);
 
   box-shadow:
-    0 0 15px rgba(63, 185, 80, 0.12);
+    0 0 15px rgba(var(--green-rgb), 0.12);
 }
 
 /* Label above each input */
 .c-label {
   display: block;
   font-size: 11px;
-  color: #8B949E;
+  color: var(--text-secondary);
   margin-bottom: 4px;
   margin-top: 2px;
   font-weight: 600;
