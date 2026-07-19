@@ -29,44 +29,44 @@ function HeroAnimation() {
           />
         </svg>
 
-        <div id="ring1">
+        <div id="hero-ring1">
           <div className="hero-dot-blue"></div>
           <div className="hero-dot-green"></div>
         </div>
 
-        <div id="ring2">
+        <div id="hero-ring2">
           <div className="hero-dot-orange"></div>
         </div>
 
-        <div className="cube-container">
-          <div id="cube">
+        <div className="hero-cube-container">
+          <div id="hero-cube">
 
-            <div className="face f-java">
+            <div className="hero-face hero-f-java">
               <FaJava />
               <span>Java</span>
             </div>
 
-            <div className="face f-spring">
+            <div className="hero-face hero-f-spring">
               <SiSpringboot />
               <span>Spring Boot</span>
             </div>
 
-            <div className="face f-sql">
+            <div className="hero-face hero-f-sql">
               <SiMysql />
               <span>MySQL</span>
             </div>
 
-            <div className="face f-git">
+            <div className="hero-face hero-f-git">
               <FaGitAlt />
               <span>Git</span>
             </div>
 
-            <div className="face f-api">
+            <div className="hero-face hero-f-api">
               <TbApi />
               <span>REST API</span>
             </div>
 
-            <div className="face f-code">
+            <div className="hero-face hero-f-code">
               <FaCode />
               <span>Clean Code</span>
             </div>
@@ -75,18 +75,17 @@ function HeroAnimation() {
         </div>
 
         <div className="glow-wrapper">
-          <div className="glow"></div>
+          <div className="hero-glow"></div>
         </div>
 
-        <div className="particle particle1"></div>
-        <div className="particle particle2"></div>
-        <div className="particle particle3"></div>
-        <div className="particle particle4"></div>
-        <div className="particle particle5"></div>
+        <div className="hero-particle hero-particle1"></div>
+        <div className="hero-particle hero-particle2"></div>
+        <div className="hero-particle hero-particle3"></div>
+        <div className="hero-particle hero-particle4"></div>
+        <div className="hero-particle hero-particle5"></div>
 
       </div>
     </div>
-    
   );
 }
 

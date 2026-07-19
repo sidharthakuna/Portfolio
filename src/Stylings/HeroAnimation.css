@@ -16,14 +16,14 @@
   pointer-events: none;
 }
 
-#ring1 {
+#hero-ring1 {
   position: absolute;
   inset: 60px;
   border-radius: 50%;
   animation: spin 22s linear infinite;
 }
 
-#ring2 {
+#hero-ring2 {
   position: absolute;
   inset: 22px;
   border-radius: 50%;
@@ -65,23 +65,25 @@
   box-shadow: 0 0 6px 1px rgba(249,115,22,0.5);
 }
 
-.cube-container {
+.hero-cube-container {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
 }
 
-#cube {
+#hero-cube {
   position: relative;
   width: 150px;
   height: 150px;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   animation: rotateCube 16s linear infinite;
 }
 
-.face {
+.hero-face {
   position: absolute;
   width: 150px;
   height: 150px;
@@ -109,7 +111,7 @@
    the face text colors below (calibrated to pop on near-black) lose most
    of their contrast against it. Both need a light-specific pass rather
    than a simple recolor. */
-[data-theme="light"] .face {
+[data-theme="light"] .hero-face {
   border-color: rgba(var(--accent-rgb), var(--edge-2));
   background: linear-gradient(
     145deg,
@@ -121,50 +123,50 @@
     0 6px 18px rgba(15, 23, 42, 0.07);
 }
 
-.face span {
+.hero-face span {
   font-size: 11px;
   color: var(--text-primary);
   letter-spacing: 0.4px;
 }
 
-.f-java {
+.hero-f-java {
   color: #e08a3c;
   transform: rotateY(0deg) translateZ(75px);
 }
 
-.f-spring {
+.hero-f-spring {
   color: #22c55e;
   transform: rotateY(90deg) translateZ(75px);
 }
 
-.f-sql {
+.hero-f-sql {
   color: #58A6FF;
   transform: rotateY(180deg) translateZ(75px);
 }
 
-.f-git {
+.hero-f-git {
   color: #f97316;
   transform: rotateY(-90deg) translateZ(75px);
 }
 
-.f-api {
+.hero-f-api {
   color: #c9a2ff;
   transform: rotateX(90deg) translateZ(75px);
 }
 
-.f-code {
+.hero-f-code {
   color: #58A6FF;
   transform: rotateX(-90deg) translateZ(75px);
 }
 
 /* Deepen each face's icon color for light mode — same hue family, just
    dark enough to stay legible on the lighter glass face above. */
-[data-theme="light"] .f-java   { color: var(--gold-2); }
-[data-theme="light"] .f-spring { color: var(--green); }
-[data-theme="light"] .f-sql    { color: var(--accent); }
-[data-theme="light"] .f-git    { color: var(--orange); }
-[data-theme="light"] .f-api    { color: var(--accent-2); }
-[data-theme="light"] .f-code   { color: var(--accent); }
+[data-theme="light"] .hero-f-java   { color: var(--gold-2); }
+[data-theme="light"] .hero-f-spring { color: var(--green); }
+[data-theme="light"] .hero-f-sql    { color: var(--accent); }
+[data-theme="light"] .hero-f-git    { color: var(--orange); }
+[data-theme="light"] .hero-f-api    { color: var(--accent-2); }
+[data-theme="light"] .hero-f-code   { color: var(--accent); }
 
 .glow-wrapper {
   position: absolute;
@@ -174,7 +176,7 @@
   height: 0;
 }
 
-.glow {
+.hero-glow {
   position: absolute;
   left: -90px;
   top: -90px;
@@ -189,7 +191,7 @@
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-[data-theme="light"] .glow {
+[data-theme="light"] .hero-glow {
   background: radial-gradient(
     circle,
     rgba(var(--accent-rgb), 0.10) 0%,
@@ -197,12 +199,12 @@
   );
 }
 
-.particle {
+.hero-particle {
   position: absolute;
   border-radius: 50%;
 }
 
-.particle1 {
+.hero-particle1 {
   left: 16px;
   top: 40px;
   width: 5px;
@@ -212,7 +214,7 @@
   animation: float1 4.4s ease-in-out infinite;
 }
 
-.particle2 {
+.hero-particle2 {
   right: 24px;
   top: 70px;
   width: 4px;
@@ -222,7 +224,7 @@
   animation: float2 3.6s ease-in-out infinite;
 }
 
-.particle3 {
+.hero-particle3 {
   left: 40px;
   bottom: 56px;
   width: 6px;
@@ -232,7 +234,7 @@
   animation: float3 5s ease-in-out infinite;
 }
 
-.particle4 {
+.hero-particle4 {
   right: 50px;
   bottom: 30px;
   width: 4px;
@@ -242,7 +244,7 @@
   animation: float1 4.8s ease-in-out infinite reverse;
 }
 
-.particle5 {
+.hero-particle5 {
   left: 60%;
   top: 10px;
   width: 3px;
