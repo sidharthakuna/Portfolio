@@ -1,0 +1,200 @@
+/* ===========================
+   HERO — DESKTOP (v2)
+   No frame/chrome device. Height comes from
+   content alone, sized to match the density
+   of the About section below it.
+=========================== */
+
+.hero-d {
+  padding: 64px 32px 48px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.hero-d__eyebrow {
+  display: inline-block;
+  background: rgba(var(--accent-rgb), var(--tint-2, 0.08));
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-3, 0.3));
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-d__name {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.hero-d__accent {
+  color: var(--accent);
+}
+
+.hero-d__cursor {
+  border-right: 4px solid transparent;
+}
+
+.hero-d__cursor--blink {
+  animation: hero-d-blink 1s step-end infinite;
+}
+
+@keyframes hero-d-blink {
+  0%, 100% { border-color: var(--accent); }
+  50%       { border-color: transparent; }
+}
+
+.hero-d__subtitle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.hero-d__dot {
+  color: var(--border-color);
+  margin: 0 4px;
+}
+
+/* ---- description + stack, side by side, tight ---- */
+.hero-d__row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-d__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+.hero-d__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: start;
+}
+
+.hero-d__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--text-primary);
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-3, 0.3));
+  background: rgba(var(--accent-rgb), var(--tint-2, 0.08));
+  padding: 7px 12px;
+  border-radius: 6px;
+}
+
+.hero-d__chip svg {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+/* ---- action row ---- */
+.hero-d__action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-d__btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-d__btn-primary,
+.hero-d__btn-outline {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-d__btn-primary {
+  background: #1f6feb;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+}
+
+.hero-d__btn-primary:hover {
+  background: #388bfd;
+}
+
+.hero-d__btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 18px;
+}
+
+.hero-d__btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-d__social-row {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-d__social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.hero-d__social-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- keyboard focus ---- */
+.hero-d__btn-primary:focus-visible,
+.hero-d__btn-outline:focus-visible,
+.hero-d__social-icon:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-d__cursor--blink {
+    animation: none;
+  }
+}
+
+/* Narrower desktop: stack the row, keep everything else intact */
+@media (max-width: 1000px) {
+  .hero-d__name { font-size: 46px; }
+  .hero-d__row {
+    grid-template-columns: 1fr;
+  }
+}
