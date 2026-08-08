@@ -1,51 +1,224 @@
-/* ===========================
-   PROJECTS
-=========================== */
+/* ============================================================
+   PROJECTS — photo-first card grid (matches Certifications),
+   with a click-through detail modal (matches the DP popup).
+============================================================ */
 
+.project-icon-box {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), var(--tint-3)),
+    rgba(var(--accent-2-rgb), var(--tint-3))
+  );
+
+  border: 1px solid rgba(var(--accent-rgb), var(--edge-2));
+  color: var(--accent);
+  box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.15);
+}
+
+
+/* ── Grid ───────────────────────────────────────────────────── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+  max-width: 100%;
+}
+
+
+/* ── Card ───────────────────────────────────────────────────── */
 .project-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.3s ease;
 }
 
-.project-inner {
-  display: grid;
-  grid-template-columns: 300px 1fr;
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.25);
 }
 
-/* Left preview panel */
-.proj-preview {
+.project-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Image area — rectangular, cropped to fill, never circular ── */
+.project-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
   background: var(--bg-primary);
-  padding: 18px;
-  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
 }
 
-.mock-win {
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-card-featured {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(var(--green-rgb), var(--tint-2));
+  border: 1px solid rgba(var(--green-rgb), var(--edge-3));
+  color: var(--green);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Info strip ─────────────────────────────────────────────── */
+.project-card-info {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.project-card-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.mock-bar {
-  background: var(--border-color);
-  height: 26px;
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+
+/* ============================================================
+   DETAIL MODAL — click a card to open the full report.
+   Namespaced (.project-detail-*) so it can't collide with the
+   about-photo popup's overlay/modal/close-btn classes.
+============================================================ */
+
+.project-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  gap: 5px;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  animation: projDetailFade 0.2s ease;
 }
 
-.mock-body {
-  padding: 14px;
+.project-detail-modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  animation: projDetailPop 0.25s ease;
 }
 
-/* Right body panel */
-.proj-body {
-  padding: 22px;
+.project-detail-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
+
+.project-detail-close:hover,
+.project-detail-close:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-detail-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.project-detail-body {
+  padding: 24px 28px 28px;
+}
+
+@keyframes projDetailFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes projDetailPop {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
+/* ============================================================
+   REPORT CONTENT — shared by the detail modal.
+   (Same classes the old proj-body used, kept as-is.)
+============================================================ */
 
 .proj-title {
   font-size: 20px;
@@ -124,52 +297,31 @@
   flex-shrink: 0;
 }
 
-.project-icon-box {
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(var(--accent-rgb), var(--tint-3)),
-    rgba(var(--accent-2-rgb), var(--tint-3))
-  );
-
-  border: 1px solid rgba(var(--accent-rgb), var(--edge-2));
-
-  color: var(--accent);
-
-  box-shadow:
-    0 0 15px rgba(var(--accent-rgb), 0.15);
-}
-
-
-
 
 /* ===========================
    RESPONSIVE
 =========================== */
 
-@media (max-width: 992px) {
-  .project-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .proj-preview {
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-  }
-}
-
 @media (max-width: 768px) {
-  .proj-title { font-size: 18px; }
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
-  .proj-body { padding: 16px; }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-overlay {
+    padding: 12px;
+  }
+
+  .project-detail-body {
+    padding: 20px 18px 24px;
+  }
+
+  .proj-title {
+    font-size: 18px;
+  }
 }
