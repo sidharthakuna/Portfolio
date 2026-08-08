@@ -49,7 +49,7 @@
 .project-card:focus-visible {
   transform: translateY(-3px);
   border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.25);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.15);
 }
 
 .project-card:focus-visible {
@@ -152,8 +152,10 @@
   border-radius: 16px;
   width: 100%;
   max-width: 720px;
-  max-height: 88vh;
-  overflow-y: auto;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   position: relative;
   animation: projDetailPop 0.25s ease;
 }
@@ -186,7 +188,9 @@
 
 .project-detail-image-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 30vh;
+  max-height: 220px;
+  flex-shrink: 0;
   overflow: hidden;
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
@@ -201,7 +205,59 @@
 }
 
 .project-detail-body {
-  padding: 24px 28px 28px;
+  padding: 16px 24px 20px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Tighter spacing inside the modal only — the shared .proj-* /
+   .info-* / .stack-* classes below stay untouched for reuse
+   elsewhere, these overrides just compress this one context. */
+.project-detail-body .proj-title {
+  font-size: 18px;
+}
+
+.project-detail-body .proj-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.project-detail-body .stack-row {
+  margin-bottom: 8px;
+}
+
+.project-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.project-detail-section {
+  margin-bottom: 8px;
+}
+
+.project-detail-section-last {
+  margin-bottom: 12px;
+}
+
+.project-detail-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.project-detail-body .info-label {
+  margin-bottom: 4px;
+}
+
+.project-detail-body .check-item {
+  margin-bottom: 3px;
+}
+
+.project-detail-body .info-val {
+  line-height: 1.4;
 }
 
 @keyframes projDetailFade {
@@ -317,11 +373,15 @@
     padding: 12px;
   }
 
-  .project-detail-body {
-    padding: 20px 18px 24px;
+  .project-detail-image-wrap {
+    height: 22vh;
   }
 
-  .proj-title {
-    font-size: 18px;
+  .project-detail-body {
+    padding: 14px 16px 16px;
+  }
+
+  .project-detail-body .proj-title {
+    font-size: 16px;
   }
 }

@@ -17,7 +17,7 @@ function ProjectDetail({ isOpen, project, onClose }) {
         </div>
 
         <div className="project-detail-body">
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
+          <div className="project-detail-header">
             <span className="proj-title">{project.title}</span>
             {project.featured && <span className="featured-badge">Featured</span>}
           </div>
@@ -25,7 +25,7 @@ function ProjectDetail({ isOpen, project, onClose }) {
           <p className="proj-desc">{project.description}</p>
 
           {/* TECH STACK */}
-          <div style={{ marginBottom: "12px" }}>
+          <div className="project-detail-section">
             <div className="info-label">
               <FiTool size={13} color="#E76F00" /> Tech Stack
             </div>
@@ -40,7 +40,7 @@ function ProjectDetail({ isOpen, project, onClose }) {
           </div>
 
           {/* FEATURES */}
-          <div style={{ marginBottom: "12px" }}>
+          <div className="project-detail-section">
             <div className="info-label">
               <FiStar size={13} color="#F7D358" /> Key Features
             </div>
@@ -57,7 +57,7 @@ function ProjectDetail({ isOpen, project, onClose }) {
           </div>
 
           {/* LEARNINGS */}
-          <div style={{ marginBottom: "20px" }}>
+          <div className="project-detail-section project-detail-section-last">
             <div className="info-label">
               <BsLightbulb size={13} color="#FFD700" /> What I Learned
             </div>
@@ -65,7 +65,7 @@ function ProjectDetail({ isOpen, project, onClose }) {
           </div>
 
           {/* BUTTONS */}
-          <div style={{ display: "flex", gap: "8px" }}>
+          <div className="project-detail-actions">
             {project.github && (
               <button
                 className="btn-outline"
