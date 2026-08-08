@@ -158,27 +158,6 @@ I enjoy building scalable backend applications using Java, Spring Boot, REST API
 
 # 🚀 Featured Projects
 
-## 🔐 Anonymous User Authentication System
-
-A secure authentication backend developed using:
-
-- Java
-- Spring Boot
-- PostgreSQL
-- JWT
-- Docker
-
-### Features
-
-- JWT Authentication
-- Refresh Tokens
-- Role-Based Authorization
-- Anonymous User Identity
-- REST APIs
-- Dockerized Backend
-
----
-
 ## 🎵 AI Background Noise Remover
 
 An AI-powered application for removing background noise from uploaded audio files.
