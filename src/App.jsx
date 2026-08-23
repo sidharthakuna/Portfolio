@@ -1,25 +1,21 @@
-import "./Stylings/global.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Journey from "./components/Journey";
-import Education from "./components/Education";
-import Certifications from "./components/Certifications";
-import CodingProfiles from "./components/CodingProfiles";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import { Cursor } from "./components/Cursor";
-import ScrollToTop from "./components/ScrollToTop";
-
+import "@/styles/global/global.css";
+import { Cursor } from "@/components/common";
+import { Navbar, Footer, ScrollToTop } from "@/components/layout";
+import {
+  Hero,
+  About,
+  Skills,
+  Projects,
+  Journey,
+  Education,
+  CodingProfiles,
+  Contact,
+} from "@/components/sections";
 
 function App() {
   return (
     <>
-      
       <Cursor />
-
       <Navbar />
 
       <main>

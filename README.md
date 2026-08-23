@@ -258,13 +258,18 @@ Portfolio/
 │   └── Sidhartha_Kuna_Resume.pdf
 │
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── Stylings/
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
+│   ├── assets/              # Images, icons, and static assets
+│   ├── components/          # Modular React UI components
+│   │   ├── common/          # Cursor, DP Lightbox, PullCord
+│   │   ├── layout/          # Navbar, Footer, ScrollToTop
+│   │   └── sections/        # Hero, About, Skills, Projects, Journey, etc.
+│   ├── data/                # Single Source of Truth content & data
+│   ├── hooks/               # Custom hooks (useTheme, useMediaQuery, useScrollSpy, etc.)
+│   ├── styles/              # Organized stylesheets (global, layout, sections, ui)
+│   ├── utils/               # Helper utilities (downloadResume, etc.)
+│   ├── App.jsx              # Application root
+│   ├── index.css            # Base stylesheet
+│   └── main.jsx             # Entry point
 │
 ├── preview.png
 ├── README.md
