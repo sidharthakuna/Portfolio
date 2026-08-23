@@ -14,8 +14,8 @@ const PENDULUM_DAMP = 0.85;// Pendulum damping
 
 function readInitialTheme() {
   const stored = localStorage.getItem("theme");
-  if (stored) return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  if (stored === "light" || stored === "dark") return stored;
+  return "dark";
 }
 
 function LightbulbFob() {
