@@ -1,0 +1,22 @@
+/* ============================================================
+   PROFILE PHOTO LIGHTBOX MODAL (Light Theme Overrides)
+============================================================ */
+
+[data-theme="light"] .profile-modal {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+}
+
+[data-theme="light"] .profile-modal .close-btn {
+  background: #FFFFFF;
+  border-color: #94A3B8;
+  color: #0F172A;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+[data-theme="light"] .profile-modal .close-btn:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+}

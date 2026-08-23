@@ -1,0 +1,17 @@
+/* ============================================================
+   FLOATING SCROLL TO TOP BUTTON (Light Theme Overrides)
+============================================================ */
+
+[data-theme="light"] .floating-scroll-top {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .floating-scroll-top:hover {
+  background: #0F172A;
+  border-color: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.25);
+}

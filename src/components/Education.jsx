@@ -5,64 +5,68 @@ import { MdOutlineCalendarToday, MdOutlineStars } from "react-icons/md";
 
 const coursework = [
   "Data Structures & Algorithms",
-  "Object Oriented Programming",
-  "Database Management Systems",
-  "Operating Systems",
+  "Object Oriented Programming (OOP)",
+  "Database Management Systems (DBMS)",
+  "Operating Systems (OS)",
   "Computer Networks",
-  "Software Engineering",
+  "Software Engineering Principles",
 ];
 
 function Education() {
   return (
     <section id="education" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
-        <span className="education-icon-box">
-          <FiBookOpen size={20} />
+        <span className="education-icon-box" aria-hidden="true">
+          <FiBookOpen size={18} />
         </span>
-        Education
+        Academic Foundation
       </div>
 
       <div className="card edu-card">
-        {/* LEFT — College Info */}
+        {/* LEFT — University Info */}
         <div className="edu-left">
-          <div className="edu-logo-wrap">
-            <HiOutlineAcademicCap size={36} color="#58A6FF" />
+          {/* Header Row: Logo on Left + Name & Degree on Right */}
+          <div className="edu-header-row">
+            <div className="edu-logo-wrap">
+              <HiOutlineAcademicCap size={32} className="edu-cap-icon" />
+            </div>
+            <div className="edu-title-block">
+              <h3 className="edu-college">Raghu Engineering College</h3>
+              <div className="edu-degree">B.Tech in Computer Science &amp; Engineering</div>
+            </div>
           </div>
 
-          <div className="edu-college">Raghu Engineering College</div>
-          <div className="edu-degree">B.Tech in Computer Science &amp; Engineering</div>
-
-          <div className="edu-meta-row">
-            <span className="edu-meta-item">
-              <MdOutlineCalendarToday size={13} color="#8B949E" />
-              2024 – 2028
+          {/* Metadata & Status Chips Row */}
+          <div className="edu-badges-row">
+            <span className="edu-meta-pill">
+              <MdOutlineCalendarToday size={13} color="#94A3B8" />
+              <span>2024 – 2028</span>
             </span>
-            <span className="edu-meta-item">
-              <MdOutlineStars size={13} color="#F7D358" />
-              CGPA: 8.36 <span className="edu-meta-sub">(Till 4th Semester)</span>
+            <span className="edu-meta-pill">
+              <MdOutlineStars size={14} color="#F59E0B" />
+              <span>CGPA: <strong className="edu-cgpa">9.0</strong></span>
             </span>
-          </div>
-
-          <div className="edu-status-badge">
-            <span className="edu-pulse" />
-            3rd Year · Currently Enrolled
+            <div className="edu-status-badge">
+              <span className="edu-pulse" aria-hidden="true" />
+              <span>3rd Year &bull; Currently Enrolled</span>
+            </div>
           </div>
         </div>
 
-        {/* DIVIDER */}
-        <div className="edu-divider" />
+        {/* Specular Divider */}
+        <div className="edu-divider" aria-hidden="true" />
 
-        {/* RIGHT — Coursework */}
+        {/* RIGHT — Relevant Coursework */}
         <div className="edu-right">
           <div className="edu-cw-label">
-            Relevant Coursework
+            Key Academic Coursework
           </div>
 
           <div className="edu-cw-grid">
             {coursework.map((course) => (
               <div className="edu-cw-item" key={course}>
-                <span className="edu-cw-dot" />
-                {course}
+                <span className="edu-cw-dot" aria-hidden="true" />
+                <span>{course}</span>
               </div>
             ))}
           </div>

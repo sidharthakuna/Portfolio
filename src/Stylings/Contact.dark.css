@@ -1,0 +1,199 @@
+/* ============================================================
+   CONTACT (Dark Theme Base)
+============================================================ */
+
+.contact-icon-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.contact-card,
+.contact-form-card {
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-heading {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  margin-bottom: 14px;
+}
+
+.contact-lead-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a.contact-item:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.contact-item-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.email-icon {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.loc-icon {
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.linkedin-icon {
+  color: #0A66C2;
+  background: rgba(10, 102, 194, 0.08);
+  border-color: rgba(10, 102, 194, 0.25);
+}
+
+.lc-icon {
+  color: #FFA116;
+  background: rgba(255, 161, 22, 0.08);
+  border-color: rgba(255, 161, 22, 0.25);
+}
+
+.contact-social-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-social-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* ── Form Styling ───────────────────────────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+
+.c-input,
+.c-textarea {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: rgba(4, 4, 6, 0.8);
+  color: var(--text-primary);
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+}
+
+.c-input:focus,
+.c-textarea:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.6);
+  background: rgba(8, 9, 14, 0.95);
+}
+
+.c-input::placeholder,
+.c-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.c-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.contact-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 14px 22px;
+  margin-top: 4px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-card,
+  .contact-form-card { padding: 28px; }
+}

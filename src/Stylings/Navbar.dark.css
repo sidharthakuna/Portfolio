@@ -1,0 +1,363 @@
+/* ============================================================
+   NAVBAR (Dark Theme Base)
+============================================================ */
+
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(4, 4, 6, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-header.nav-scrolled {
+  background: rgba(4, 4, 6, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.85);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 16px;
+  height: 68px;
+  position: relative;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-header.nav-scrolled .nav-container {
+  height: 56px;
+}
+
+/* ── Brand Logo (Leftmost) ─────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 10;
+}
+
+.logo-avatar-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-dp {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-header.nav-scrolled .profile-dp {
+  width: 32px;
+  height: 32px;
+}
+
+.profile-dp:hover {
+  transform: scale(1.1);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.logo-live-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid #040406;
+  box-shadow: 0 0 8px var(--green);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.logo-role {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+}
+
+/* ── Desktop Nav Links Capsule (Centered) ──────────────────── */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  z-index: 5;
+}
+
+.nav-link {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: color 0.2s ease;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* Sliding Pill Indicator */
+.nav-indicator {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Micro Tube Light Accent */
+.nav-bulb {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  height: 3px;
+  width: 26px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  /* Directional downward light, none on top */
+  box-shadow:
+    0 3px 8px rgba(255, 255, 255, 0.8),
+    0 8px 18px rgba(255, 255, 255, 0.45);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.nav-bulb::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 42px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 50%, transparent 80%);
+  pointer-events: none;
+}
+
+/* ── Actions Row (Rightmost) ───────────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  margin-left: auto;
+  padding-right: 32px;
+  z-index: 10;
+}
+
+.resume-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resume-btn-icon {
+  font-size: 14px;
+}
+
+.resume-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ── Hamburger ─────────────────────────────────────────────── */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Mobile Menu ───────────────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(4, 4, 6, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-inner {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mobile-link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mobile-link-num {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.mobile-resume-btn {
+  margin-top: 12px;
+  background: #FFFFFF;
+  border: none;
+  color: #040406;
+  padding: 13px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav-links  { display: none; }
+  .resume-btn { display: none; }
+  .hamburger  { display: flex; margin-right: 36px; }
+  .nav-container { padding: 0 16px; }
+  .nav-actions { padding-right: 0; }
+}
+
+/* ── Skip Link ─────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: #FFFFFF;
+  color: #040406;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 99999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 12px;
+}

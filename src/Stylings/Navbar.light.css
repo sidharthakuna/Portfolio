@@ -1,0 +1,139 @@
+/* ============================================================
+   NAVBAR (Light Theme Overrides — Dark & Defined Borders)
+============================================================ */
+
+[data-theme="light"] .nav-header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1.5px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .nav-header.nav-scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom-color: #0F172A;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .profile-dp {
+  border: 2px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .profile-dp:hover {
+  border-color: #0F172A;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
+}
+
+[data-theme="light"] .logo-live-dot {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 6px var(--green);
+}
+
+[data-theme="light"] .logo-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .logo-role {
+  color: #475569;
+}
+
+[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .nav-link {
+  color: #1E293B;
+  font-weight: 600;
+}
+
+[data-theme="light"] .nav-link:hover {
+  color: #0F172A;
+}
+
+[data-theme="light"] .nav-link.active {
+  color: #0F172A;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+[data-theme="light"] .nav-indicator {
+  background: #FFFFFF;
+  border: 1.5px solid #0F172A;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .nav-bulb {
+  position: absolute;
+  top: -7px;
+  background: #0F172A;
+  height: 3px;
+  width: 26px;
+  border-radius: 999px;
+  /* Directional downward black shadow/glow, none on top */
+  box-shadow:
+    0 3px 8px 0 rgba(15, 23, 42, 0.6),
+    0 8px 18px 0 rgba(15, 23, 42, 0.3);
+  z-index: 10;
+}
+
+[data-theme="light"] .nav-bulb::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 44px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0.06) 55%, transparent 80%);
+  pointer-events: none;
+}
+
+[data-theme="light"] .resume-btn {
+  background: #0F172A;
+  border: 1.5px solid #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .resume-btn:hover {
+  background: #1E293B;
+  border-color: #1E293B;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="light"] .hamburger {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  color: #0F172A;
+}
+
+[data-theme="light"] .hamburger:hover {
+  background: #F8FAFC;
+  border-color: #0F172A;
+}
+
+[data-theme="light"] .mobile-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1.5px solid var(--border-color);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .mobile-link {
+  color: #1E293B;
+  font-weight: 600;
+}
+
+[data-theme="light"] .mobile-link:hover,
+[data-theme="light"] .mobile-link.active {
+  background: rgba(15, 23, 42, 0.06);
+  color: #0F172A;
+}
+
+[data-theme="light"] .mobile-resume-btn {
+  background: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
+}

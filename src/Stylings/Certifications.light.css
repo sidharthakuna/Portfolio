@@ -1,0 +1,62 @@
+/* ============================================================
+   CERTIFICATIONS (Light Theme Overrides — Darker Defined Cards)
+============================================================ */
+
+[data-theme="light"] .cert-icon-box {
+  background: #FEF3C7;
+  border: 1.5px solid #FCD34D;
+  color: #D97706;
+  box-shadow: 0 1px 3px rgba(217, 119, 6, 0.1);
+}
+
+[data-theme="light"] .cert-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .cert-card:hover {
+  border-color: #0F172A;
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-3px);
+}
+
+[data-theme="light"] .cert-img-wrap {
+  background: #F8FAFC;
+  border-bottom: 1.5px solid var(--border-subtle);
+}
+
+[data-theme="light"] .cert-placeholder-icon {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .cert-placeholder-tag {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+[data-theme="light"] .cert-title {
+  color: #0F172A;
+  font-weight: 800;
+}
+
+[data-theme="light"] .cert-issuer {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+[data-theme="light"] .cert-year {
+  color: #475569;
+  font-weight: 600;
+}
+
+[data-theme="light"] .cert-verified-badge {
+  background: #ECFDF5;
+  border: 1.5px solid #86EFAC;
+  color: #047857;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+}

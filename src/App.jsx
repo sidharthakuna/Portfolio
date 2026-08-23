@@ -11,6 +11,7 @@ import CodingProfiles from "./components/CodingProfiles";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Cursor } from "./components/Cursor";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       </main>
 
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

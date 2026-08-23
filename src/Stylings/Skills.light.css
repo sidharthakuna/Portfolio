@@ -1,0 +1,66 @@
+/* ============================================================
+   SKILLS (Light Theme Overrides — Darker Defined Cards)
+============================================================ */
+
+[data-theme="light"] .skills-icon-box {
+  background: #FAF5FF;
+  border: 1.5px solid #E9D5FF;
+  color: #9333EA;
+  box-shadow: 0 1px 3px rgba(147, 51, 234, 0.1);
+}
+
+[data-theme="light"] .skills-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .skill-group {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .skill-group:hover {
+  background: #FFFFFF;
+  border-color: #0F172A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .skill-head {
+  color: #0F172A;
+}
+
+[data-theme="light"] .skill-pill {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 8px;
+  color: #0F172A;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="light"] .skill-pill:hover {
+  background: #FFFFFF;
+  border-color: #0F172A;
+  color: #0F172A;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .pill-blue   { border-color: var(--border-color); }
+[data-theme="light"] .pill-purple { border-color: #D8B4FE; color: #6B21A8; background: #FAF5FF; }
+[data-theme="light"] .pill-orange { border-color: #FDBA74; color: #9A3412; background: #FFF7ED; }
+[data-theme="light"] .pill-yellow { border-color: #FCD34D; color: #92400E; background: #FEFCE8; }
+[data-theme="light"] .pill-green  { border-color: #86EFAC; color: #065F46; background: #ECFDF5; }
+
+[data-theme="light"] .dot-blue   { background: #0F172A; box-shadow: 0 0 4px rgba(15, 23, 42, 0.4); }
+[data-theme="light"] .dot-purple { background: #7C3AED; box-shadow: 0 0 4px rgba(124, 58, 237, 0.4); }
+[data-theme="light"] .dot-orange { background: #EA580C; box-shadow: 0 0 4px rgba(234, 88, 12, 0.4); }
+[data-theme="light"] .dot-yellow { background: #D97706; box-shadow: 0 0 4px rgba(217, 119, 6, 0.4); }
+
+[data-theme="light"] .skills-learn-section {
+  border-top: 1.5px solid var(--border-subtle);
+}

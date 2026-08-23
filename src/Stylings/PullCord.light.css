@@ -1,0 +1,38 @@
+/* ============================================================
+   PULL CORD THEME TOGGLE (Light Theme Overrides — 2D Vector Physics)
+============================================================ */
+
+[data-theme="light"] .pull-cord {
+  --chain-bead: #475569;
+  --bulb-base: #334155;
+  --bulb-glass: rgba(15, 23, 42, 0.12);
+  --bulb-filament: #D97706;
+  --bulb-glow: rgba(245, 158, 11, 0.3);
+  --hint-color: #64748B;
+}
+
+[data-theme="light"] .pull-cord__mount {
+  background: #334155;
+  border-color: #0F172A;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.2);
+}
+
+[data-theme="light"] .pull-cord__mount-ring {
+  border-color: #94A3B8;
+}
+
+[data-theme="light"] .pull-cord__svg-canvas {
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.15));
+}
+
+[data-theme="light"] .pull-cord__bulb {
+  filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.15));
+}
+
+[data-theme="light"] .pull-cord__bulb:hover {
+  filter: brightness(1.1) drop-shadow(0 6px 14px rgba(15, 23, 42, 0.22));
+}
+
+[data-theme="light"] .pull-cord__bulb::before {
+  background: rgba(255, 255, 255, 0.85);
+}

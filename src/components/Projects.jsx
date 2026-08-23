@@ -1,45 +1,42 @@
 import "../Stylings/Projects.css";
 import { useState } from "react";
+import { FiLayers, FiExternalLink, FiGithub } from "react-icons/fi";
 
-import { FiLayers } from "react-icons/fi";
-
-// Brand / tech stack icons
+// Tech stack icons
 import { DiJava, DiMysql, DiDocker, DiHtml5, DiCss3 } from "react-icons/di";
 import { SiSpringboot, SiPython, SiJavascript } from "react-icons/si";
 
 import ProjectDetail from "./ProjectDetail";
 import aiNoiseRemoverImg from "../assets/ai-noise-remover.png";
 
-// Each project follows this shape — add a new object here to add a new card.
-// image: import the screenshot from src/assets, same as aiNoiseRemoverImg above.
 const projects = [
   {
     id: "ai-noise-remover",
-    title: "AI Noise Remover",
-    tagline: "Upload audio, strip background noise, download it clean.",
+    title: "AI Audio Noise Remover",
+    tagline: "High-throughput audio processing web engine for AI-powered noise reduction.",
     description:
-      "A web application that uses AI-powered noise reduction to clean audio files. Users can upload recordings, process them through the backend, and download the cleaned version.",
+      "A distributed web application that uses deep learning audio separation algorithms to clean noisy audio recordings. Features a Spring Boot REST API orchestrating Python AI processing scripts, secure file handling, asynchronous job processing, and containerized deployment.",
     image: aiNoiseRemoverImg,
     featured: true,
     tech: [
-      { label: "Java", icon: <DiJava color="#E76F00" size={14} /> },
-      { label: "Spring Boot", icon: <SiSpringboot color="#6DB33F" size={12} /> },
-      { label: "Python", icon: <SiPython color="#3776AB" size={12} /> },
-      { label: "MySQL", icon: <DiMysql color="#00758F" size={16} /> },
-      { label: "HTML", icon: <DiHtml5 color="#E34F26" size={14} /> },
-      { label: "CSS", icon: <DiCss3 color="#1572B6" size={14} /> },
-      { label: "JavaScript", icon: <SiJavascript color="#F7DF1E" size={12} /> },
-      { label: "Docker", icon: <DiDocker color="#2496ED" size={16} /> },
+      { label: "Java", icon: <DiJava color="#E76F00" size={16} /> },
+      { label: "Spring Boot", icon: <SiSpringboot color="#6DB33F" size={14} /> },
+      { label: "Python", icon: <SiPython color="#38BDF8" size={14} /> },
+      { label: "MySQL", icon: <DiMysql color="#00758F" size={18} /> },
+      { label: "Docker", icon: <DiDocker color="#2496ED" size={18} /> },
+      { label: "HTML5", icon: <DiHtml5 color="#E34F26" size={16} /> },
+      { label: "CSS3", icon: <DiCss3 color="#1572B6" size={16} /> },
+      { label: "JavaScript", icon: <SiJavascript color="#F7DF1E" size={14} /> },
     ],
     features: [
-      "Upload Audio Files",
-      "AI Noise Reduction",
-      "Download Clean Audio",
-      "REST API Integration",
-      "File Processing",
+      "High-efficiency audio upload & validation pipeline",
+      "AI spectral subtraction & noise reduction processing",
+      "RESTful API endpoints with multipart file streaming",
+      "Clean audio download with optimized storage management",
+      "Dockerized container containerization for scalable deployment",
     ],
     learnings:
-      "Spring Boot development, REST APIs, backend integration with Python, file handling, Docker basics, and deployment workflows.",
+      "Engineered full-stack Java Spring Boot architecture, cross-language process orchestration with Python AI models, relational database indexing in MySQL, multipart file buffer optimization, and containerization with Docker.",
     github: "https://github.com/sidharthakuna/Ai-BackgroundNoice-Remover",
     demo: "https://ai-backgroundnoice-remover.onrender.com",
   },
@@ -60,9 +57,9 @@ function Projects() {
     <section id="projects" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
         <span className="project-icon-box" aria-hidden="true">
-          <FiLayers size={20} />
+          <FiLayers size={18} />
         </span>
-        Projects
+        Featured Projects
       </div>
 
       <div className="project-grid">
@@ -78,17 +75,50 @@ function Projects() {
           >
             <div className="project-img-wrap">
               <img src={proj.image} alt={proj.title} className="project-img" />
-              {proj.featured && <span className="project-card-featured">Featured</span>}
+              {proj.featured && <span className="project-card-featured">Featured Architecture</span>}
+              <div className="project-card-overlay">
+                <span className="project-card-view-btn">Inspect Architecture &rarr;</span>
+              </div>
             </div>
 
             <div className="project-card-info">
-              <div className="project-card-title">{proj.title}</div>
-              <div className="project-card-desc">{proj.tagline}</div>
+              <div className="project-card-header">
+                <h3 className="project-card-title">{proj.title}</h3>
+                <div className="project-card-quick-links" onClick={(e) => e.stopPropagation()}>
+                  {proj.github && (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-quick-link"
+                      aria-label="GitHub Repo"
+                      title="View GitHub Repository"
+                    >
+                      <FiGithub size={15} />
+                    </a>
+                  )}
+                  {proj.demo && (
+                    <a
+                      href={proj.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-quick-link"
+                      aria-label="Live Demo"
+                      title="View Live Demo"
+                    >
+                      <FiExternalLink size={15} />
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <p className="project-card-desc">{proj.tagline}</p>
 
               <div className="project-card-tags">
                 {proj.tech.slice(0, 6).map(({ label, icon }) => (
-                  <span className="stack-logo" key={label} title={label}>
-                    {icon}
+                  <span className="stack-tag-pill" key={label} title={label}>
+                    <span className="stack-logo">{icon}</span>
+                    <span>{label}</span>
                   </span>
                 ))}
               </div>

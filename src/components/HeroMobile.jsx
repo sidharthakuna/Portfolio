@@ -1,8 +1,18 @@
 import "../Stylings/HeroMobile.css";
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaJava } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiSpringboot, SiMysql, SiDocker } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { FiArrowRight, FiMail } from "react-icons/fi";
+
+const STACK_MOBILE = [
+  { icon: <FaJava style={{ color: "#E76F00" }} />, label: "Java" },
+  { icon: <SiSpringboot style={{ color: "#6DB33F" }} />, label: "Spring Boot" },
+  { icon: <TbApi style={{ color: "#38BDF8" }} />, label: "REST APIs" },
+  { icon: <SiMysql style={{ color: "#00758F" }} />, label: "MySQL" },
+  { icon: <SiDocker style={{ color: "#2496ED" }} />, label: "Docker" },
+];
 
 function HeroMobile() {
   const [typedText, setTypedText] = useState("");
@@ -25,12 +35,7 @@ function HeroMobile() {
 
   const scrollToProjects = () => {
     const section = document.getElementById("projects");
-
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToContact = () => {
@@ -39,62 +44,75 @@ function HeroMobile() {
   };
 
   return (
-    <div id="home" className="hero fade-in">
-      <div>
-        <div className="badge">Aspiring Java Backend Developer</div><br></br>
-        <p
-          style={{
-            fontSize: "16px",
-            color: "#8B949E",
-            marginBottom: "4px",
-          }}
-        >
+    <section id="home" className="hero fade-in">
+      <div className="hero-mobile-container">
+        {/* Availability Badge */}
+        <div className="badge">
+          <span className="badge-pulse" aria-hidden="true" />
+          <span>Java Backend Developer</span>
+        </div>
+
+        <p className="hero-mobile-salute">
           Hi, I'm
         </p>
 
+        {/* Typewriter Name */}
         <h1 className="hero-name">
           <span className="accent">{typedText}</span>
-          <span className="cursor"> </span>
+          <span className="cursor" aria-hidden="true"> </span>
         </h1>
 
-        <hr className="name-underline" />
+        <div className="name-underline" aria-hidden="true" />
 
         <p className="subtitle">
-          Java Backend Developer | Spring Boot Enthusiast
+          Building Scalable Backend Systems with <span className="subtitle-highlight">Java &amp; Spring Boot</span>
         </p>
 
         <p className="desc">
-          I build scalable backend applications using
-          Java, Spring Boot, REST APIs, and databases.
-          Currently learning cloud technologies and
-          exploring new possibilities.
+          Computer Science undergrad crafting resilient microservices, REST APIs, and databases. Passionate about clean architecture, cloud infrastructure, and algorithms.
         </p>
 
+        {/* Mobile Tech Stack Chips */}
+        <div className="hero-mobile-stack">
+          {STACK_MOBILE.map((item) => (
+            <span className="hero-mobile-chip" key={item.label}>
+              {item.icon}
+              <span>{item.label}</span>
+            </span>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
         <div className="btn-row">
           <button
             className="btn-primary"
             onClick={scrollToProjects}
           >
-            View Projects →
+            <span>View Projects</span>
+            <FiArrowRight size={14} />
           </button>
 
-          <button className="btn-outline" onClick={()=> window.open("https://github.com/sidharthakuna", "_blank")}>
-            <FaGithub size={13} /> GitHub
+          <button className="btn-outline" onClick={() => window.open("https://github.com/sidharthakuna", "_blank")}>
+            <FaGithub size={14} />
+            <span>GitHub Profile</span>
           </button>
 
           <button className="btn-outline" onClick={scrollToContact}>
-            ✉ Contact Me
+            <FiMail size={14} />
+            <span>Get in Touch</span>
           </button>
         </div>
 
+        {/* Social Icons */}
         <div className="social-row">
           <a
             href="https://github.com/sidharthakuna"
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub Profile"
           >
-            <FaGithub />
+            <FaGithub size={16} />
           </a>
 
           <a
@@ -102,8 +120,9 @@ function HeroMobile() {
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
           >
-            <FaLinkedinIn />
+            <FaLinkedinIn size={16} />
           </a>
 
           <a
@@ -111,8 +130,9 @@ function HeroMobile() {
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LeetCode Profile"
           >
-            <SiLeetcode />
+            <SiLeetcode size={16} />
           </a>
 
           <a
@@ -120,12 +140,13 @@ function HeroMobile() {
             className="social-icon"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Email Sidhartha Kuna"
           >
-            <MdEmail />
+            <MdEmail size={17} />
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

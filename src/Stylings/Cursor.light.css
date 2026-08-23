@@ -1,0 +1,19 @@
+/* ============================================================
+   CUSTOM LERP CURSOR (Light Theme Overrides)
+============================================================ */
+
+[data-theme="light"] .cursor-dot {
+  background-color: #0F172A;
+  box-shadow: 0 0 8px rgba(15, 23, 42, 0.5);
+}
+
+[data-theme="light"] .cursor-ring {
+  border-color: rgba(15, 23, 42, 0.4);
+  box-shadow: 0 0 12px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .cursor-ring.cursor-ring--hover {
+  border-color: #0F172A;
+  background-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 0 16px rgba(15, 23, 42, 0.25);
+}

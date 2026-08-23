@@ -1,0 +1,197 @@
+/* ============================================================
+   JOURNEY / TIMELINE (Dark Theme Base — Luminous Spectrum)
+============================================================ */
+
+:root {
+  --journey-c1: #C084FC; /* Electric Purple */
+  --journey-c2: #38BDF8; /* Electric Cyan */
+  --journey-c3: #FB7185; /* Electric Rose */
+  --journey-c4: #FBBF24; /* Electric Amber */
+  --journey-c5: #34D399; /* Electric Emerald */
+
+  --journey-glow-1: rgba(192, 132, 252, 0.4);
+  --journey-glow-2: rgba(56, 189, 248, 0.4);
+  --journey-glow-3: rgba(251, 113, 133, 0.4);
+  --journey-glow-4: rgba(251, 191, 36, 0.4);
+  --journey-glow-5: rgba(52, 211, 153, 0.45);
+
+  --journey-line-grad: linear-gradient(90deg, #C084FC 0%, #38BDF8 25%, #FB7185 50%, #FBBF24 75%, #34D399 100%);
+}
+
+.journey-icon-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.journey-card {
+  padding: 40px 48px;
+}
+
+.timeline-wrap {
+  position: relative;
+  padding: 16px 0;
+}
+
+/* ── Straight Laser Line (Web) ──────────────────────────────── */
+.timeline-wrap--web .timeline-line {
+  position: absolute;
+  top: 52px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.95;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-wrap--web .timeline-line-glow {
+  position: absolute;
+  top: 50px;
+  left: 5%;
+  right: 5%;
+  height: 8px;
+  background: var(--tl-hover-color, transparent);
+  border-radius: 999px;
+  filter: blur(8px);
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* ── Web Layout ─────────────────────────────────────────────── */
+.timeline--web {
+  display: flex;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Mobile Layout ──────────────────────────────────────────── */
+.timeline--mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Shared Item Styles ─────────────────────────────────────── */
+.t-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+.timeline--mobile .t-item {
+  flex: unset;
+  padding: 12px 8px;
+}
+
+.t-circle-wrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.t-rings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 84px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.t-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: #060709;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.t-item:hover .t-circle {
+  transform: scale(1.14);
+}
+
+.t-item:hover .t-rings circle {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.t-circle--now {
+  animation: greenPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes spinCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes greenPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35), 0 0 20px rgba(16, 185, 129, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.1), 0 0 8px rgba(16, 185, 129, 0.25);
+  }
+}
+
+.t-year {
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.t-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ── Snake SVG (Mobile) ─────────────────────────────────────── */
+.snake-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}

@@ -1,74 +1,44 @@
 import "../Stylings/CodingProfiles.css";
-import { FiCode } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { SiLeetcode, SiCodechef, SiHackerrank } from "react-icons/si";
+import { FiCode, FiArrowRight } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const profiles = [
   {
+    id: "leetcode",
     name: "LeetCode",
-    icon: <SiLeetcode size={26} />,
-    color: "#FFA116",
-    glow: "rgba(255, 161, 22, 0.15)",
-    border: "rgba(255, 161, 22, 0.3)",
+    icon: <SiLeetcode size={28} />,
+    badge: "Algorithmic Problem Solving",
     stats: [
-      { label: "Problems Solved", value: "76" },
+      { label: "Problems Solved", value: "76+" },
       { label: "Contest Rating", value: "1,298" },
     ],
     link: "https://leetcode.com/u/SidharthaKuna/",
-    cta: "View Profile",
+    cta: "View LeetCode Profile",
   },
-  /*{
-    name: "CodeChef",
-    icon: <SiCodechef size={26} />,
-    color: "#5B4638",
-    glow: "rgba(91, 70, 56, 0.2)",
-    border: "rgba(91, 70, 56, 0.4)",
-    stats: [
-      { label: "Star Coder", value: "3★" },
-      { label: "Global Rank", value: "15672" },
-    ],
-    link: "https://www.codechef.com/",
-    cta: "View Profile",
-  },*/
- /* {
-    name: "HackerRank",
-    icon: <SiHackerrank size={26} />,
-    color: "#00EA64",
-    glow: "rgba(0, 234, 100, 0.1)",
-    border: "rgba(0, 234, 100, 0.25)",
-    stats: [
-      { label: "Java Rating", value: "5★" },
-      { label: "Specialty", value: "Problem Solving" },
-    ],
-    link: "https://www.hackerrank.com/",
-    cta: "View Profile",
-  },*/
   {
+    id: "github",
     name: "GitHub",
-    icon: <FaGithub size={26} />,
-    color: "#E6EDF3",
-    glow: "rgba(230, 237, 243, 0.06)",
-    border: "rgba(230, 237, 243, 0.15)",
+    icon: <FaGithub size={28} />,
+    badge: "Open Source Repositories",
     stats: [
-      { label: "Repositories", value: "8" },
-      { label: "Contributions", value: "58" },
+      { label: "Public Repos", value: "8" },
+      { label: "Yearly Contributions", value: "58+" },
     ],
     link: "https://github.com/sidharthakuna",
-    cta: "View GitHub",
+    cta: "Explore GitHub",
   },
   {
+    id: "linkedin",
     name: "LinkedIn",
-    icon: <FaLinkedinIn size={24} />,
-    color: "#0A66C2",
-    glow: "rgba(10, 102, 194, 0.12)",
-    border: "rgba(10, 102, 194, 0.3)",
+    icon: <FaLinkedinIn size={26} />,
+    badge: "Professional Network",
     stats: [
-      { label: "Profile", value: "Let's Connect" },
-      { label: "Handle", value: "/sidharthakuna" },
+      { label: "Network", value: "Let's Connect" },
+      { label: "Handle", value: "@sidharthakuna" },
     ],
     link: "https://www.linkedin.com/in/sidharthakuna/",
-    cta: "Connect",
+    cta: "Connect on LinkedIn",
   },
 ];
 
@@ -76,43 +46,34 @@ function CodingProfiles() {
   return (
     <section id="coding-profiles" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
-        <span className="cp-icon-box">
+        <span className="cp-icon-box" aria-hidden="true">
           <FiCode size={18} />
         </span>
-        Coding Profiles
+        Coding &amp; Professional Profiles
       </div>
 
       <div className="cp-grid">
-        {profiles.map((p, i) => (
+        {profiles.map((p) => (
           <div
-            className="cp-card"
-            key={i}
-            style={{
-              ["--cp-glow"]: p.glow,
-              ["--cp-border"]: p.border,
-              ["--cp-color"]: p.color,
-            }}
+            className={`cp-card cp-card--${p.id}`}
+            key={p.id}
           >
             {/* Header */}
             <div className="cp-header">
-              <div
-                className="cp-icon-wrap"
-                style={{
-                  background: p.glow,
-                  border: `1px solid ${p.border}`,
-                  color: p.color,
-                }}
-              >
+              <div className={`cp-icon-wrap cp-icon-wrap--${p.id}`}>
                 {p.icon}
               </div>
-              <span className="cp-name">{p.name}</span>
+              <div className="cp-title-wrap">
+                <h3 className="cp-name">{p.name}</h3>
+                <span className="cp-badge">{p.badge}</span>
+              </div>
             </div>
 
-            {/* Stats */}
+            {/* Stats Matrix */}
             <div className="cp-stats">
               {p.stats.map((s) => (
                 <div className="cp-stat" key={s.label}>
-                  <div className="cp-stat-value" style={{ color: p.color }}>
+                  <div className={`cp-stat-value cp-stat-value--${p.id}`}>
                     {s.value}
                   </div>
                   <div className="cp-stat-label">{s.label}</div>
@@ -120,15 +81,15 @@ function CodingProfiles() {
               ))}
             </div>
 
-            {/* Link */}
+            {/* CTA Link */}
             <a
               href={p.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="cp-link"
-              style={{ color: p.color, borderColor: p.border }}
+              className={`cp-link cp-link--${p.id}`}
             >
-              {p.cta} →
+              <span>{p.cta}</span>
+              <FiArrowRight size={14} />
             </a>
           </div>
         ))}

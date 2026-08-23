@@ -11,17 +11,15 @@ import "../../Stylings/Journey.css";
 
 const COLS = 2;
 
-// Mobile keeps original order: Java → Web Dev → AI Noise Remover → Spring Boot → Now
 const stopsMobile = [
   {
     year: "2024",
-    title: "Started Java",
+    title: "Java Fundamentals",
     icon: <FaCoffee size={18} />,
-    color: "#A371F7",
-    glow: "rgba(163,113,247,0.3)",
-    yearColor: "#A371F7",
-    outerSpeed: "8s",
-    innerSpeed: "5s",
+    colorVar: "var(--journey-c1)",
+    glowVar: "var(--journey-glow-1)",
+    outerSpeed: "7s",
+    innerSpeed: "4.5s",
     outerDash: "12 8",
     innerDash: "6 10",
   },
@@ -29,21 +27,19 @@ const stopsMobile = [
     year: "2024",
     title: "Web Development",
     icon: <MdOutlineDashboard size={20} />,
-    color: "#58A6FF",
-    glow: "rgba(88,166,255,0.3)",
-    yearColor: "#58A6FF",
+    colorVar: "var(--journey-c2)",
+    glowVar: "var(--journey-glow-2)",
     outerSpeed: "6s",
-    innerSpeed: "4s",
+    innerSpeed: "3.5s",
     outerDash: "14 6",
     innerDash: "8 8",
   },
   {
     year: "2026",
-    title: "AI Noise Remover",
+    title: "AI Audio Engine",
     icon: <MdOutlineMic size={20} />,
-    color: "#E09B3D",
-    glow: "rgba(224,155,61,0.3)",
-    yearColor: "#E09B3D",
+    colorVar: "var(--journey-c4)",
+    glowVar: "var(--journey-glow-4)",
     outerSpeed: "4s",
     innerSpeed: "2.5s",
     outerDash: "18 4",
@@ -51,23 +47,21 @@ const stopsMobile = [
   },
   {
     year: "2025",
-    title: "Spring Boot",
+    title: "Spring Boot APIs",
     icon: <MdOutlineStorage size={20} />,
-    color: "#F47067",
-    glow: "rgba(244,112,103,0.3)",
-    yearColor: "#F47067",
+    colorVar: "var(--journey-c3)",
+    glowVar: "var(--journey-glow-3)",
     outerSpeed: "5s",
     innerSpeed: "3s",
     outerDash: "16 5",
     innerDash: "10 6",
   },
   {
-    year: "Now",
-    title: "Learning & Growing",
+    year: "Present",
+    title: "Cloud & DSA",
     icon: <MdRocketLaunch size={20} />,
-    color: "#3FB950",
-    glow: "rgba(63,185,80,0.4)",
-    yearColor: "#3FB950",
+    colorVar: "var(--journey-c5)",
+    glowVar: "var(--journey-glow-5)",
     isNow: true,
     outerSpeed: "2.5s",
     innerSpeed: "1.5s",
@@ -99,51 +93,45 @@ function JourneyMobile() {
       if (circles.some((c) => !c)) return;
 
       const R = 32;
-      const PAD = 16;
-      const rightEdge = wrapW - PAD;
-      const leftEdge = PAD;
+      const ROW_EDGE_PAD = 18;
+      const rightEdgeX = wrapW - ROW_EDGE_PAD;
+      const leftEdgeX  = ROW_EDGE_PAD;
 
-      let d = `M ${circles[0].x} ${circles[0].y}`;
-      let wrapCount = 0;
+      let d = "";
 
-      for (let i = 1; i < circles.length; i++) {
-        const p = circles[i - 1];
-        const c = circles[i];
+      // ── SEGMENT 0: Stop 0 -> Stop 1 (Row 0: L -> R)
+      d += `M ${circles[0].x} ${circles[0].y} `;
+      d += `L ${circles[1].x} ${circles[1].y} `;
 
-        const prevRow = Math.floor((i - 1) / COLS);
-        const currRow = Math.floor(i / COLS);
-        const sameRow = prevRow === currRow;
+      // ── TURN 0: Row 0 Right -> Row 1 Right (U-turn on RIGHT side)
+      d += `L ${rightEdgeX - R} ${circles[1].y} `;
+      d += `A ${R} ${R} 0 0 1 ${rightEdgeX} ${circles[1].y + R} `;
+      d += `L ${rightEdgeX} ${circles[2].y - R} `;
+      d += `A ${R} ${R} 0 0 1 ${rightEdgeX - R} ${circles[2].y} `;
 
-        if (sameRow) {
-          d += ` L ${c.x} ${c.y}`;
-        } else {
-          const useRightEdge = wrapCount % 2 === 0;
+      // ── SEGMENT 1: Stop 2 -> Stop 3 (Row 1: R -> L)
+      d += `L ${circles[3].x} ${circles[3].y} `;
 
-          if (useRightEdge) {
-            d += ` H ${rightEdge - R}`;
-            d += ` Q ${rightEdge} ${p.y} ${rightEdge} ${p.y + R}`;
-            d += ` V ${c.y - R}`;
-            d += ` Q ${rightEdge} ${c.y} ${rightEdge - R} ${c.y}`;
-            d += ` H ${c.x}`;
-          } else {
-            d += ` H ${leftEdge + R}`;
-            d += ` Q ${leftEdge} ${p.y} ${leftEdge} ${p.y + R}`;
-            d += ` V ${c.y - R}`;
-            d += ` Q ${leftEdge} ${c.y} ${leftEdge + R} ${c.y}`;
-            d += ` H ${c.x}`;
-          }
+      // ── TURN 1: Row 1 Left -> Row 2 Left (U-turn on LEFT side)
+      d += `L ${leftEdgeX + R} ${circles[3].y} `;
+      d += `A ${R} ${R} 0 0 0 ${leftEdgeX} ${circles[3].y + R} `;
+      d += `L ${leftEdgeX} ${circles[4].y - R} `;
+      d += `A ${R} ${R} 0 0 0 ${leftEdgeX + R} ${circles[4].y} `;
 
-          wrapCount++;
-        }
-      }
+      // ── SEGMENT 2: into Stop 4 (Row 2: L -> Stop 4)
+      d += `L ${circles[4].x} ${circles[4].y}`;
 
       setSnakePath(d);
     };
 
-    const id = setTimeout(buildPath, 50);
+    buildPath();
+
+    const ro = new ResizeObserver(() => buildPath());
+    if (wrapRef.current) ro.observe(wrapRef.current);
+
     window.addEventListener("resize", buildPath);
     return () => {
-      clearTimeout(id);
+      ro.disconnect();
       window.removeEventListener("resize", buildPath);
     };
   }, []);
@@ -158,20 +146,20 @@ function JourneyMobile() {
   return (
     <section id="journey" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
-        <span className="journey-icon-box">
-          <FiCompass size={20} />
+        <span className="journey-icon-box" aria-hidden="true">
+          <FiCompass size={18} />
         </span>
-        Journey
+        Evolutionary Journey
       </div>
 
-      <div className="card">
+      <div className="card journey-card">
         <div className="timeline-wrap" ref={wrapRef}>
           <div className="timeline timeline--mobile">
             {stopsMobile.map((s, i) => (
               <div
                 className="t-item"
                 key={i}
-                onMouseEnter={() => handleHover(s.color)}
+                onMouseEnter={() => handleHover(s.colorVar)}
                 onMouseLeave={handleLeave}
               >
                 <div
@@ -188,9 +176,9 @@ function JourneyMobile() {
                       cy="40"
                       r="28"
                       fill="none"
-                      stroke={s.color}
-                      strokeWidth="1"
-                      opacity="0.2"
+                      stroke={s.colorVar}
+                      strokeWidth="1.4"
+                      opacity="0.3"
                       strokeDasharray={s.innerDash}
                       strokeLinecap="round"
                       style={{
@@ -201,9 +189,9 @@ function JourneyMobile() {
                     <circle
                       cx="40"
                       cy="4"
-                      r="2.5"
-                      fill={s.color}
-                      opacity="0.7"
+                      r="2.8"
+                      fill={s.colorVar}
+                      opacity="0.85"
                       style={{
                         animation: `spinCW ${s.outerSpeed} linear infinite`,
                         transformOrigin: "40px 40px",
@@ -212,9 +200,9 @@ function JourneyMobile() {
                     <circle
                       cx="40"
                       cy="12"
-                      r="1.8"
-                      fill={s.color}
-                      opacity="0.5"
+                      r="2"
+                      fill={s.colorVar}
+                      opacity="0.65"
                       style={{
                         animation: `spinCCW ${s.innerSpeed} linear infinite`,
                         transformOrigin: "40px 40px",
@@ -224,16 +212,16 @@ function JourneyMobile() {
                   <div
                     className={`t-circle${s.isNow ? " t-circle--now" : ""}`}
                     style={{
-                      borderColor: s.color,
-                      color: s.color,
-                      boxShadow: `0 0 0 2px ${s.glow}`,
+                      borderColor: s.colorVar,
+                      color: s.colorVar,
+                      boxShadow: `0 0 0 2.5px ${s.glowVar}`,
                     }}
                   >
                     {s.icon}
                   </div>
                 </div>
 
-                <div className="t-year" style={{ color: s.yearColor }}>
+                <div className="t-year" style={{ color: s.colorVar }}>
                   {s.year}
                 </div>
                 <div className="t-title">{s.title}</div>
@@ -245,18 +233,18 @@ function JourneyMobile() {
             <svg className="snake-svg" aria-hidden="true">
               <defs>
                 <linearGradient id="snakeGradMobile" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stopColor="#A371F7" />
-                  <stop offset="25%"  stopColor="#58A6FF" />
-                  <stop offset="60%"  stopColor="#E09B3D" />
-                  <stop offset="80%"  stopColor="#F47067" />
-                  <stop offset="100%" stopColor="#3FB950" />
+                  <stop offset="0%"   stopColor="var(--journey-c1)" />
+                  <stop offset="25%"  stopColor="var(--journey-c2)" />
+                  <stop offset="60%"  stopColor="var(--journey-c4)" />
+                  <stop offset="80%"  stopColor="var(--journey-c3)" />
+                  <stop offset="100%" stopColor="var(--journey-c5)" />
                 </linearGradient>
               </defs>
               <path
                 d={snakePath}
                 fill="none"
                 stroke="url(#snakeGradMobile)"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

@@ -1,0 +1,136 @@
+/* ============================================================
+   CODING PROFILES (Light Theme Overrides — Darker Defined Cards)
+============================================================ */
+
+[data-theme="light"] .cp-icon-box {
+  background: #EEF2FF;
+  border: 1.5px solid #C7D2FE;
+  color: #4F46E5;
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.1);
+}
+
+[data-theme="light"] .cp-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .cp-card:hover {
+  transform: translateY(-3px);
+  border-color: #0F172A;
+  box-shadow: var(--card-shadow-hover);
+}
+
+[data-theme="light"] .cp-card--leetcode:hover {
+  border-color: #D97706;
+  box-shadow: 0 12px 30px -4px rgba(217, 119, 6, 0.15), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .cp-card--github:hover {
+  border-color: #0F172A;
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.15), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .cp-card--linkedin:hover {
+  border-color: #0A66C2;
+  box-shadow: 0 12px 30px -4px rgba(10, 102, 194, 0.15), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .cp-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .cp-badge {
+  color: #475569;
+  font-weight: 600;
+}
+
+/* ── Icon Wraps in Light Mode ───────────────────────────────── */
+[data-theme="light"] .cp-icon-wrap--leetcode {
+  background: #FFFBEB;
+  border: 1.5px solid #FCD34D;
+  color: #D97706;
+  border-radius: 12px;
+}
+
+[data-theme="light"] .cp-icon-wrap--github {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border-color);
+  color: #0F172A;
+  border-radius: 12px;
+}
+
+[data-theme="light"] .cp-icon-wrap--linkedin {
+  background: #EFF6FF;
+  border: 1.5px solid #93C5FD;
+  color: #0A66C2;
+  border-radius: 12px;
+}
+
+/* ── Stats in Light Mode ────────────────────────────────────── */
+[data-theme="light"] .cp-stats {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+[data-theme="light"] .cp-stat-value--leetcode {
+  color: #D97706;
+}
+
+[data-theme="light"] .cp-stat-value--github {
+  color: #0F172A;
+}
+
+[data-theme="light"] .cp-stat-value--linkedin {
+  color: #0A66C2;
+}
+
+[data-theme="light"] .cp-stat-label {
+  color: #475569;
+  font-weight: 700;
+}
+
+/* ── CTA Links in Light Mode ────────────────────────────────── */
+[data-theme="light"] .cp-link--leetcode {
+  color: #B45309;
+  border: 1.5px solid #FCD34D;
+  background: #FFFBEB;
+  border-radius: 10px;
+}
+
+[data-theme="light"] .cp-link--leetcode:hover {
+  background: #D97706;
+  color: #FFFFFF;
+  border-color: #D97706;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
+}
+
+[data-theme="light"] .cp-link--github {
+  color: #0F172A;
+  border: 1.5px solid var(--border-color);
+  background: #F8FAFC;
+  border-radius: 10px;
+}
+
+[data-theme="light"] .cp-link--github:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+}
+
+[data-theme="light"] .cp-link--linkedin {
+  color: #0A66C2;
+  border: 1.5px solid #93C5FD;
+  background: #EFF6FF;
+  border-radius: 10px;
+}
+
+[data-theme="light"] .cp-link--linkedin:hover {
+  background: #0A66C2;
+  color: #FFFFFF;
+  border-color: #0A66C2;
+  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.25);
+}

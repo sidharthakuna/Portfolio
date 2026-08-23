@@ -1,0 +1,293 @@
+/* ============================================================
+   CODING PROFILES (Dark Theme Base)
+============================================================ */
+
+.cp-icon-box {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* ── Grid — 3 Wide Columns on Desktop ───────────────────────── */
+.cp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.cp-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.cp-card--leetcode:hover {
+  border-color: rgba(255, 161, 22, 0.5);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 161, 22, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.cp-card--github:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.cp-card--linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.5);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.95), 0 0 30px rgba(10, 102, 194, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.cp-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cp-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.cp-icon-wrap--leetcode {
+  background: rgba(255, 161, 22, 0.1);
+  border: 1px solid rgba(255, 161, 22, 0.35);
+  color: #FFA116;
+}
+
+.cp-icon-wrap--github {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.cp-icon-wrap--linkedin {
+  background: rgba(10, 102, 194, 0.1);
+  border: 1px solid rgba(10, 102, 194, 0.35);
+  color: #0A66C2;
+}
+
+.cp-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cp-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.cp-badge {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Stats ──────────────────────────────────────────────────── */
+.cp-stats {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 16px 20px;
+  border-radius: 14px;
+}
+
+.cp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.cp-stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.cp-stat-value--leetcode {
+  color: #FFA116;
+}
+
+.cp-stat-value--github {
+  color: #FFFFFF;
+}
+
+.cp-stat-value--linkedin {
+  color: #0A66C2;
+}
+
+.cp-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+/* ── CTA Link ───────────────────────────────────────────────── */
+.cp-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: auto;
+}
+
+.cp-link--leetcode {
+  color: #FFA116;
+  border-color: rgba(255, 161, 22, 0.35);
+}
+
+.cp-link--leetcode:hover {
+  background: rgba(255, 161, 22, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 161, 22, 0.2);
+}
+
+.cp-link--github {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.cp-link--github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.cp-link--linkedin {
+  color: #0A66C2;
+  border-color: rgba(10, 102, 194, 0.35);
+}
+
+.cp-link--linkedin:hover {
+  background: rgba(10, 102, 194, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10, 102, 194, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .cp-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .cp-card {
+    padding: 12px 10px;
+    border-radius: 12px;
+    gap: 8px;
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cp-header {
+    gap: 8px;
+  }
+
+  .cp-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .cp-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .cp-name {
+    font-size: 13.5px;
+  }
+
+  .cp-badge {
+    font-size: 9.5px;
+  }
+
+  .cp-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  .cp-stat {
+    padding: 4px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 1px;
+  }
+
+  .cp-stat-value {
+    font-size: 14px;
+  }
+
+  .cp-stat-label {
+    font-size: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .cp-link {
+    padding: 6px 8px;
+    font-size: 10.5px;
+    border-radius: 6px;
+    gap: 4px;
+    justify-content: center;
+  }
+}

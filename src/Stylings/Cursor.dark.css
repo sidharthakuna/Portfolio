@@ -1,0 +1,64 @@
+/* ============================================================
+   CUSTOM LERP CURSOR (Dark Theme Base)
+============================================================ */
+
+.cursor-wrapper {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: none;
+  overflow: hidden;
+}
+
+@media (pointer: fine) and (min-width: 768px) {
+  .cursor-wrapper {
+    display: block;
+  }
+}
+
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15), inset 0 0 8px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  opacity: 0;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Pure White/Platinum Specular Hover State */
+.cursor-ring.cursor-ring--hover {
+  width: 52px;
+  height: 52px;
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
+}

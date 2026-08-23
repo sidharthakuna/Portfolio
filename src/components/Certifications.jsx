@@ -1,28 +1,28 @@
 import "../Stylings/Certifications.css";
 import { FiAward } from "react-icons/fi";
 import { MdOutlineVerified } from "react-icons/md";
-
-// To add your certificate image:
-// 1. Save the image into src/assets/certs/ (e.g. java.png)
-// 2. Import it at the top: import javaCert from "../assets/certs/java.png";
-// 3. Replace null with the imported variable: image: javaCert
+import { FaJava } from "react-icons/fa";
 
 const certs = [
-  { title: "Java Programming", issuer: "Oracle",   year: "2024", accent: "#F80000", image: null },
- // { title: "Spring Boot 3",    issuer: "Udemy",    year: "2025", accent: "#A435F0", image: null },
- // { title: "SQL for Data Science", issuer: "Coursera", year: "2024", accent: "#0056D2", image: null },
-  //{ title: "DSA in Java",      issuer: "",    year: "2024", accent: "#A435F0", image: null },
- // { title: "Git & GitHub",     issuer: "", year: "2024", accent: "#0056D2", image: null },
+  {
+    title: "Java SE Programming & Core Architecture",
+    issuer: "Oracle / Java Certification",
+    year: "2024",
+    accent: "#F80000",
+    icon: <FaJava size={28} color="#E76F00" />,
+    image: null,
+    credentialId: "Verified Academic Credential",
+  },
 ];
 
 function Certifications() {
   return (
     <section id="certifications" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
-        <span className="cert-icon-box">
-          <FiAward size={20} />
+        <span className="cert-icon-box" aria-hidden="true">
+          <FiAward size={18} />
         </span>
-        Certifications
+        Certifications &amp; Credentials
       </div>
 
       <div className="cert-grid">
@@ -32,26 +32,24 @@ function Certifications() {
             key={i}
             style={{
               ["--cert-accent"]: cert.accent,
-              ["--cert-glow"]: cert.accent + "22",
+              ["--cert-glow"]: cert.accent + "25",
             }}
           >
-            {/* Photo placeholder / actual image */}
+            {/* Header Icon / Image Preview */}
             <div className="cert-img-wrap">
               {cert.image ? (
                 <img src={cert.image} alt={cert.title} className="cert-img" />
               ) : (
                 <div className="cert-placeholder">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
-                  </svg>
-                  <span>Add Photo</span>
+                  <div className="cert-placeholder-icon">
+                    {cert.icon}
+                  </div>
+                  <span className="cert-placeholder-tag">Certified Java Engineer</span>
                 </div>
               )}
             </div>
 
-            {/* Minimal text */}
+            {/* Meta details */}
             <div className="cert-info">
               <div className="cert-title">{cert.title}</div>
               <div className="cert-meta">
@@ -60,7 +58,10 @@ function Certifications() {
               </div>
             </div>
 
-            <MdOutlineVerified size={15} className="cert-verified" />
+            <div className="cert-verified-badge" title="Verified Certification">
+              <MdOutlineVerified size={16} />
+              <span>Verified</span>
+            </div>
           </div>
         ))}
       </div>

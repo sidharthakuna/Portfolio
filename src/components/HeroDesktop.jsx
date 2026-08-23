@@ -1,16 +1,20 @@
 import "../Stylings/HeroDesktop.css";
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaJava } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { SiLeetcode, SiSpringboot, SiMysql } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
-import { TbApi } from "react-icons/tb";
+import { SiLeetcode, SiSpringboot, SiMysql, SiDocker, SiPostgresql, SiHibernate } from "react-icons/si";
+import { TbApi, TbBrandGit } from "react-icons/tb";
+import { FiArrowRight, FiMail } from "react-icons/fi";
 
 const STACK = [
-  { icon: <FaJava />, label: "Java" },
-  { icon: <SiSpringboot />, label: "Spring Boot" },
-  { icon: <TbApi />, label: "REST APIs" },
-  { icon: <SiMysql />, label: "MySQL" },
+  { icon: <FaJava style={{ color: "#E76F00" }} />, label: "Java 21" },
+  { icon: <SiSpringboot style={{ color: "#6DB33F" }} />, label: "Spring Boot" },
+  { icon: <TbApi style={{ color: "#38BDF8" }} />, label: "REST APIs" },
+  { icon: <SiPostgresql style={{ color: "#94A3B8" }} />, label: "PostgreSQL" },
+  { icon: <SiMysql style={{ color: "#00758F" }} />, label: "MySQL" },
+  { icon: <SiDocker style={{ color: "#2496ED" }} />, label: "Docker" },
+  { icon: <SiHibernate style={{ color: "#BCAE79" }} />, label: "Hibernate / JPA" },
+  { icon: <TbBrandGit style={{ color: "#F05032" }} />, label: "Git & Version Control" },
 ];
 
 function HeroDesktop() {
@@ -45,96 +49,119 @@ function HeroDesktop() {
   };
 
   return (
-    <div id="home" className="hero-d fade-in">
-      <span className="hero-d__eyebrow">Aspiring Java Backend Developer</span>
+    <section id="home" className="hero-d fade-in">
+      <div className="hero-d__content">
+        {/* Eyebrow Badge */}
+        <div className="hero-d__eyebrow">
+          <span className="hero-d__pulse-dot" aria-hidden="true" />
+          <span>Available for Opportunities</span>
+        </div>
 
-      <h1 className="hero-d__name">
-        <span className="hero-d__accent">{typedText}</span>
-        <span
-          className={
-            "hero-d__cursor" +
-            (showCursorBlink ? " hero-d__cursor--blink" : "")
-          }
-        >
-          {" "}
-        </span>
-      </h1>
+        {/* Large Name Heading */}
+        <h1 className="hero-d__name">
+          <span className="hero-d__accent">{typedText}</span>
+          <span
+            className={
+              "hero-d__cursor" +
+              (showCursorBlink ? " hero-d__cursor--blink" : "")
+            }
+            aria-hidden="true"
+          >
+            {" "}
+          </span>
+        </h1>
 
-      <p className="hero-d__subtitle">
-        Java Backend Developer <span className="hero-d__dot">·</span> Spring
-        Boot Enthusiast
-      </p>
-
-      <div className="hero-d__row">
-        <p className="hero-d__desc">
-          I build scalable backend applications using Java, Spring Boot, REST
-          APIs, and databases. Currently learning cloud technologies and
-          exploring new possibilities.
+        {/* Subtitle & Description */}
+        <p className="hero-d__subtitle">
+          Engineering High-Throughput <span className="hero-d__sub-highlight">Spring Boot APIs</span> &amp; <span className="hero-d__sub-highlight">Distributed Systems</span>
         </p>
 
-        
-      </div>
+        <p className="hero-d__desc">
+          Computer Science undergraduate at Raghu Engineering College specializing in scalable backend architectures, relational database optimization, asynchronous event streaming, and algorithmic problem-solving.
+        </p>
 
-      <div className="hero-d__action-row">
-        <div className="hero-d__btn-row">
-          <button className="hero-d__btn-primary" onClick={scrollToProjects}>
-            View Projects →
-          </button>
-
-          <button
-            className="hero-d__btn-outline"
-            onClick={() =>
-              window.open("https://github.com/sidharthakuna", "_blank")
-            }
-          >
-            <FaGithub size={13} /> GitHub
-          </button>
-
-          <button className="hero-d__btn-outline" onClick={scrollToContact}>
-            ✉ Contact Me
-          </button>
+        {/* Core Stack Matrix */}
+        <div className="hero-d__stack-wrapper">
+          <span className="hero-d__stack-label">Core Tech Matrix:</span>
+          <div className="hero-d__stack">
+            {STACK.map((item) => (
+              <div className="hero-d__chip" key={item.label}>
+                <span className="hero-d__chip-icon">{item.icon}</span>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="hero-d__social-row">
-          <a
-            href="https://github.com/sidharthakuna"
-            className="hero-d__social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sidharthakuna/"
-            className="hero-d__social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn />
-          </a>
-          <a
-            href="https://leetcode.com/u/SidharthaKuna/"
-            className="hero-d__social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LeetCode"
-          >
-            <SiLeetcode />
-          </a>
-          <a
-            href="mailto:sidharthakuna@gmail.com"
-            className="hero-d__social-icon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-          >
-            <MdEmail />
-          </a>
+        {/* Action Row: CTAs & Social Links */}
+        <div className="hero-d__action-row">
+          <div className="hero-d__btn-row">
+            <button className="btn-primary hero-d__btn-primary" onClick={scrollToProjects}>
+              <span>View Featured Projects</span>
+              <FiArrowRight size={15} />
+            </button>
+
+            <button
+              className="btn-outline hero-d__btn-outline"
+              onClick={() =>
+                window.open("https://github.com/sidharthakuna", "_blank")
+              }
+            >
+              <FaGithub size={15} />
+              <span>GitHub Profile</span>
+            </button>
+
+            <button className="btn-outline hero-d__btn-outline" onClick={scrollToContact}>
+              <FiMail size={15} />
+              <span>Get in Touch</span>
+            </button>
+          </div>
+
+          <div className="hero-d__social-row">
+            <a
+              href="https://github.com/sidharthakuna"
+              className="hero-d__social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              title="GitHub Profile"
+            >
+              <FaGithub size={16} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sidharthakuna/"
+              className="hero-d__social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn Profile"
+            >
+              <FaLinkedinIn size={16} />
+            </a>
+            <a
+              href="https://leetcode.com/u/SidharthaKuna/"
+              className="hero-d__social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeetCode Profile"
+              title="LeetCode Profile"
+            >
+              <SiLeetcode size={16} />
+            </a>
+            <a
+              href="mailto:sidharthakuna@gmail.com"
+              className="hero-d__social-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Email Sidhartha Kuna"
+              title="Email Sidhartha"
+            >
+              <MdEmail size={17} />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

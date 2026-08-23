@@ -1,0 +1,38 @@
+/* ============================================================
+   FOOTER (Light Theme Overrides — Alabaster Luxe)
+============================================================ */
+
+[data-theme="light"] .footer-wrap {
+  background: rgba(255, 255, 255, 0.88);
+  border-top-color: #E2E8F0;
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.02);
+}
+
+[data-theme="light"] .footer-copy {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-divider {
+  color: #CBD5E1;
+}
+
+[data-theme="light"] .footer-link {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-link:hover {
+  color: #0F172A;
+}
+
+[data-theme="light"] .footer-link-icon {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: #E2E8F0;
+  color: #475569;
+}
+
+[data-theme="light"] .footer-link:hover .footer-link-icon {
+  color: #FFFFFF;
+  border-color: #0F172A;
+  background: #0F172A;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}

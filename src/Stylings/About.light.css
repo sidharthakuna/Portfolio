@@ -1,0 +1,98 @@
+/* ============================================================
+   ABOUT (Light Theme Overrides — Darker Defined Cards)
+============================================================ */
+
+[data-theme="light"] .about-icon-box {
+  background: #EEF2FF;
+  border: 1.5px solid #C7D2FE;
+  color: #4F46E5;
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.1);
+}
+
+[data-theme="light"] .about-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .about-left {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .about-avatar {
+  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
+}
+
+[data-theme="light"] .about-avatar:hover {
+  border-color: #0F172A;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+}
+
+[data-theme="light"] .about-avatar-ring {
+  background: conic-gradient(
+    rgba(15, 23, 42, 0.7),
+    rgba(148, 163, 184, 0.5),
+    var(--green),
+    rgba(203, 213, 225, 0.7),
+    rgba(15, 23, 42, 0.7)
+  );
+  opacity: 0.35;
+}
+
+[data-theme="light"] .about-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .about-role {
+  color: #0F172A;
+}
+
+[data-theme="light"] .about-college {
+  color: #475569;
+}
+
+[data-theme="light"] .about-open-badge {
+  background: #ECFDF5;
+  border: 1.5px solid #86EFAC;
+  color: #047857;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="light"] .about-text {
+  color: #334155;
+}
+
+[data-theme="light"] .about-highlight {
+  color: #0F172A;
+}
+
+[data-theme="light"] .about-divider {
+  border-top: 1.5px solid var(--border-color);
+}
+
+[data-theme="light"] .about-stat {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .about-stat:hover {
+  background: #FFFFFF;
+  border-color: #0F172A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .about-stat-num {
+  color: #0F172A;
+}
+
+[data-theme="light"] .about-stat-lbl {
+  color: #475569;
+}

@@ -1,0 +1,53 @@
+/* ============================================================
+   JOURNEY / TIMELINE (Light Theme Overrides — High-Contrast Jewel Tones)
+============================================================ */
+
+[data-theme="light"] {
+  --journey-c1: #6D28D9; /* Deep Royal Violet */
+  --journey-c2: #0284C7; /* Deep Blue */
+  --journey-c3: #E11D48; /* Deep Crimson Rose */
+  --journey-c4: #D97706; /* Deep Amber */
+  --journey-c5: #059669; /* Deep Forest Emerald */
+
+  --journey-glow-1: rgba(109, 40, 217, 0.25);
+  --journey-glow-2: rgba(2, 132, 199, 0.25);
+  --journey-glow-3: rgba(225, 29, 72, 0.25);
+  --journey-glow-4: rgba(217, 119, 6, 0.25);
+  --journey-glow-5: rgba(5, 150, 105, 0.25);
+
+  --journey-line-grad: linear-gradient(90deg, #6D28D9 0%, #0284C7 25%, #E11D48 50%, #D97706 75%, #059669 100%);
+}
+
+[data-theme="light"] .journey-icon-box {
+  background: #EFF6FF;
+  border: 1.5px solid #BFDBFE;
+  color: #2563EB;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+}
+
+[data-theme="light"] .journey-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .timeline-wrap--web .timeline-line {
+  height: 2.5px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .t-circle {
+  background: #FFFFFF;
+  border-width: 2.5px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08), inset 0 1px 0 #FFFFFF;
+}
+
+[data-theme="light"] .t-year {
+  font-weight: 800;
+}
+
+[data-theme="light"] .t-title {
+  color: #0F172A;
+  font-weight: 700;
+}

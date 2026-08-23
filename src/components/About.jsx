@@ -2,7 +2,7 @@ import "../Stylings/About.css";
 import { useState } from "react";
 import profilePic from "../assets/profile.jpg";
 import DP from "./DP";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiCode, FiClock, FiLayers, FiCheckCircle } from "react-icons/fi";
 
 function About() {
   const [showProfile, setShowProfile] = useState(false);
@@ -19,15 +19,15 @@ function About() {
     <div id="about">
       <div className="section-title">
         <span className="about-icon-box" aria-hidden="true">
-          <FiUser size={16} />
+          <FiUser size={18} />
         </span>
-        About
+        About Me
       </div>
 
       <div className="card about-card">
         <div className="about-body">
 
-          {/* LEFT — Profile Photo */}
+          {/* LEFT — Profile Card */}
           <div className="about-left">
             <div className="about-avatar-wrap">
               <img
@@ -39,61 +39,69 @@ function About() {
                 tabIndex={0}
                 onKeyDown={handleAvatarKey}
                 aria-label="View full profile photo"
+                title="Click to view full photo"
               />
               <div className="about-avatar-ring" aria-hidden="true" />
             </div>
 
             <div className="about-name">Sidhartha Kuna</div>
             <div className="about-role">Java Backend Developer</div>
-            <div className="about-college">B.Tech CSE · Raghu Engineering College · 2028</div>
+            <div className="about-college">B.Tech CSE &bull; Raghu Engineering College &bull; 2028</div>
 
             <div className="about-open-badge">
               <span className="about-pulse" aria-hidden="true" />
-              Open to Opportunities
+              <span>Available for Roles &bull; 2026</span>
             </div>
           </div>
 
-          {/* RIGHT — Content */}
+          {/* RIGHT — Narrative & Stats */}
           <div className="about-right">
             <p className="about-text">
-              I'm a Computer Science undergraduate at{" "}
-              <span className="about-highlight">Raghu Engineering College{" "}</span>
-              with a strong interest in backend engineering and software development.
-              I specialize in building reliable applications using{" "}
-              <span className="about-highlight">Java, Spring Boot, REST APIs, and MySQL</span>,
-              focusing on clean architecture, maintainable code, and practical problem-solving.
+              I am a Computer Science undergraduate at{" "}
+              <span className="about-highlight">Raghu Engineering College</span>, deeply passionate about backend engineering, API architecture, and high-performance server-side systems.
+              My primary technical foundation centers around{" "}
+              <span className="about-highlight">Java, Spring Boot, REST APIs, and Relational Databases</span>, with a relentless focus on clean code, SOLID design principles, and scalable system design.
             </p>
 
-            <p className="about-text" style={{ marginTop: "10px" }}>
-              My current focus is strengthening my backend development skills through
-              real-world projects, data structures & algorithms, and cloud technologies.
-              I'm actively learning{" "}
-              <span className="about-highlight">AWS, Docker, Linux, and System Design{" "}</span>
-              while working toward becoming a well-rounded software engineer capable of
-              building scalable production-ready systems.
+            <p className="about-text" style={{ marginTop: "12px" }}>
+              I thrive on engineering real-world solutions that handle data efficiently. Currently expanding my expertise into{" "}
+              <span className="about-highlight">AWS, Docker, Microservices, and Advanced DSA</span> to prepare for large-scale enterprise deployments and high-concurrency environments.
             </p>
 
-            <div className="about-divider" />
+            <div className="about-divider" aria-hidden="true" />
 
+            {/* Key Metrics Matrix */}
             <div className="about-stats">
               <div className="about-stat">
+                <div className="about-stat-icon">
+                  <FiLayers size={14} color="#38BDF8" />
+                </div>
                 <div className="about-stat-num">1+</div>
-                <div className="about-stat-lbl">Projects Built</div>
+                <div className="about-stat-lbl">Full-Stack Project</div>
               </div>
-              <div className="about-stat-sep" aria-hidden="true" />
+
               <div className="about-stat">
-                <div className="about-stat-num">2yr</div>
-                <div className="about-stat-lbl">Learning Journey</div>
+                <div className="about-stat-icon">
+                  <FiClock size={14} color="#A78BFA" />
+                </div>
+                <div className="about-stat-num">2+ Yrs</div>
+                <div className="about-stat-lbl">Dev Experience</div>
               </div>
-              <div className="about-stat-sep" aria-hidden="true" />
+
               <div className="about-stat">
-                <div className="about-stat-num">5+</div>
-                <div className="about-stat-lbl">Technologies</div>
+                <div className="about-stat-icon">
+                  <FiCode size={14} color="#F59E0B" />
+                </div>
+                <div className="about-stat-num">8+</div>
+                <div className="about-stat-lbl">Core Tech Tools</div>
               </div>
-              <div className="about-stat-sep" aria-hidden="true" />
+
               <div className="about-stat">
-                <div className="about-stat-num">75+</div>
-                <div className="about-stat-lbl">DSA Solved</div>
+                <div className="about-stat-icon">
+                  <FiCheckCircle size={14} color="#10B981" />
+                </div>
+                <div className="about-stat-num">76+</div>
+                <div className="about-stat-lbl">DSA Problems Solved</div>
               </div>
             </div>
           </div>

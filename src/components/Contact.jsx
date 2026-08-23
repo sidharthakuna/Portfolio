@@ -1,86 +1,94 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { MdEmail, MdLocationOn } from "react-icons/md";
-import { FiLink, FiSend, FiCheck, FiMessageCircle } from "react-icons/fi";
-import { SiLeetcode } from "react-icons/si"
-import { useState,useEffect } from "react"
+import { FiMail, FiMapPin, FiSend, FiCheck, FiMessageSquare, FiAlertCircle } from "react-icons/fi";
+import { SiLeetcode } from "react-icons/si";
+import { useState } from "react";
 import "../Stylings/Contact.css";
+
 function Contact() {
-
-  const [sent,setSent] = useState(false);
-
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setError("Please fill in all fields before sending.");
+      setTimeout(() => setError(""), 3000);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      setTimeout(() => setError(""), 3000);
+      return;
+    }
+
+    // Launch mail client with pre-filled message
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name.trim()}`);
+    const body = encodeURIComponent(`${message.trim()}\n\n---\nSender Email: ${email.trim()}\nSender Name: ${name.trim()}`);
+    window.location.href = `mailto:sidharthakuna@gmail.com?subject=${subject}&body=${body}`;
+
     setSent(true);
-    setTimeout(()=> setSent(false),2000);
-  }
+    setError("");
+    setName("");
+    setEmail("");
+    setMessage("");
+    setTimeout(() => setSent(false), 4000);
+  };
+
   return (
-    <section
-      id="contact"
-      className="section"
-      style={{ paddingTop: "0" }}
-    >
+    <section id="contact" className="section" style={{ paddingTop: "0" }}>
       <div className="section-title">
-        <span className="contact-icon-box">
-          <FiMessageCircle size={20} />
+        <span className="contact-icon-box" aria-hidden="true">
+          <FiMessageSquare size={18} />
         </span>
-        Let's Connect
+        Get in Touch
       </div>
 
       <div className="contact-grid">
-        {/* LEFT SIDE */}
-        <div className="card">
-          <p
-            style={{
-              fontSize: "14px",
-              color: "#8B949E",
-              lineHeight: "1.7",
-              marginBottom: "20px",
-            }}
-          >
-            I'm always open to discussing new
-            opportunities, internships, backend
-            development roles, and interesting
-            projects. Feel free to reach out!
+        {/* LEFT SIDE — Contact Information */}
+        <div className="card contact-card">
+          <h3 className="contact-heading">Let's Build Something Exceptional</h3>
+          <p className="contact-lead-text">
+            I am actively seeking backend engineering internships, entry-level developer roles, and open-source collaborations. Feel free to send a message or connect directly through my channels.
           </p>
 
-          <div className="contact-item">
-            <MdEmail size={15} color="#EA4335" />
-             sidharthakuna@gmail.com
+          <div className="contact-details-list">
+            <a href="mailto:sidharthakuna@gmail.com" className="contact-item">
+              <span className="contact-item-icon email-icon"><FiMail size={17} /></span>
+              <span>sidharthakuna@gmail.com</span>
+            </a>
+
+            <div className="contact-item">
+              <span className="contact-item-icon loc-icon"><FiMapPin size={17} /></span>
+              <span>Visakhapatnam, Andhra Pradesh, India</span>
+            </div>
+
+            <a href="https://www.linkedin.com/in/sidharthakuna/" target="_blank" rel="noopener noreferrer" className="contact-item">
+              <span className="contact-item-icon linkedin-icon"><FaLinkedinIn size={16} /></span>
+              <span>linkedin.com/in/sidharthakuna</span>
+            </a>
+
+            <a href="https://leetcode.com/u/SidharthaKuna/" target="_blank" rel="noopener noreferrer" className="contact-item">
+              <span className="contact-item-icon lc-icon"><SiLeetcode size={16} /></span>
+              <span>leetcode.com/u/SidharthaKuna</span>
+            </a>
           </div>
 
-          <div className="contact-item">
-            <MdLocationOn size={15} color="#34A853" />
-            Visakhapatnam, Andhra Pradesh, India
-          </div>
-
-          <div className="contact-item">
-            <FiLink size={13} color="#0A66C2" />
-            linkedin.com/in/sidharthakuna
-          </div>
-
-          <div className="contact-item">
-            <SiLeetcode size={13} color="#FFA116" />
-            leetcode.com/u/SidharthaKuna
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              marginTop: "16px",
-            }}
-          >
+          <div className="contact-social-section">
+            <span className="contact-social-label">Direct Channels:</span>
             <div className="social-row">
               <a
                 href="https://github.com/sidharthakuna"
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub Profile"
               >
-                <FaGithub />
+                <FaGithub size={16} />
               </a>
 
               <a
@@ -88,8 +96,9 @@ function Contact() {
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
               >
-                <FaLinkedinIn />
+                <FaLinkedinIn size={16} />
               </a>
 
               <a
@@ -97,8 +106,9 @@ function Contact() {
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LeetCode Profile"
               >
-                <SiLeetcode />
+                <SiLeetcode size={16} />
               </a>
 
               <a
@@ -106,46 +116,76 @@ function Contact() {
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Email Sidhartha"
               >
-                <MdEmail />
+                <FiMail size={16} />
               </a>
             </div>
           </div>
         </div>
-        {/* RIGHT SIDE */}
-        <div className="card">
-          <input
-            value={name} onChange={(e)=> setName(e.target.value)}
-            type="text"
-            className="c-input"
-            placeholder="Your Name"
-          />
 
-          <input
-            value={email} onChange={(e)=> setEmail(e.target.value)}
-            type="email"
-            className="c-input"
-            placeholder="Your Email"
-          />
+        {/* RIGHT SIDE — Interactive Form */}
+        <div className="card contact-form-card">
+          <h3 className="contact-heading">Send a Direct Message</h3>
+          
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <label htmlFor="contact-name" className="form-label">Full Name</label>
+              <input
+                id="contact-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                className="c-input"
+                placeholder="e.g. Alex Turing"
+                required
+              />
+            </div>
 
-          <textarea
-            value={message} onChange={(e) => setMessage(e.target.value)}
-            rows="5"
-            className="c-textarea"
-            placeholder="Your Message"
-          ></textarea>
+            <div className="form-group">
+              <label htmlFor="contact-email" className="form-label">Email Address</label>
+              <input
+                id="contact-email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                className="c-input"
+                placeholder="e.g. alex@example.com"
+                required
+              />
+            </div>
 
-          <button
-            className="btn-primary"
-            style={{ width: "100%", fontSize: "13px", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
-            onClick={handleSubmit}
-          >
-            {sent ? (
-              <><FiCheck size={14} /> Message Sent!</>
-            ) : (
-              <><FiSend size={13} /> Send Message</>
+            <div className="form-group">
+              <label htmlFor="contact-message" className="form-label">Message</label>
+              <textarea
+                id="contact-message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={5}
+                className="c-textarea"
+                placeholder="Describe your project, role, or opportunity..."
+                required
+              />
+            </div>
+
+            {error && (
+              <div className="contact-error-msg" role="alert">
+                <FiAlertCircle size={14} />
+                <span>{error}</span>
+              </div>
             )}
-          </button>
+
+            <button
+              type="submit"
+              className="btn-primary contact-submit-btn"
+            >
+              {sent ? (
+                <><FiCheck size={16} /> <span>Email Prepared &bull; Thank You!</span></>
+              ) : (
+                <><FiSend size={15} /> <span>Send Message</span></>
+              )}
+            </button>
+          </form>
         </div>
       </div>
     </section>
