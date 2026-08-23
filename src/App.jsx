@@ -35,7 +35,6 @@ function App() {
         <Projects />
         <Journey />
         <Education />
-        <Certifications />
         <CodingProfiles />
         <Contact />
       </main>

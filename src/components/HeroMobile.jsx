@@ -2,15 +2,15 @@ import "../Stylings/HeroMobile.css";
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedinIn, FaJava } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { SiLeetcode, SiSpringboot, SiMysql, SiDocker } from "react-icons/si";
+import { SiLeetcode, SiSpringboot, SiMysql, SiDocker, SiPostgresql } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { FiArrowRight, FiMail } from "react-icons/fi";
 
 const STACK_MOBILE = [
   { icon: <FaJava style={{ color: "#E76F00" }} />, label: "Java" },
   { icon: <SiSpringboot style={{ color: "#6DB33F" }} />, label: "Spring Boot" },
+  { icon: <SiPostgresql style={{ color: "#4169E1" }} />, label: "PostgreSQL" },
   { icon: <TbApi style={{ color: "#38BDF8" }} />, label: "REST APIs" },
-  { icon: <SiMysql style={{ color: "#00758F" }} />, label: "MySQL" },
   { icon: <SiDocker style={{ color: "#2496ED" }} />, label: "Docker" },
 ];
 

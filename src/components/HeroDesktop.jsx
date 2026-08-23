@@ -9,12 +9,10 @@ import { FiArrowRight, FiMail } from "react-icons/fi";
 const STACK = [
   { icon: <FaJava style={{ color: "#E76F00" }} />, label: "Java 21" },
   { icon: <SiSpringboot style={{ color: "#6DB33F" }} />, label: "Spring Boot" },
+  { icon: <SiPostgresql style={{ color: "#4169E1" }} />, label: "PostgreSQL" },
   { icon: <TbApi style={{ color: "#38BDF8" }} />, label: "REST APIs" },
-  { icon: <SiPostgresql style={{ color: "#94A3B8" }} />, label: "PostgreSQL" },
-  { icon: <SiMysql style={{ color: "#00758F" }} />, label: "MySQL" },
   { icon: <SiDocker style={{ color: "#2496ED" }} />, label: "Docker" },
-  { icon: <SiHibernate style={{ color: "#BCAE79" }} />, label: "Hibernate / JPA" },
-  { icon: <TbBrandGit style={{ color: "#F05032" }} />, label: "Git & Version Control" },
+  { icon: <SiMysql style={{ color: "#00758F" }} />, label: "MySQL" },
 ];
 
 function HeroDesktop() {

@@ -174,9 +174,11 @@
   font-size: 13.5px;
   color: var(--text-secondary);
   line-height: 1.7;
+  min-height: 46px;
 }
 
-.project-card-tags {
+.project-card-tags,
+.project-card-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;

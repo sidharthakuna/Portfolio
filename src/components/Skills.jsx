@@ -5,22 +5,22 @@ const SKILL_GROUPS = [
   {
     category: "Backend Engineering",
     type: "blue",
-    skills: ["Java", "Spring Boot", "Spring MVC", "REST APIs", "JWT Auth", "Maven", "Hibernate / JPA"],
+    skills: ["Java 21", "Spring Boot 3", "Spring Data JPA", "REST APIs", "JWT Auth", "Flyway", "Hibernate"],
   },
   {
     category: "Frontend & UI",
     type: "purple",
-    skills: ["HTML5", "CSS3 / Vanilla", "JavaScript (ES6+)", "React.js", "Vite", "Responsive Design"],
+    skills: ["React 19", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "Vite", "HTML5 / CSS3"],
   },
   {
     category: "Databases & Storage",
     type: "orange",
-    skills: ["PostgreSQL", "MySQL", "Relational Modeling", "Indexing", "Query Optimization"],
+    skills: ["PostgreSQL", "MySQL", "Relational Modeling", "Database Indexing", "Cloudflare R2 / S3"],
   },
   {
     category: "DevOps & Tools",
     type: "yellow",
-    skills: ["Docker", "Git", "GitHub", "Postman", "IntelliJ IDEA", "VS Code", "Linux CLI"],
+    skills: ["Docker", "Git / GitHub", "Postman", "IntelliJ IDEA", "Linux CLI", "Maven"],
   },
 ];
 

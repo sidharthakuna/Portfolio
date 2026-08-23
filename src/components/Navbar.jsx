@@ -7,7 +7,7 @@ import { HiDownload, HiX, HiMenuAlt3 } from "react-icons/hi";
 
 const NAV_SECTIONS = [
   "home", "about", "skills", "projects", "journey",
-  "education", "certifications", "coding-profiles", "contact",
+  "education", "coding-profiles", "contact",
 ];
 
 const NAV_LABELS = {
@@ -17,7 +17,6 @@ const NAV_LABELS = {
   projects: "Projects",
   journey: "Journey",
   education: "Education",
-  certifications: "Certs",
   "coding-profiles": "Profiles",
   contact: "Contact",
 };
