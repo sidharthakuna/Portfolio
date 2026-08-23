@@ -106,15 +106,16 @@ function JourneyMobile() {
       // ── TURN 0: Row 0 Right -> Row 1 Right (U-turn on RIGHT side)
       d += `L ${rightEdgeX - R} ${circles[1].y} `;
       d += `A ${R} ${R} 0 0 1 ${rightEdgeX} ${circles[1].y + R} `;
-      d += `L ${rightEdgeX} ${circles[2].y - R} `;
-      d += `A ${R} ${R} 0 0 1 ${rightEdgeX - R} ${circles[2].y} `;
+      d += `L ${rightEdgeX} ${circles[3].y - R} `;
+      d += `A ${R} ${R} 0 0 1 ${rightEdgeX - R} ${circles[3].y} `;
 
-      // ── SEGMENT 1: Stop 2 -> Stop 3 (Row 1: R -> L)
+      // ── SEGMENT 1: Stop 3 (Right) -> Stop 2 (Left) (Row 1: R -> L)
       d += `L ${circles[3].x} ${circles[3].y} `;
+      d += `L ${circles[2].x} ${circles[2].y} `;
 
       // ── TURN 1: Row 1 Left -> Row 2 Left (U-turn on LEFT side)
-      d += `L ${leftEdgeX + R} ${circles[3].y} `;
-      d += `A ${R} ${R} 0 0 0 ${leftEdgeX} ${circles[3].y + R} `;
+      d += `L ${leftEdgeX + R} ${circles[2].y} `;
+      d += `A ${R} ${R} 0 0 0 ${leftEdgeX} ${circles[2].y + R} `;
       d += `L ${leftEdgeX} ${circles[4].y - R} `;
       d += `A ${R} ${R} 0 0 0 ${leftEdgeX + R} ${circles[4].y} `;
 

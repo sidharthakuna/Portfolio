@@ -208,9 +208,9 @@ export default function PullCord() {
   const isLit = theme === "dark";
   const pulledRatio = Math.min(Math.max(0, length - L0) / 25, 1);
 
-  const CANVAS_W = 160;
-  const CANVAS_H = 200;
-  const ORIGIN_X = 80;
+  const CANVAS_W = 100;
+  const CANVAS_H = 180;
+  const ORIGIN_X = 50;
   const ORIGIN_Y = 0;
 
   return (

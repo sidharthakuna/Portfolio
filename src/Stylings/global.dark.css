@@ -74,13 +74,18 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
   font-family: 'JetBrains Mono', -apple-system, BlinkMacSystemFont, monospace;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -96,7 +101,7 @@ body::before {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100vw;
+  width: 100%;
   max-width: 1800px;
   height: 600px;
   background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 70%);
@@ -108,6 +113,7 @@ main {
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: 100%;
 }
 
 /* ============================================================
