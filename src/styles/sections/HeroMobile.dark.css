@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 56px 20px 36px;
+  padding: 36px 16px 20px;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -18,42 +18,42 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   font-family: "JetBrains Mono", monospace;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
 }
 
 .badge-pulse {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--green);
-  box-shadow: 0 0 8px var(--green);
+  box-shadow: 0 0 6px var(--green);
   animation: liveDotPulse 2s ease-in-out infinite;
 }
 
 .hero-mobile-salute {
-  font-size: 15px;
+  font-size: 13.5px;
   color: var(--text-muted);
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .hero-name {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 800;
-  line-height: 1.08;
-  margin-bottom: 12px;
-  letter-spacing: -1.2px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: -0.8px;
   color: #FFFFFF;
 }
 
@@ -61,19 +61,19 @@
   background: linear-gradient(180deg, #FFFFFF 20%, #B8C4D6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 25px rgba(255, 255, 255, 0.16);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.16);
 }
 
 .name-underline {
-  width: 48px;
+  width: 36px;
   height: 2px;
   background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 100%);
-  margin: 14px 0 20px;
+  margin: 8px 0 16px;
   border-radius: 999px;
 }
 
 .cursor {
-  border-right: 3px solid #FFFFFF;
+  border-right: 2.5px solid #FFFFFF;
   animation: blink 1s step-end infinite;
 }
 
@@ -83,11 +83,11 @@
 }
 
 .subtitle {
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 16px;
-  line-height: 1.6;
+  margin-bottom: 12px;
+  line-height: 1.55;
 }
 
 .subtitle-highlight {
@@ -96,28 +96,28 @@
 }
 
 .desc {
-  font-size: 13.5px;
+  font-size: 12px;
   color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 22px;
+  line-height: 1.65;
+  margin-bottom: 18px;
 }
 
 /* ── Mobile Stack Chips ─────────────────────────────────────── */
 .hero-mobile-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
-  margin-bottom: 28px;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
 .hero-mobile-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 11.5px;
+  gap: 5px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 5px 10px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -125,35 +125,37 @@
 }
 
 .hero-mobile-chip svg {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn-row {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .btn-row .btn-primary,
 .btn-row .btn-outline {
   width: 100%;
-  padding: 13px 20px;
+  padding: 10px 16px;
+  font-size: 12px;
+  border-radius: 8px;
 }
 
 /* ── Social Icons ───────────────────────────────────────────── */
 .social-row {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .social-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   border: 1px solid var(--border-color);
   background: rgba(255, 255, 255, 0.02);
   display: flex;
@@ -172,6 +174,9 @@
 }
 
 @media (max-width: 480px) {
-  .hero-name { font-size: 34px; }
-  .badge     { font-size: 10.5px; }
+  .hero { padding: 28px 14px 18px; }
+  .hero-name { font-size: 28px; }
+  .badge { font-size: 10.5px; padding: 4px 10px; }
+  .subtitle { font-size: 12.5px; }
+  .desc { font-size: 11.5px; }
 }

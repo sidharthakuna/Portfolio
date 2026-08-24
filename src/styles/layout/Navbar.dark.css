@@ -343,8 +343,27 @@
 @media (max-width: 960px) {
   .nav-links  { display: none; }
   .resume-btn { display: none; }
-  .hamburger  { display: flex; margin-right: 0; }
-  .nav-container { padding: 0 16px; }
+  .hamburger  {
+    display: flex;
+    margin-right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  .nav-container {
+    padding: 0 16px;
+    height: 56px;
+  }
+  .profile-dp {
+    width: 32px;
+    height: 32px;
+  }
+  .logo-name {
+    font-size: 13.5px;
+  }
+  .logo-role {
+    font-size: 10px;
+  }
   .nav-actions {
     position: relative;
     gap: 0;

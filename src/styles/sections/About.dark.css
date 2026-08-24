@@ -217,19 +217,71 @@
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .about-card { padding: 30px; }
+  .about-card { padding: 24px 18px; }
   .about-body {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 24px;
+  }
+  .about-left {
+    padding: 20px 16px;
+  }
+  .about-avatar-wrap {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 10px;
+  }
+  .about-avatar {
+    width: 110px;
+    height: 110px;
+  }
+  .about-name {
+    font-size: 18px;
+  }
+  .about-role {
+    font-size: 13px;
+  }
+  .about-text {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .about-divider {
+    margin: 18px 0;
   }
   .about-stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .about-stat {
+    padding: 12px 10px;
+  }
+  .about-stat-num {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .about-card { padding: 22px; }
+  .about-card { padding: 18px 14px; }
+  .about-body { gap: 18px; }
+  .about-left { padding: 16px 12px; }
+  .about-avatar-wrap {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 8px;
+  }
+  .about-avatar {
+    width: 90px;
+    height: 90px;
+  }
+  .about-name { font-size: 16.5px; }
+  .about-role { font-size: 12px; }
+  .about-open-badge { font-size: 10px; padding: 4px 10px; margin-top: 6px; }
+  .about-text { font-size: 12px; line-height: 1.6; }
+  .about-divider { margin: 14px 0; }
   .about-stats {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
+  .about-stat { padding: 10px 8px; }
+  .about-stat-num { font-size: 17px; }
+  .about-stat-lbl { font-size: 9.5px; margin-top: 3px; }
 }

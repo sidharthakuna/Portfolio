@@ -191,9 +191,23 @@ a.contact-item:hover {
   margin-top: 4px;
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 16px; }
   .contact-card,
-  .contact-form-card { padding: 28px; }
+  .contact-form-card { padding: 22px 18px; border-radius: 16px; }
+  .c-title { font-size: 17px; }
+  .c-desc { font-size: 13px; }
+  .c-input, .c-textarea { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .contact-card,
+  .contact-form-card { padding: 18px 14px; border-radius: 14px; }
+  .c-title { font-size: 15.5px; }
+  .c-desc { font-size: 12px; line-height: 1.55; }
+  .c-link-text { font-size: 12px; }
+  .c-label { font-size: 11px; margin-bottom: 5px; }
+  .c-input, .c-textarea { padding: 9px 12px; font-size: 12px; border-radius: 8px; }
+  .c-textarea { min-height: 90px; }
+  .contact-submit-btn { padding: 10px 16px; font-size: 12px; border-radius: 8px; }
 }

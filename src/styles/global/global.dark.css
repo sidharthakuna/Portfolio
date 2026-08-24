@@ -361,34 +361,95 @@ main {
 
 @media (max-width: 768px) {
   .section {
-    padding: 36px 16px;
+    padding: 32px 16px;
   }
   .card {
     padding: 20px 16px;
     border-radius: 16px;
   }
   .section-title {
-    font-size: 17px;
-    margin-bottom: 18px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    gap: 10px;
+    letter-spacing: -0.4px;
   }
   .about-skills-wrap {
-    gap: 40px;
+    gap: 36px;
+  }
+  .btn-primary,
+  .btn-outline {
+    font-size: 12px;
+    padding: 9px 18px;
+    border-radius: 8px;
+  }
+  .about-icon-box,
+  .skills-icon-box,
+  .project-icon-box,
+  .journey-icon-box,
+  .education-icon-box,
+  .cert-icon-box,
+  .cp-icon-box,
+  .contact-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+  .about-icon-box svg,
+  .skills-icon-box svg,
+  .project-icon-box svg,
+  .journey-icon-box svg,
+  .education-icon-box svg,
+  .cert-icon-box svg,
+  .cp-icon-box svg,
+  .contact-icon-box svg {
+    width: 15px;
+    height: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 28px 14px;
+    padding: 24px 14px;
   }
   .card {
-    padding: 18px 14px;
+    padding: 16px 13px;
     border-radius: 14px;
   }
   .section-title {
-    font-size: 15.5px;
-    margin-bottom: 16px;
+    font-size: 14.5px;
+    margin-bottom: 14px;
+    gap: 8px;
   }
   .about-skills-wrap {
-    gap: 32px;
+    gap: 28px;
+  }
+  .btn-primary,
+  .btn-outline {
+    font-size: 11.5px;
+    padding: 8px 16px;
+    border-radius: 7px;
+  }
+  .about-icon-box,
+  .skills-icon-box,
+  .project-icon-box,
+  .journey-icon-box,
+  .education-icon-box,
+  .cert-icon-box,
+  .cp-icon-box,
+  .contact-icon-box {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+  .about-icon-box svg,
+  .skills-icon-box svg,
+  .project-icon-box svg,
+  .journey-icon-box svg,
+  .education-icon-box svg,
+  .cert-icon-box svg,
+  .cp-icon-box svg,
+  .contact-icon-box svg {
+    width: 14px;
+    height: 14px;
   }
 }

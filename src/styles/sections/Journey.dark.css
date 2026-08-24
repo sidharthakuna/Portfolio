@@ -198,40 +198,68 @@
 
 @media (max-width: 768px) {
   .journey-card {
-    padding: 32px 18px 36px;
-    border-radius: 20px;
+    padding: 22px 14px 26px;
+    border-radius: 16px;
   }
 
   .timeline-wrap {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .timeline--mobile {
-    row-gap: 44px;
+    row-gap: 32px;
   }
 
   .t-circle-wrap {
-    width: 76px;
-    height: 76px;
-    margin-bottom: 12px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
   }
 
   .t-rings {
-    width: 76px;
-    height: 76px;
+    width: 64px;
+    height: 64px;
   }
 
   .t-circle {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
   }
 
   .t-year {
-    font-size: 11.5px;
-    margin-bottom: 3px;
+    font-size: 11px;
+    margin-bottom: 2px;
   }
 
   .t-title {
-    font-size: 13px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-card {
+    padding: 18px 12px 22px;
+    border-radius: 14px;
+  }
+  .timeline--mobile {
+    row-gap: 24px;
+  }
+  .t-circle-wrap {
+    width: 54px;
+    height: 54px;
+  }
+  .t-rings {
+    width: 54px;
+    height: 54px;
+  }
+  .t-circle {
+    width: 36px;
+    height: 36px;
+  }
+  .t-year {
+    font-size: 10px;
+  }
+  .t-title {
+    font-size: 11px;
   }
 }
