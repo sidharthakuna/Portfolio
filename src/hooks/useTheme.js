@@ -19,29 +19,19 @@ export function useTheme() {
     } else {
       document.documentElement.removeAttribute("data-theme");
     }
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // Ignore storage write errors (e.g. private browsing)
+    }
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
-      if (next === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-      }
-      localStorage.setItem("theme", next);
-      return next;
-    });
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   }, []);
 
   const setExplicitTheme = useCallback((nextTheme) => {
-    setTheme(nextTheme);
-    if (nextTheme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-    localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme === "light" ? "light" : "dark");
   }, []);
 
   return {

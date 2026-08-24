@@ -89,9 +89,32 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.38s cubic-bezier(0.16, 1, 0.3, 1), color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   min-height: 100vh;
   position: relative;
+}
+
+/* Butter-Smooth Global Theme Transition System */
+body,
+.nav-header,
+.card,
+.section-badge,
+.section-title,
+.btn-primary,
+.btn-outline,
+.skills-card,
+.skill-group,
+.skill-pill,
+.project-card,
+.cert-card,
+.cp-card,
+.edu-card,
+.journey-item,
+.contact-card,
+.footer-wrap {
+  transition-property: background-color, border-color, color, box-shadow, fill, stroke;
+  transition-duration: 0.38s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Subtle pure monochrome radial top lighting */
@@ -107,6 +130,7 @@ body::before {
   background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  transition: background 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease;
 }
 
 main {
@@ -337,14 +361,34 @@ main {
 
 @media (max-width: 768px) {
   .section {
-    padding: 48px 20px;
+    padding: 36px 16px;
   }
   .card {
-    padding: 22px;
+    padding: 20px 16px;
     border-radius: 16px;
   }
   .section-title {
-    font-size: 19px;
-    margin-bottom: 22px;
+    font-size: 17px;
+    margin-bottom: 18px;
+  }
+  .about-skills-wrap {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 28px 14px;
+  }
+  .card {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+  .section-title {
+    font-size: 15.5px;
+    margin-bottom: 16px;
+  }
+  .about-skills-wrap {
+    gap: 32px;
   }
 }
